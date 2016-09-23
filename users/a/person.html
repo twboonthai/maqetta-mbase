@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android',null,['themes/mytheme/mytheme.css']],['BlackBerry',null,['themes/mytheme/mytheme.css']],['iPad',null,['themes/mytheme/mytheme.css']],['iPhone',null,['themes/mytheme/mytheme.css']],['.*',null,['themes/mytheme/mytheme.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/mobile/TextBox",
+  "dojox/mobile/TextArea",
+  "dojox/mobile/Button",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile/RoundRectDataList",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/ToggleButton",
+  "dijit/TitlePane",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/SearchBox"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="person.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/View" id="person_v1" style="height: 100%; left: 0px; top: 0px;" selected="true">
+  <div id="dialogoverlay" style="position: fixed; height: 16px; width: 10px; z-index: 890; opacity: 0.8; background-color: white; display: none;"></div>
+  <div id="dialogbox" style="opacity: 1; width: 280px; background-color: #9bb4f5; position: absolute; z-index: 900; height: 248px; left: 17px; top: 125px; display: none;">
+   <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ทีมหมอครอบครัว ม่วงสามสิบ" style="font-size: 16px; text-align: center; color: white; background-color: #2b43f8; height: 30px; position: absolute; z-index: 900; top: 3.84375px; left: 3px; width: 271px;"></input>
+   <textarea data-dojo-type="dojox/mobile/TextArea" id="dialogtxt" value="Dialog Text" style="border: none; background-color: transparent; text-align: center; font-weight: bold; font-size: 12pt; position: absolute; z-index: 900; top: 49.84375px; height: 134px; left: 6px; width: 260px;"></textarea>
+   <button data-dojo-type="dojox/mobile/Button" id="dialogok" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; z-index: 900; left: 119.3359375px; top: 206.5px; background-image: url('ok 1.jpg');"></button>
+ </div>
+  <h1 label="หมอครอบครัว ม่วงสามสิบ" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px; position: absolute; width: 316px; z-index: 800; height: 43px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="btn_cid" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('search3.jpg'); position: absolute; z-index: 800; left: 250px; top: 52px; opacity: 0;"></button>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="cid" selectOnClick="true" placeHolder="รหัสประชาชน" style="font-weight: bold; color: red; text-align: center; height: 26px; position: absolute; z-index: 800; left: 85px; top: 53px; width: 200px; font-size: 18pt;" maxLength="13"></input>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="person_name" disabled="true" style="border: none; font-weight: bold; color: blue; text-align: left; position: absolute; z-index: 800; height: 30px; width: 200px; font-size: 12pt; left: 85px; top: 98px;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; position: absolute; z-index: 800; text-align: right; width: 65px; color: black; left: 12px; top: 108.5px;" class="richText">
+        ชื่อ-สกุล</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="agesex" disabled="true" style="border: none; font-weight: bold; color: blue; text-align: left; height: 25px; position: absolute; z-index: 800; font-size: 12pt; left: 85px; top: 140.828125px; width: 160px;"></input>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" disabled="true" style="border: none; font-weight: bold; position: absolute; z-index: 800; text-align: center; background-color: transparent; height: 28px; color: red; width: 73px; font-size: 16pt; left: 182px; top: 424px;" value="1669"></input>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="staff1" disabled="true" style="border: none; font-weight: bold; color: blue; font-size: 12pt; text-align: left; height: 25px; position: absolute; z-index: 800; width: 200px; left: 85px; top: 263px;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; position: absolute; z-index: 800; text-align: right; width: 65px; color: black; left: 12px; top: 269px;" class="richText">
+        รพ.สต.</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="phone1_txt" disabled="true" scrollOnFocus="false" readOnly="true" style="border: none; font-weight: bold; color: blue; text-align: left; height: 25px; font-size: 14pt; position: absolute; z-index: 800; left: 85px; top: 300px; width: 160px;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; position: absolute; z-index: 800; text-align: right; width: 65px; color: black; left: 12px; top: 308px;" class="richText">
+        โทรศัพท์</div>
+  <button data-dojo-type="dojox/mobile/Button" id="phone1_btn" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; background-image: url('telephone.jpg'); z-index: 800; left: 250px; top: 297.5px;"></button>
+  <button data-dojo-type="dojox/mobile/Button" id="back_pop" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; left: 7.328125px; top: 6px; z-index: 800; background-image: url('back5.jpg');"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="staff2" disabled="true" style="border: none; font-weight: bold; color: blue; font-size: 12pt; text-align: left; height: 25px; position: absolute; z-index: 800; width: 200px; left: 85px; top: 342px;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; position: absolute; z-index: 800; text-align: right; width: 65px; color: black; left: 12px; top: 349px;" class="richText">
+        แพทย์</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="phone2_txt" disabled="true" scrollOnFocus="false" readOnly="true" style="border: none; font-weight: bold; color: blue; text-align: left; height: 25px; font-size: 14pt; position: absolute; z-index: 900; left: 85px; top: 381px; width: 160px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="phone2_btn" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('telephone.jpg'); position: absolute; z-index: 800; left: 250px; top: 377px;"></button>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; position: absolute; z-index: 800; text-align: right; width: 65px; color: black; left: 12px; top: 386.5px;" class="richText">
+        โทรศัพท์</div>
+  <button data-dojo-type="dojox/mobile/Button" id="emergency" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('telephone.jpg'); position: absolute; z-index: 800; left: 250px; top: 423.5px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="osm" disabled="true" style="border: none; font-weight: bold; color: blue; font-size: 12pt; text-align: left; height: 25px; width: 200px; position: absolute; left: 85px; top: 184px; z-index: 800;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; text-align: right; width: 65px; position: absolute; z-index: 800; color: black; left: 12px; top: 191px;" class="richText">
+        อสม</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="phone0_txt" disabled="true" scrollOnFocus="false" readOnly="true" style="border: none; font-weight: bold; color: blue; text-align: left; height: 25px; font-size: 14pt; position: absolute; left: 85px; top: 223px; z-index: 800; width: 160px;"></input>
+  <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; text-align: right; width: 65px; position: absolute; z-index: 800; color: black; left: 12px; top: 231px;" class="richText">
+        โทรศัพท์</div>
+  <button data-dojo-type="dojox/mobile/Button" id="phone0_btn" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('telephone.jpg'); position: absolute; left: 250px; top: 220.5px; z-index: 800;"></button>
+  <button data-dojo-type="dojox/mobile/Button" id="btn_health" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; background-image: url('ekg.jpg'); left: 250px; top: 138.828125px; z-index: 800;"></button>
+  <button data-dojo-type="dojox/mobile/Button" id="btn_hi" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; z-index: 900; background-image: url('mosquito.jpg'); left: 147.671875px; top: 424px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="pop_psw" scrollOnFocus="false" placeHolder="รหัสผ่าน" style="border: none; font-weight: bold; color: blue; height: 25px; text-align: center; width: 55px; font-size: 12px; position: absolute; z-index: 900; left: 85px; top: 425.5px;" selectOnClick="true"></input>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_index" style="height: 100%;">
+   <h1 label="ผลการสำรวจลูกน้ำยุงลาย" data-dojo-type="dojox/mobile/Heading" style="width: 316px; font-size: 14px; position: absolute; z-index: 900; left: 2px; top: 4.5px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hi_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 5.828125px; top: 10.5px;"></button>
+   <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; position: absolute; text-align: left; width: 50px; z-index: 800; left: 59px; top: 140.5px;" class="richText">
+     หมู่บ้าน</div>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hi_value" style="border: none; font-weight: bold; position: absolute; font-size: 20pt; height: 40px; color: red; text-align: center; z-index: 800; width: 74px; left: 112px; top: 302px;"></input>
+   <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; text-align: right; width: 65px; color: black; position: absolute; z-index: 800; left: 34px; top: 313px;" class="richText">
+   ค่าที่สำรวจ</div>
+   <button data-dojo-type="dojox/mobile/Button" id="hi_save" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; height: 32px; position: absolute; background-image: url('Save-as-icon.jpg'); z-index: 800; width: 32px; left: 212px; top: 307px;"></button>
+   <button data-dojo-type="dojox/mobile/Button" id="unit1" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; background-image: url('right.jpg'); z-index: 800; left: 22px; top: 131px;"></button>
+   <button data-dojo-type="dojox/mobile/Button" id="unit2" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; z-index: 800; left: 117px; top: 131px; background-image: url('blank.jpg');"></button>
+   <button data-dojo-type="dojox/mobile/Button" id="unit3" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; z-index: 800; background-image: url('blank.jpg'); left: 212px; top: 131px;"></button>
+   <button data-dojo-type="dojox/mobile/Button" id="unit4" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; z-index: 800; background-image: url('blank.jpg'); left: 22px; top: 196px;"></button>
+   <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; text-align: left; position: absolute; width: 50px; z-index: 800; left: 154px; top: 140px;" class="richText">
+     วัด</div>
+   <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; text-align: left; position: absolute; width: 50px; z-index: 800; left: 249px; top: 140.5px;" class="richText">
+   โรงเรียน</div>
+   <div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; text-align: left; position: absolute; width: 55px; z-index: 800; left: 59px; top: 205px;" class="richText">
+          ศูนย์เด็ก</div>
+   <span data-dojo-type="dijit/TitlePane" id="hi_town" title="หน่วยรายงาน" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" duration="200" open="false" style="min-width: 1em; height: auto; position: absolute; z-index: 900; left: 22px; top: 66px; width: 282px;"><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_list" select="single" style="overflow: scroll; height: 338px;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+   </span><input type="text" data-dojo-type="dojox/mobile/SearchBox" id="hi_box" placeHolder="หน่วยรายงาน" baseClass="mblTextBox mblSearchBox" pageSize="Infinity" ignoreCase="true" style="color: blue; font-style: normal; font-weight: bold; height: 32px; background-repeat: no-repeat; background-position: right bottom; background-image: url('search3.jpg'); position: absolute; z-index: 900; font-size: 16px; left: 12px; top: 64px; width: 293px;"></input>
+<button data-dojo-type="dojox/mobile/Button" id="unit5" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; z-index: 800; background-image: url('blank.jpg'); left: 117px; top: 196px;"></button>
+<button data-dojo-type="dojox/mobile/Button" id="unit6" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-size: 100%; height: 32px; position: absolute; z-index: 800; background-image: url('blank.jpg'); left: 212px; top: 196px;"></button>
+<div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; text-align: left; width: 50px; position: absolute; z-index: 800; left: 153.640625px; top: 205px;" class="richText">
+อบต</div>
+<div dvwidget="html.richtext" style="font-weight: bold; font-size: 12px; color: black; text-align: left; position: absolute; width: 55px; z-index: 800; left: 250px; top: 205.5px;" class="richText">
+หน่วยงาน</div>
+</div>
+ <div id="View_0" data-dojo-type="dojox/mobile/View" style="height: 100%;">
+<div style="opacity: 1; width: 280px; height: 174px; background-color: #9bb4f5; position: absolute; z-index: 900; left: 23px; top: 140px;">
+    <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ทีมหมอครอบครัว ม่วงสามสิบ" style="font-size: 16px; text-align: center; color: white; background-color: #2b43f8; height: 30px; position: absolute; z-index: 900; top: 0px; left: 0px; width: 276px;"></input>
+    <textarea data-dojo-type="dojox/mobile/TextArea" value="Dialog Text" style="border: none; position: absolute; z-index: 900; width: 255px; background-color: transparent; text-align: center; font-weight: bold; height: 77px; left: 11px; top: 46px; font-size: 12pt;"></textarea>
+    <button data-dojo-type="dojox/mobile/Button" style="position: absolute; z-index: 900; width: 59px; left: 213.65625px; top: 140.65625px;">
+      
+      
+      
+       OK</button>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="health_main" style="height: 100%;">
+ <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/RoundRectDataList" id="h_list" select="single" style="position: absolute; z-index: 900; overflow: auto; width: 261px; height: 364px; left: 20px; top: 62px;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<h1 label="ผลการตรวจสุขภาพ" data-dojo-type="dojox/mobile/Heading" id="hm_title" style="width: 316px; position: absolute; z-index: 900; left: 2px; top: 0px; font-size: 14px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hm_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 5.8359375px; top: 6px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_data" style="height: 100%;">
+<h1 label="เส้นรอบเอว" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; position: absolute; z-index: 900; width: 315px; left: 2.5px; top: 0px;"></h1>
+<button data-dojo-type="dojox/mobile/Button" id="hd_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 6px;"></button>
+<img src="waist.jpg" style="position: absolute; z-index: 900; width: 294px; height: 144px; left: 13px; top: 51px;"></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="health_bmi" style="height: 100%;">
+   <h1 label="ดัชนีมวลกาย" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; position: absolute; z-index: 900; width: 314px; left: 3px; top: 0px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hb_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 6px;"></button>
+   <img src="bmi.jpg" style="position: absolute; z-index: 900; left: 9px; top: 55px; width: 296px; height: 137px;"></img>
+   <img src="bmi_cal.jpg" style="position: absolute; z-index: 900; width: 297px; left: 9px; top: 201px; height: 74.28125px;"></img>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_bp" style="height: 100%;">
+  <h1 label="ความดันโลหิต" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; position: absolute; z-index: 900; width: 312px; left: 4px; top: 2.5px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="hp_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 8px;"></button>
+  <img src="bp.jpg" style="position: absolute; z-index: 900; left: 15.5px; top: 54px;"></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="health_lab" style="height: 100%; width: 316px;">
+ <h1 label="ผลการตรวจชันสูตร" data-dojo-type="dojox/mobile/Heading" id="hl_title" moveTo="mhealth_menu" style="width: 310px; font-size: 14px;"></h1><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/RoundRectDataList" id="h_lab" select="single" style="position: absolute; z-index: 900; overflow: auto; width: 266px; left: 24px; top: 57px; height: 364px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<button data-dojo-type="dojox/mobile/Button" id="hl_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 6px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_xray" style="height: 100%;">
+   <h1 label="ภาพถ่ายรังสี" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 3px; top: 4.5px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hx_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 10.5px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_us" style="height: 100%;">
+   <h1 label="อัลตราซาวนด์" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 3px; top: 2px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hu_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 8px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_ekg" style="height: 100%;">
+   <h1 label="คลื่นไฟฟ้าหัวใจ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 3px; top: 4px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="he_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 10px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_breast" style="height: 100%;">
+   <h1 label="มะเร็งเต้านม" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 3px; top: 3px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hcb_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 9px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_cervix" style="height: 100%;">
+   <h1 label="มะเร็งปากมดลูก" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 2px; top: 4px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hcx_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 8px; top: 10px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="health_conclusion" style="height: 100%;">
+   <h1 label="สรุปผล/คำแนะนำ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="font-size: 14px; width: 314px; position: absolute; z-index: 900; left: 3px; top: 3px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hc_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 9px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_cbc" style="height: 100%;">
+<h1 label="ความสมบูรณ์ของเลือด" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; position: absolute; z-index: 900; left: 5px; top: 4.5px; font-size: 14px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="l1_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 8px;"></button>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_fbs" style="height: 100%;">
+  <h1 label="ระดับน้ำตาลในเลือด" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 5px; top: 5px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l2_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 8.5px;"></button>
+  <img src="fbs.jpg" style="position: absolute; z-index: 900; width: 307px; height: 121px; left: 6.5px; top: 56px;"></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_lipid" style="height: 100%;">
+  <h1 label="ระดับไขมันในเลือด" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 4px; top: 4px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l3_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 8px; top: 7.5px;"></button>
+  <img src="hdl_ldl.jpg" style="position: absolute; z-index: 900; left: 9px; top: 55px; width: 300px;"></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_kidney" style="height: 100%;">
+  <h1 label="การทำงานของไต" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 5px; top: 4px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l4_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 7.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_liver" style="height: 100%;">
+  <h1 label="การทำงานของตับ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 4px; top: 3px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l5_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 8px; top: 6.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_ua" style="height: 100%;">
+  <h1 label="ตรวจปัสสาวะ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 5px; top: 4px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l6_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 7.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_stool" style="height: 100%;">
+  <h1 label="ตรวจอุจจาระ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 3px; top: 3px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l7_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 7px; top: 6.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_tumor" style="height: 100%;">
+  <h1 label="สารบ่งชี้มะเร็ง" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 4px; top: 5px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l8_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 8px; top: 8.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_hep" style="height: 100%;">
+  <h1 label="ไวรัสตับอักเสบ" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 4px; top: 3px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l9_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 8px; top: 6.5px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="lab_uric" style="height: 100%;">
+  <h1 label="ระดับกรดยูริค (โรคเก้าท์)" data-dojo-type="dojox/mobile/Heading" moveTo="mhealth_menu" style="width: 310px; font-size: 14px; position: absolute; z-index: 900; left: 5px; top: 3px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="l10_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9px; top: 6.5px;"></button>
+</div>
+</body>
+</html>

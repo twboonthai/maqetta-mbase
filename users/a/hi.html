@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script language="javascript">
+var ip_address = "http://m30.phoubon.in.th/webmbase/";
+</script>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/Container",
+  "dojox/mobile/Button",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/TextBox",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/DatePicker",
+  "dijit/Calendar",
+  "dojox/mobile/ValuePickerDatePicker",
+  "dojox/mobile/SpinWheelDatePicker",
+  "dijit/TitlePane",
+  "shapes/Rectangle"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="hi.js"></script>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/ScrollableView" id="hi_main" keepScrollPos="false" scrollBar="true" selected="true">
+   <h1 label="HI Index" data-dojo-type="dojox/mobile/Heading" style="font-size: 12pt; width: 315px; position: absolute; z-index: 900; left: 4.6875px; top: 2px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="hi_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back5.jpg'); position: absolute; z-index: 900; left: 6.6875px; top: 8px;"></button>
+   <button label="รวมจังหวัด" data-dojo-type="dojox/mobile/ToggleButton" id="hi_province" style="font-weight: bold; color: black; position: absolute; z-index: 800; font-size: 12px; width: 102px; left: 46.6875px; top: 150px;"></button>
+   <button label="เฉพาะ" data-dojo-type="dojox/mobile/ToggleButton" id="btn_ampur" style="font-weight: bold; color: black; position: absolute; z-index: 800; font-size: 12px; width: 70px; left: 165.6875px; top: 150px;"></button>
+   <input type="text" data-dojo-type="dojox/mobile/TextBox" id="ampur" value="10953" trim="true" maxLength="5" selectOnClick="true" placeHolder="CUP" style="font-style: normal; font-weight: bold; text-align: center; font-size: 12pt; width: 53px; position: absolute; z-index: 800; left: 238.6875px; top: 152px;"></input><span data-dojo-type="dijit/TitlePane" id="date2_title" title="ถึงวันที่" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" duration="200" open="false" style="min-width: 1em; height: auto; width: 249px; position: absolute; z-index: 900; left: 46.6875px; top: 102px;"><input data-dojo-type="dijit/Calendar" id="calendar2"></input>
+</span><span data-dojo-type="dijit/TitlePane" id="date1_title" title="จากวันที่" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" duration="200" open="false" style="min-width: 1em; height: auto; position: absolute; z-index: 900; width: 249px; left: 46.6875px; top: 60px;"><input data-dojo-type="dijit/Calendar" id="calendar1"></input>
+</span><div dvwidget="html.richtext" style="font-weight: bold; text-align: right; position: absolute; z-index: 900; color: blue; font-size: 12px; left: 4.6875px; top: 67.5px; width: 40px;" class="richText">
+     จาก :</div>
+   <div dvwidget="html.richtext" style="font-weight: bold; text-align: right; color: blue; font-size: 12px; position: absolute; z-index: 900; left: 3.6875px; top: 110.5px; width: 40px;" class="richText">
+     ถึง :</div><button label="ความครอบคลุม" data-dojo-type="dojox/mobile/ToggleButton" id="btn_coverage" style="font-weight: bold; color: black; position: absolute; z-index: 900; width: 254px; height: 36px; font-size: 12pt; left: 33px; top: 410px;"></button>
+ <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_5" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+ <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_list" iconPos="0,0,30,120" style="overflow: auto; position: absolute; left: 21.1875px; top: 198px; width: 284px; height: 192px; z-index: 800;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_ampur" style="height: 100%;">
+   <h1 label="ค่า HI รายอำเภอ" data-dojo-type="dojox/mobile/Heading" id="ampur_title" style="width: 315px; position: absolute; z-index: 900; left: 0px; top: 0px; font-size: 12px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="ampur_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 2px; top: 6px;"></button><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_6" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ampur_list" select="single" style="overflow: auto; height: 371px; position: absolute; z-index: 900; width: 297px; left: 10.5px; top: 54.5px;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_town" style="height: 100%;">
+   <h1 label="ค่า HI รายตำบล" data-dojo-type="dojox/mobile/Heading" id="hi_title" style="width: 315px; position: absolute; z-index: 900; left: 2.5px; top: 0px; font-size: 12px;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="town_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 4.5px; top: 6px;"></button>
+ <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+ <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="town_list" select="single" style="position: absolute; z-index: 900; overflow: auto; left: 11px; top: 59px; width: 293px; height: 371px;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_village" style="height: 100%;">
+  <h1 label="ค่า HI รายหมู่บ้าน" data-dojo-type="dojox/mobile/Heading" id="village_title" style="width: 315px; position: absolute; z-index: 900; left: 2.5px; top: 0px; font-size: 12px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="village_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 4.5px; top: 6px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_4" jsId="ItemFileReadStore_4" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="village_list" select="single" style="overflow: auto; height: 371px; width: 300px; position: absolute; z-index: 900; left: 10px; top: 54.5px;" store="ItemFileReadStore_4" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ampur_coverage" style="height: 100%;">
+  <h1 label="ความครอบคลุมการสำรวจ" data-dojo-type="dojox/mobile/Heading" style="width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 2px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="ac_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 4.5px; top: 8px;"></button>
+  <div dvwidget="html.richtext" style="font-weight: bold; color: blue; font-size: 12px; text-align: left; width: 150px; position: absolute; z-index: 900; left: 38px; top: 394px;" class="richText">
+  T = จำนวนหมู่บ้าน<div>
+      S = จำนวนที่สำรวจ</div>
+    <div>
+      P = ร้อยละความครอบคลุม</div>
+  </div>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_7" jsId="ItemFileReadStore_7" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ap_coverage" select="single" style="overflow: auto; height: 308px; width: 300px; position: absolute; z-index: 900; left: 10px; top: 64px;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_coverage" style="height: 100%;">
+<h1 label="ความครอบคลุมการสำรวจ" data-dojo-type="dojox/mobile/Heading" style="width: 315px; position: absolute; z-index: 900; left: 2.5px; top: 0px; font-size: 12px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="cvg_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; z-index: 900; left: 4.5px; top: 6px; background-image: url('back2.jpg');"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="coverage_list" select="single" style="width: 300px; position: absolute; z-index: 900; left: 10px; top: 66px; overflow: auto; height: 308px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<div dvwidget="html.richtext" style="font-weight: bold; color: blue; font-size: 12px; position: absolute; z-index: 900; text-align: left; width: 150px; left: 38px; top: 392px;" class="richText">
+  T = จำนวนหมู่บ้าน<div>
+    S = จำนวนที่สำรวจ</div>
+  <div>
+    P = ร้อยละความครอบคลุม</div>
+</div>
+</div>
+ </body>
+</html>

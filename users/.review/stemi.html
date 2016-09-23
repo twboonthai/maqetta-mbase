@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'mblLoadCompatPattern':'','themeMap':[['Android',null,['themes/mytheme2/mytheme2.css']],['BlackBerry',null,['themes/mytheme2/mytheme2.css']],['iPad',null,['themes/mytheme2/mytheme2.css']],['iPhone',null,['themes/mytheme2/mytheme2.css']],['.*',null,['themes/mytheme2/mytheme2.css']]],'mblThemeFiles':[]"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojo/hash",
+  "dojox/mobile/Button",
+  "dojox/mobile/TextBox",
+  "dijit/form/TextBox",
+  "dojox/mobile/ToggleButton",
+  "dijit/form/NumberTextBox",
+  "dojox/mobile/TextArea",
+  "dojox/mobile/RoundRectDataList",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/CheckBox",
+  "dijit/form/Button",
+  "dijit/form/ToggleButton",
+  "dojox/mobile/Container",
+  "dijit/form/FilteringSelect",
+  "dojox/mobile/ContentPane",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile/TimePicker",
+  "dojox/mobile/ValuePickerTimePicker",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/Pane",
+  "dojox/mobile/GridLayout",
+  "dijit/layout/TabContainer",
+  "dojox/mobile/SearchBox"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="stemi.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/View" id="stemi_v1" style="height: 100%;" selected="true">
+   <h1 label="STEMI Visits" data-dojo-type="dojox/mobile/Heading" id="stemi_v1h" style="font-size: 14px;"></h1>
+   <div data-dojo-type="dojox/mobile/Pane" style="width: 320px; z-index: 800; height: 52px;">
+  <button data-dojo-type="dojox/mobile/Button" id="new_stemi" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 36px; height: 36px; position: absolute; z-index: 900; background-image: url('plus.jpg'); left: 9px; top: 52.5px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; height: 100%; width: 142px; background-color: transparent;" disabled="true"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="cid" selectOnClick="true" style="color: red; font-weight: bold; text-align: center; position: absolute; z-index: 900; width: 211px; font-size: 24px; height: 35px; left: 71px; top: 52.5px;" placeHolder="รหัสประชาชน"></input>
+</div>
+   <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_16" jsId="ItemFileReadStore_16" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 19px;"></div>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi_visits" style="border: none; background-color: transparent; height: 328px;" store="ItemFileReadStore_16" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_v2" style="height: 100%;">
+<div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 469px;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height:63px;">
+       <h1 label="Heading" data-dojo-type="dojox/mobile/Heading" id="stemi_v2h" style="font-size: 15px; height: 43px;"></h1>
+       <button data-dojo-type="dojox/mobile/Button" id="back_sv2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px; width: 32px; height: 32px;"></button>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity" style="background-color: transparent;">
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_7" jsId="ItemFileReadStore_7" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi_menu" style="background-color: transparent; overflow: auto; height: 387px;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+</div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu1_1" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 458px;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 47px;">
+       <h1 label="ข้อมูลพื้นฐาน" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px;"></h1>
+       <button data-dojo-type="dojox/mobile/Button" id="back_menu1_1" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px; width: 32px; height: 32px;"></button>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity" style="background-color: transparent; height: 100%;">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_17" jsId="ItemFileReadStore_17" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="er_visit" style="overflow: auto; background-color: transparent; height: 380px;" store="ItemFileReadStore_17" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu1_2" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 458px;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 47px;">
+       <h1 label="ข้อมูลพื้นฐาน : ปัจจัยเสี่ยง" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px;"></h1>
+       <button data-dojo-type="dojox/mobile/Button" id="back_menu1_2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px; width: 32px; height: 32px;"></button>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity" style="background-color: transparent;">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_17" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="risk" select="single" style="height: 351px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_17" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu1" style="height: 100%;">
+  <h1 label="ข้อมูลทั่วไป" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu1" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div data-dojo-type="dojox/mobile/Pane" style="height: 376px; width: 82px;">
+   <div data-dojo-type="dojox/mobile/GridLayout" cols="1">
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ชื่อ-สกุล :" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; text-align: right; vertical-align: middle; background-color: transparent; width: 90%;"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ER :" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; text-align: right; vertical-align: middle; background-color: transparent; width: 90%;"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="T/P/R :" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; text-align: right; vertical-align: middle; background-color: transparent; width: 90%;"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="C/C :" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; text-align: right; vertical-align: middle; background-color: transparent; width: 90%;"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane"></div>
+     <div data-dojo-type="dojox/mobile/Pane"></div>
+     <div data-dojo-type="dojox/mobile/Pane"></div>
+     <div data-dojo-type="dojox/mobile/Pane"></div>
+   </div>
+ </div>
+  <div data-dojo-type="dojox/mobile/Pane" style="height: 376px; position: absolute; z-index: 900; left: 82px; top: 45px; width: 231px;">
+<div data-dojo-type="dojox/mobile/GridLayout" cols="1">
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="pt_fullname" style="border: none; width: 100%; height: 100%; background-color: transparent; vertical-align: middle; color: blue; font-size: 18px; font-weight: bold;" disabled="true"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <button data-dojo-type="dojox/mobile/Button" id="minus_d2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 0px; top: 56.6640625px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="date2" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; position: absolute; z-index: 900; text-align: center; left: 24px; top: 56.65625px; width: 90px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hr2" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 160px; top: 57.15625px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="min2" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 195px; top: 56.65625px;"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="plus_d2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 116px; top: 57.15625px;"></button>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vsigns" style="border: none; width: 100%; height: 100%; background-color: transparent; vertical-align: middle; color: blue; font-size: 18px; font-weight: bold;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="btemp" maxLength="4" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; width: 30px; position: absolute; z-index: 900; font-size: 12px; left: 0px; top: 100.765625px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="pulse" maxLength="3" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; width: 30px; position: absolute; z-index: 900; font-size: 12px; left: 38.9375px; top: 100.765625px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="syst" maxLength="3" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; width: 30px; position: absolute; z-index: 900; font-size: 12px; left: 159px; top: 101.265625px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="dias" maxLength="3" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; width: 30px; position: absolute; z-index: 900; font-size: 12px; left: 195px; top: 100.765625px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="resp" maxLength="3" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; width: 30px; position: absolute; z-index: 900; font-size: 12px; left: 79px; top: 100.765625px;"></input>
+      <div dvwidget="html.richtext" style="position: absolute; z-index: 900; left: 127px; top: 106.265625px; font-size: 14px; color: black; font-weight: bold;" class="richText">
+                BP :</div>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane" id="cc">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="c_complaint" style="position: absolute; z-index: 900; height: 24px; left: 0px; top: 143.8828125px; width: 224px;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="complaint" style="border: none; width: 100%; height: 100%; background-color: transparent; vertical-align: middle; color: blue; font-size: 18px; font-weight: bold;"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ปัจจัยเสี่ยง STEMI" style="border: none; height: 100%; font-weight: bold; font-size: 14px; vertical-align: middle; background-color: transparent; width: 90%; text-align: left; color: red;" readOnly="true"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 38px;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="DM" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 110px;" disabled="true"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="btn_ht" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; left: 115px; top: 232px;"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="btn_dm" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; top: 232px; left: 5px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="HT" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 62.890625px; left: 144px; top: 225.546875px;" disabled="true"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 38px;"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="btn_sm" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; top: 278px; left: 5px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="Smoking" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 110px;" disabled="true"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="btn_lp" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; left: 115px; top: 278px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="Lipid" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 62.890625px; left: 144px; top: 270.65625px;" disabled="true"></input>
+    </div>
+     <div data-dojo-type="dojox/mobile/Pane">
+      <button data-dojo-type="dojox/mobile/Button" id="btn_fm" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; top: 329.84375px; left: 5px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 38px;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="Family" disabled="true" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 110px;"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="btn_xx" style="background-repeat: no-repeat; background-position: center center; width: 32px; background-image: url('wrong.jpg'); background-size: 100%; height: 32px; position: absolute; z-index: 900; left: 115px; top: 329.84375px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="Other" disabled="true" style="border: none; height: 100%; font-weight: bold; color: black; font-size: 14px; vertical-align: middle; background-color: transparent; text-align: left; width: 62.890625px; left: 144px; top: 270.65625px;"></input>
+    </div>
+   </div>
+ </div>
+  </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu2" style="height: 100%;">
+  <h1 label="ประวัติเจ็บหน้าอก" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_12" jsId="ItemFileReadStore_12" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="chest_pain" select="single" style="border: none; height: 393px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_12" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_n" style="height: 100%;">
+  <h1 label="N = Normal" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxn" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 385px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 81px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" style="width: 34px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="right" splitter="true" maxSize="Infinity" style="border: none; width: 33px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+      <textarea data-dojo-type="dojox/mobile/TextArea" id="hxn_value" style="height: 60px; width: 98%;"></textarea>
+      <button data-dojo-type="dojox/mobile/Button" id="hxn1" style="width: 100%; height: 40px; font-size: 16px; color: red; font-weight: bold;" label="Clear"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="hxn2" style="width: 100%; height: 40px;" label="ไม่เคยมีอาการมาก่อน"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="hxn3" style="width: 100%; height: 40px;" label="เคยมีอาการมาก่อน"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="hxn4" style="width: 100%; height: 40px;" label="เคยวินิจฉัยโรคหัวใจขาดเลือด"></button>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_o" style="height: 100%;">
+  <h1 label="O = Onset" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxo" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div dvwidget="html.richtext" class="richText" style="font-size: 12px; color: black; position: absolute; z-index: 900; left: 18px; top: 71px;">
+    เริ่มมีอาการเจ็บหน้าอก หรือเป็นมากจนทำให้มาโรงพยาบาล</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_d1" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 83px; top: 124px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="date1" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 107px; top: 124px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hr1" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 228px; top: 124px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="min1" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 263px; top: 124px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_d1" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 199px; top: 124.5px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 28px; top: 128.5px;" class="richText">
+    Onset :</div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_p" style="height: 100%;">
+  <h1 label="P = Precipitating Cause" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxp" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <div dvwidget="html.richtext" class="richText" style="font-size: 15px; width: 100%; text-align: center; color: black; font-weight: bold;">
+    สาเหตุที่ทำให้เจ็บหน้าอก หรืออาการร่วมอื่นๆ</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" style="position: absolute; z-index: 900; left: 11px; top: 111px; height: 119px; width: 276px;">
+    <textarea data-dojo-type="dojox/mobile/TextArea" id="hxp_value" style="height: 60px; width: 98%; color: blue; font-weight: bold;"></textarea>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp1" label="Clear" style="height: 40px; width: 100%; color: red; font-weight: bold; font-size: 16px;">
+      Clear</button>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; height: 166px; width: 129px; left: 158px; top: 235px;" region="center" splitter="false" maxSize="Infinity">
+    <button data-dojo-type="dojox/mobile/Button" id="hxp6" label="คลื่นไส้ อาเจียน" style="height: 40px; position: relative; width: 100%;">
+      คลื่นไส้ อาเจียน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp7" label="หอบเหนื่อย" style="height: 40px; position: relative; width: 100%;">
+      หอบเหนื่อย</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp8" label="หายใจไม่สะดวก" style="height: 40px; position: relative; width: 100%;">
+    หายใจไม่สะดวก</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp9" label="หน้ามืด วิงเวียน" style="height: 40px; position: relative; width: 100%;">
+      หน้ามืด วิงเวียน</button>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; width: 131px; height: 168px; left: 13px; top: 234px;" region="center" splitter="false" maxSize="Infinity">
+    <button data-dojo-type="dojox/mobile/Button" id="hxp2" label="ขณะดูโทรทัศน์" style="height: 40px; width: 100%;">
+      ขณะดูโทรทัศน์</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp3" label="ขณะถ่ายอุจจาระ" style="height: 40px; width: 100%;">
+      ขณะถ่ายอุจจาระ</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp4" label="ขณะกินอาหาร" style="height: 40px; width: 100%;">
+    ขณะกินอาหาร</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxp5" label="ขณะทำงาน" style="height: 40px; width: 100%;">
+      ขณะทำงาน</button>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_q" style="height: 100%;">
+  <h1 label="Q = Quality of Discomfort" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxq" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div dvwidget="html.richtext" style="font-size: 15px; width: 100%; text-align: center; color: black; font-weight: bold;" class="richText">
+    ลักษณะอาการเจ็บหน้าอก</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <textarea data-dojo-type="dojox/mobile/TextArea" id="hxq_value" style="height: 60px; width: 98%; color: blue; font-weight: bold;"></textarea>
+  <button data-dojo-type="dojox/mobile/Button" id="hxq1" label="Clear" style="height: 40px; width: 100%; color: red; font-size: 16px; font-weight: bold;">
+    
+    Clear</button>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; height: 166px; width: 129px; left: 158px; top: 235px;">
+    <button data-dojo-type="dojox/mobile/Button" id="hxq6" label="อมยาอาการทุเลา" style="height: 40px; position: relative; width: 100%;">
+      อมยาอาการทุเลา</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq7" label="นอนพักอาการทุเลา" style="height: 40px; position: relative; width: 100%;">
+      นอนพักอาการทุเลา</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq8" label="มีอาการเป็นๆหายๆ" style="height: 40px; position: relative; width: 100%;">
+    มีอาการเป็นๆหายๆ</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq9" label="เป็นมากขึ้นเรื่อยๆ" style="height: 40px; position: relative; width: 100%;">
+      เป็นมากขึ้นเรื่อยๆ</button>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; width: 131px; height: 168px; left: 13px; top: 234px;">
+    <button data-dojo-type="dojox/mobile/Button" id="hxq2" label="จุกใต้ลิ้นปี่" style="height: 40px; width: 100%;">
+      จุกใต้ลิ้นปี่</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq3" label="แน่นคล้ายถูกทับ" style="height: 40px; width: 100%;">
+      แน่นคล้ายถูกทับ</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq4" label="เหงื่อแตก" style="height: 40px; width: 100%;">
+    เหงื่อแตก</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxq5" label="นอนราบไม่ได้" style="height: 40px; width: 100%;">
+      นอนราบไม่ได้</button>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_r" style="height: 100%;">
+  <h1 label="R = Region of Discomfort" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxr" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div dvwidget="html.richtext" style="font-size: 15px; width: 100%; text-align: center; color: black; font-weight: bold;" class="richText">
+    ตำแหน่งที่เจ็บร้าวไปถึง</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <textarea data-dojo-type="dojox/mobile/TextArea" id="hxr_value" style="height: 60px; width: 98%; color: blue; font-weight: bold;"></textarea>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="left: 13px; top: 234px; height: 207px; width: 298px;">
+  <button data-dojo-type="dojox/mobile/Button" id="hxr1" label="Clear" style="height: 40px; width: 100%; color: red; font-size: 16px; font-weight: bold;">
+    Clear</button>
+  <button data-dojo-type="dojox/mobile/Button" id="hxr2" label="เจ็บแน่นกลางหน้าอก ไม่ร้าวไปที่ใด" style="height: 40px; width: 100%;">
+      
+      เจ็บแน่นกลางหน้าอก ไม่ร้าวไปที่ใด</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxr3" label="อาการเจ็บร้าวไปที่แขนซ้าย" style="height: 40px; width: 100%;">
+      
+      อาการเจ็บร้าวไปที่แขนซ้าย</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxr4" label="อาการเจ็บร้าวไปที่คอ" style="height: 40px; width: 100%;">
+    
+    อาการเจ็บร้าวไปที่คอ</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxr5" label="อาการเจ็บร้าวไปที่ไหล่ซ้าย" style="height: 40px; width: 100%;">
+      
+      อาการเจ็บร้าวไปที่ไหล่ซ้าย</button>
+  </div>
+  </div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_s" style="height: 100%;">
+  <h1 label="S = Severity" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxs" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <div dvwidget="html.richtext" style="font-size: 15px; width: 100%; text-align: center; color: black; font-weight: bold;" class="richText">
+    ระดับความรุนแรงของอาการเจ็บหน้าอก</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <textarea data-dojo-type="dojox/mobile/TextArea" id="hxs_value" style="width: 98%; color: blue; font-weight: bold; height: 41px;"></textarea>
+  <button data-dojo-type="dojox/mobile/Button" id="hxs1" label="Clear" style="height: 40px; width: 100%; color: red; font-size: 16px; font-weight: bold;">
+    Clear</button>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; width: 131px; height: 202px; left: 11.796875px; top: 214px;">
+    <button data-dojo-type="dojox/mobile/Button" id="hxs2" label="1/10 คะแนน" style="height: 40px; width: 100%;">
+      1/10</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs3" label="2/10 คะแนน" style="height: 40px; width: 100%;">
+      2/10 คะแนน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs4" label="3/10 คะแนน" style="height: 40px; width: 100%;">
+  ขณะกินอาหาร</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs5" label="4/10 คะแนน" style="height: 40px; width: 100%;">
+  ขณะทำงาน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs6" label="5/10 คะแนน" style="height: 40px; width: 100%;">
+      5/10 คะแนน</button>
+  </div>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="width: 131px; height: 202px; position: absolute; z-index: 900; left: 158.796875px; top: 214px;">
+    <button data-dojo-type="dojox/mobile/Button" id="hxs7" label="6/10 คะแนน" style="height: 40px; width: 100%;">
+      1/10 คะแนน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs8" label="7/10 คะแนน" style="height: 40px; width: 100%;">
+      2/10 คะแนน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs9" label="8/10 คะแนน" style="height: 40px; width: 100%;">
+      8/10 คะแนน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs10" label="9/10 คะแนน" style="height: 40px; width: 100%;">
+  9/10 คะแนน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxs11" label="10/10 คะแนน" style="height: 40px; width: 100%;">
+      10/10 คะแนน</button>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hx_t" style="height: 100%;">
+  <h1 label="T = Timing" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_hxt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <div dvwidget="html.richtext" style="font-size: 15px; width: 100%; text-align: center; color: black; font-weight: bold;" class="richText">
+    ระยะเวลาที่มีอาการเจ็บหน้าอก</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent;"></input>
+  <textarea data-dojo-type="dojox/mobile/TextArea" id="hxt_value" style="width: 98%; color: blue; font-weight: bold; height: 36px;"></textarea>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="position: absolute; z-index: 900; width: 281px; height: 245px; left: 11.5px; top: 157px;">
+    <button data-dojo-type="dojox/mobile/Button" id="hxt1" label="Clear" style="height: 40px; width: 100%; color: red; font-size: 16px; font-weight: bold;">
+      Clear</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxt2" label="น้อยกว่า 3 นาที" style="height: 40px; width: 100%;">
+      ขณะดูโทรทัศน์</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxt3" label="3-5 นาที" style="height: 40px; width: 100%;">
+      3-5 นาที</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxt4" label="5-10 นาที" style="height: 40px; width: 100%;">
+  ขณะกินอาหาร</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxt5" label="10-30 นาที" style="height: 40px; width: 100%;">
+      ขณะทำงาน</button>
+    <button data-dojo-type="dojox/mobile/Button" id="hxt6" label="มากกว่า 30 นาที" style="height: 40px; width: 100%;">
+      10-30 นาที</button>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu3" style="height: 100%;">
+  <h1 label="การตรวจชันสูตร" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu3" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 8.328125px; top: 8px;"></button>
+  <div data-dojo-type="dojox/mobile/Pane" style="height: 7px;"></div>
+  <div dvwidget="html.richtext" style="color: blue; font-size: 14px; font-weight: bold;" class="richText">
+    &nbsp; &nbsp;Investigations :</div>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<div data-dojo-type="dojox/mobile/Pane" style="height: 7px;"></div>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="investigate" select="single" style="border: none; overflow: auto; height: 219px; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu3_ekg" style="height: 100%;">
+  <h1 label="EKG" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_ekg" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 8.328125px; top: 8px;"></button>
+  <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="left: 13px; top: 234px; width: 298px; height: 404px;">
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 56px;">
+      <button data-dojo-type="dojox/mobile/Button" id="minus_ekg" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 78.5px; top: 64.5px;"></button>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="dateekg" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 102.5px; top: 64.5px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrekg" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 223.5px; top: 64.5px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minekg" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 258.5px; top: 64.5px;"></input>
+      <button data-dojo-type="dojox/mobile/Button" id="plus_ekg" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 194.5px; top: 65px;"></button>
+      <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 13.5px; top: 69px;" class="richText">
+        
+        
+       วัน/เวลา :</div>
+    </div>
+    <textarea data-dojo-type="dojox/mobile/TextArea" id="ekg_value" style="width: 98%; color: blue; font-weight: bold; left: 8px; top: 106px; height: 48px;"></textarea>
+    <div data-dojo-type="dojox/mobile/Pane" style="width: 257px; position: absolute; z-index: 900; left: 28.5px; top: 177px; height: 121px;">
+      <button data-dojo-type="dojox/mobile/Button" id="ekg1" style="width: 48%; height: 35px;" label="Clear"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg2" style="width: 48%; height: 35px;" label="ST Elevate"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg3" style="width: 48%; height: 35px;" label="ST Depress"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg4" style="width: 48%; height: 35px;" label="Inverted T"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg5" style="width: 48%; height: 35px;" label="Q Wave"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg6" style="width: 48%; height: 35px;" label="Hyper Acute T"></button>
+    </div>
+    <div data-dojo-type="dojox/mobile/Pane" style="width: 257px; position: absolute; z-index: 900; height: 143px; left: 28.5px; top: 305px;">
+      <button data-dojo-type="dojox/mobile/Button" id="ekg7" style="width: 32%; height: 35px;" label="I (Lat)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg8" style="width: 32%; height: 35px;" label="II (Inf)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg9" style="width: 32%; height: 35px;" label="III (Inf)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg10" style="width: 32%; height: 35px;" label="AVR"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg11" style="width: 32%; height: 35px;" label="AVL (Lat)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg12" style="width: 32%; height: 35px;" label="AVF (Inf)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg13" style="width: 32%; height: 35px;" label="V1 (Sep)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg14" style="width: 32%; height: 35px;" label="V2 (Sep)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg15" style="width: 32%; height: 35px;" label="V3 (Ant)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg16" style="width: 32%; height: 35px;" label="V4 (Ant)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg17" style="width: 32%; height: 35px;" label="V5 (Lat)"></button>
+      <button data-dojo-type="dojox/mobile/Button" id="ekg18" style="width: 32%; height: 35px;" label="V6 (Lat)"></button>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu3_tpt" style="height: 100%;">
+   <h1 label="Trop-T" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="back_tpt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 8px; top: 6.5px;"></button>
+   <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" style="left: 13px; top: 234px; width: 298px; height: 364px;">
+     <div data-dojo-type="dojox/mobile/ContentPane" style="height: 73px;">
+       <button data-dojo-type="dojox/mobile/Button" id="minus_tpt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 78.5px; top: 64.5px;"></button>
+       <input type="text" data-dojo-type="dojox/mobile/TextBox" id="datetpt" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 102.5px; top: 64.5px;"></input>
+       <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrtpt" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 223.5px; top: 64.5px;"></input>
+       <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="mintpt" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 258.5px; top: 64.5px;"></input>
+       <button data-dojo-type="dojox/mobile/Button" id="plus_tpt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 194.5px; top: 65px;"></button>
+       <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 13.5px; top: 69px;" class="richText">
+         วัน/เวลา :</div>
+       <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 10.828125px; top: 104.5px;" class="richText">
+         ผล Trop-T :</div>
+     </div>
+     <textarea data-dojo-type="dojox/mobile/TextArea" id="tpt_value" style="height: 60px; width: 98%; color: blue; font-weight: bold;"></textarea>
+     <button data-dojo-type="dojox/mobile/Button" id="tpt1" label="Clear" style="height: 40px; width: 100%; color: red; font-size: 16px; font-weight: bold;">
+       Clear</button>
+     <button data-dojo-type="dojox/mobile/Button" id="tpt2" label="Troponin T &lt; 0.1 ng/ml" style="height: 40px; width: 100%;">
+       Troponin T under 0.1 ng/ml</button>
+     <button data-dojo-type="dojox/mobile/Button" id="tpt3" label="Troponin T = 0.1 ng/ml" style="height: 40px; width: 100%;">
+     Troponin T equal to 0.1 ng/ml</button>
+     <button data-dojo-type="dojox/mobile/Button" id="tpt4" label="Troponin T &gt; 0.1 ng/ml" style="height: 40px; width: 100%;">
+       Troponin T over 0.1 ng/ml</button>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu4" style="height: 100%;">
+   <h1 label="การรักษาเบื้องต้น" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 23px;"></div>
+   <button data-dojo-type="dojox/mobile/Button" id="back_menu4" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 8.328125px; top: 8px;"></button>
+   <div dvwidget="html.richtext" style="color: blue; font-size: 14px; font-weight: bold;" class="richText">
+     &nbsp; &nbsp;Medications &amp; Treatments :<div data-dojo-type="dojox/mobile/Pane">
+       <div data-dojo-type="dojox/mobile/Pane"></div>
+     </div>
+   </div>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 21px;"></div>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="treatment" style="border: none; height: 333px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu4_dt" style="height: 100%;">
+  <h1 label="รายละเอียดการรักษาเบื้องต้น" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_4dt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 8.328125px; top: 8px;"></button>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_iv" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 70px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="dateiv" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 70px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hriv" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 70px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="miniv" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 70px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_iv" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 70px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 28.328125px; top: 75px;" class="richText">
+    IV Fluid :</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_o2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 130px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="dateo2" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 130px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hro2" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 130px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="mino2" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 130px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_o2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 130px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 30.328125px; top: 135px;" class="richText">
+    Oxygen :</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_isd" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 190px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="dateisd" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 190px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrisd" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 190px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minisd" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 190px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_isd" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 190px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 12.328125px; top: 195px;" class="richText">
+    Isosorbide :</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_asa" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 250px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="dateasa" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 250px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrasa" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 250px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minasa" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 250px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_asa" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 250px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 22px; top: 255px;" class="richText">
+    ASA grV :</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_pvx" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 310px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="datepvx" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 310px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrpvx" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 310px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minpvx" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 310px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_pvx" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 310px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 40px; top: 315px;" class="richText">
+    Plavix :</div>
+  <button data-dojo-type="dojox/mobile/Button" id="minus_mp" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 90px; top: 370px;"></button>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="datemp" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 114px; top: 370px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrmp" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 235px; top: 370px;"></input>
+  <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minmp" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 270px; top: 370px;"></input>
+  <button data-dojo-type="dojox/mobile/Button" id="plus_mp" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 206px; top: 370px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 19px; top: 375px;" class="richText">
+    Morphine :</div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu5" style="height: 100%;">
+<h1 label="การรักษา STEMI" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: 100%;"></h1>
+   <button data-dojo-type="dojox/mobile/Button" id="back_menu5" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; width: 32px; height: 32px; left: 9px; top: 6.5px;"></button>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 10px;"></div>
+   <div data-dojo-type="dojox/mobile/Pane" style="width: 100%; height: 49px;">
+    <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 53px; background-color: transparent;"></input>
+    <button label="STEMI" data-dojo-type="dojox/mobile/ToggleButton" id="stemi_yes" style="height: 40px; width: 38%;"></button>
+    <button label="NON STEMI" data-dojo-type="dojox/mobile/ToggleButton" id="stemi_no" style="height: 40px; width: 38%;"></button>
+  </div>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 116px;">
+  </div>
+   <button data-dojo-type="dojox/mobile/Button" id="minus_sk" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 53px; top: 126px;"></button>
+   <input type="text" data-dojo-type="dojox/mobile/TextBox" id="datesk" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 77px; top: 126px;"></input>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrsk" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 198px; top: 126px;"></input>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minsk" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 233px; top: 126px;"></input>
+   <button data-dojo-type="dojox/mobile/Button" id="plus_sk" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 169px; top: 126.5px;"></button>
+   <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 21.328125px; top: 131px;" class="richText">
+     SK :</div>
+   <button data-dojo-type="dojox/mobile/Button" id="minus_rf" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; background-image: url('prev_rec.jpg'); width: 24px; height: 24px; position: absolute; z-index: 900; left: 53px; top: 173px;"></button>
+   <input type="text" data-dojo-type="dojox/mobile/TextBox" id="daterf" readOnly="true" style="color: blue; font-weight: bold; height: 21px; font-size: 14px; text-align: center; width: 90px; position: absolute; z-index: 900; left: 77px; top: 173px;"></input>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hrrf" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 198px; top: 173px;"></input>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="minrf" maxLength="2" selectOnClick="true" style="text-align: center; color: blue; font-weight: bold; height: 21px; font-size: 16px; width: 30px; position: absolute; z-index: 900; left: 233px; top: 173px;"></input>
+   <button data-dojo-type="dojox/mobile/Button" id="plus_rf" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; opacity: 0.8; width: 24px; height: 24px; background-image: url('next_rec.jpg'); position: absolute; z-index: 900; left: 169px; top: 173.5px;"></button>
+   <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; color: black; position: absolute; z-index: 900; left: 7.328125px; top: 178.5px;" class="richText">
+     Refer :</div>
+   <div data-dojo-type="dojox/mobile/Pane" style="height: 96px;">
+<input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; background-color: transparent; width: 51px;"></input>
+<button label="ER" data-dojo-type="dojox/mobile/ToggleButton" id="rf_er" style="height: 40px; width: 26%;"></button>
+<button label="CCU" data-dojo-type="dojox/mobile/ToggleButton" id="rf_ccu" style="height: 40px; width: 26%;"></button>
+<button label="CATH" data-dojo-type="dojox/mobile/ToggleButton" id="rf_lab" style="height: 40px; width: 26%;"></button>
+</div>
+   <div dvwidget="html.richtext" style="text-align: right; font-weight: bold; font-size: 10pt; position: absolute; z-index: 900; color: red; font-style: italic; left: 50px; top: 288px;" class="richText">
+ ไม่ฉีด SK เนื่องจาก :</div>
+   <div data-dojo-type="dojox/mobile/Pane" style="width: 100%; height: 52px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; background-color: transparent; width: 50px;"></input>
+     <button label="ผู้ป่วยมีข้อห้ามในการใช้ยา" data-dojo-type="dojox/mobile/ToggleButton" id="nosk1" style="height: 40px; width: 80%;"></button>
+   </div>
+   <div data-dojo-type="dojox/mobile/Pane" style="width: 100%; height: 58px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; background-color: transparent; width: 50px;"></input>
+     <button label="ความไม่พร้อมของบุคลากร" data-dojo-type="dojox/mobile/ToggleButton" id="nosk2" style="height: 40px; width: 80%;"></button>
+   </div>
+   <div data-dojo-type="dojox/mobile/Pane" style="width: 100%; height: 45px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; background-color: transparent; width: 50px;"></input>
+     <button label="ความไม่พร้อมของวัสดุ อุปกรณ์" data-dojo-type="dojox/mobile/ToggleButton" id="nosk3" style="height: 40px; width: 80%;"></button>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="stemi_menu6" style="height: 100%;">
+  <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 469px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 47px;">
+      <h1 label="Heading" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px;"></h1>
+      <button data-dojo-type="dojox/mobile/Button" id="back_menu6" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px; width: 32px; height: 32px;"></button>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity" style="background-color: transparent;">
+    <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi1" style="height: 44px; background-color: transparent;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+    <div label="Definite Diagnosis" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_5" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi2" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}" select="single" style="background-color: transparent;"></ul>
+  <div label="Streptokinase" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_6" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi3" style="background-color: transparent;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+<div label="Refer" data-dojo-type="dojox/mobile/EdgeToEdgeCategory"></div>
+</div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="txt_input" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="true" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 458px;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="z-index: 800; height: 46px;">
+       <h1 label="ตัวช่วยกรอกข้อมูล" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px; height: 43px; width: auto;"></h1>
+       <button data-dojo-type="dojox/mobile/Button" id="back_txt" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px; width: 32px; height: 32px;"></button>
+       </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity" style="background-color: transparent;">
+       <textarea data-dojo-type="dojox/mobile/TextArea" id="txt_return" style="height: 45px; color: blue; font-weight: bold; width: 100%;"></textarea>
+       <input type="text" data-dojo-type="dojox/mobile/SearchBox" id="txt_search" baseClass="mblTextBox mblSearchBox" pageSize="Infinity" ignoreCase="true" style="height: 23px; width: 100%;"></input><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_9" jsId="ItemFileReadStore_9" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="txt_list" select="single" style="overflow: auto; background-color: transparent; height: 240px; width: auto;" store="ItemFileReadStore_9" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       </div>
+   </div>
+ </div>
+</body>
+</html>

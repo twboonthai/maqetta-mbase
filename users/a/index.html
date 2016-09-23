@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script language="javascript">
+var ip_address = "http://m30.phoubon.in.th/webmbase/";
+function pop()
+{
+	window.location.href = "http://m30.phoubon.in.th/person.html";
+}
+function staff()
+{
+	window.location.href = "http://m30.phoubon.in.th/staff.html";
+}
+function admin()
+{
+	window.location.href = "http://m30.phoubon.in.th/ceo.html";
+}
+</script>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/Container"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" data-maq-appstates="{}" id="myapp">
+ <button id="menu_staff" style="position: absolute; z-index: 900; color: red; font-weight: bold; font-size: 14px; left: 114px; top: 143.15625px; width: 90px; height: 30px;" onclick="return staff()">
+   เจ้าหน้าที่</button>
+ <div data-dojo-type="dojox/mobile/Container" style="background-image: -webkit-gradient(linear, left top, left bottom, from(#f4eef5), to(#9f1ceb)); background-image: -o-linear-gradient(#f4eef5, #9f1ceb); background-image: -ms-linear-gradient(#f4eef5, #9f1ceb); background-image: -moz-linear-gradient(#f4eef5, #9f1ceb); background-image: -webkit-linear-gradient(#f4eef5, #9f1ceb); background-image: linear-gradient(#f4eef5, #9f1ceb); width: auto; height: 100%;"></div>
+ <img src="muangsamsib.jpg" style="height: 37px; background-color: transparent; background-image: none; width: 281px; position: absolute; z-index: 900; left: 18.140625px; top: 90px;"></img>
+ <img src="fct_logo.jpg" style="background-color: transparent; width: 107px; position: absolute; z-index: 900; height: 75px; left: 105px; top: 9px;"></img>
+ <img src="fct1.jpg" style="width: 282px; height: 99px; position: absolute; z-index: 900; left: 18.14583396911621px; top: 359px;"></img>
+ <img src="hosp.jpg" style="width: 287px; height: 162px; position: absolute; z-index: 900; left: 17.14583396911621px; top: 188px;"></img>
+ <h1 data-dojo-type="dojox/mobile/Heading" style="font-size: 14pt; background-color: transparent; background-image: none; width: 296.625px; position: absolute; left: 11.145833969116211px; top: 135.33334350585938px; z-index: 800;"></h1>
+ <button id="menu_admin" style="font-weight: bold; font-size: 14px; width: 90px; height: 30px; position: absolute; z-index: 900; color: blue; left: 212px; top: 143.15625px;" onclick="return admin()">
+ผู้บริหาร</button>
+ <button id="menu_pop" style="font-weight: bold; font-size: 14px; width: 90px; height: 30px; position: absolute; z-index: 900; color: green; left: 15px; top: 143.15625px;" onclick="return pop()">
+   ประชาชน</button>
+</body>
+</html>

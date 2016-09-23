@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':'', 'mblLoadCompatPattern': ''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/mobile/Button",
+  "dojox/mobile/SwapView",
+  "dojox/mobile/TextBox",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dijit/form/TextBox",
+  "dojox/mobile/TextArea",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile/ContentPane",
+  "dojox/mobile/Container",
+  "dojox/mobile/Pane",
+  "dojox/mobile/ToggleButton",
+  "dijit/MenuBar",
+  "dijit/PopupMenuBarItem",
+  "dijit/MenuItem",
+  "dijit/Menu",
+  "dijit/layout/TabContainer"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="cm_main.js"></script>
+<script type="text/javascript" src="barcode.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/ScrollableView" id="cm_login" keepScrollPos="false" scrollBar="true" selected="true">
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 459px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" doLayout="false" style="height: 255px;">
+      <img src="cm2015.jpg" style="width: 100%; height: 207.15625px;"></img>
+      <div dvwidget="html.richtext" style="text-align: center; color: red; font-size: 11px; left: 8px; top: 247px;" class="richText">
+                        กรอกรหัสประชาชน 13 หลัก เพื่อเข้าสู่ระบบ</div>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="last_update" disabled="true" style="border: none; font-weight: bold; text-align: center; width: 100%; background-color: transparent; color: blue; font-size: 10px; height: 11px;"></input>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 56px; left: 21px; top: 387px;" doLayout="false">
+     <button data-dojo-type="dojox/mobile/Button" id="btn_ok" style="width: 100%; height: 29px; color: green; font-weight: bold; font-size: 14pt;">
+       ตกลง</button>
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" value="ข้อมูลผิดพลาด ติดต่อสมาคมฯ 045 254445" disabled="true" style="border: none; font-weight: bold; text-align: center; background-color: transparent; color: blue; font-size: 12px; width: 238px; height: 18px; position: absolute; z-index: 800; left: 20px; top: 52px;"></input>
+   </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" doLayout="false" style="width: -9px; position: absolute; z-index: 900;"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="right" splitter="true" maxSize="Infinity" style="position: absolute; z-index: 900; width: -13px; left: 317px; top: 0px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+      <div data-dojo-type="dojox/mobile/Pane" style="height: 46px;">
+     <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="user" placeHolder="รหัสประชาชน 13 หลัก" style="width: 100%; font-size: 14pt; text-align: center; height: 25px;"></input>
+     </div>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="psw" placeHolder="เลขที่สมาชิก" style="width: 100%; font-size: 12pt; text-align: center; height: 23px;" disabled="true"></input>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="cm_menu" style="height: 100%;">
+ <h1 label="กรุณาเลือกทำรายการ" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px;"></h1><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายละเอียดสมาชิก&quot;,&quot;icon&quot;:&quot;person.jpg&quot;},{&quot;label&quot;:&quot;ผู้รับผลประโยชน์&quot;,&quot;icon&quot;:&quot;pop2.jpg&quot;},{&quot;label&quot;:&quot;รายการชำระเงินล่วงหน้า&quot;,&quot;icon&quot;:&quot;baht.jpg&quot;},{&quot;label&quot;:&quot;รายละเอียดจ่ายเงินสงเคราะห์ (รายเดือน)&quot;,&quot;icon&quot;:&quot;dollar.jpg&quot;},{&quot;label&quot;:&quot;รายละเอียดจ่ายสงเคราะห์ (รายปี)&quot;,&quot;icon&quot;:&quot;dollar1.jpg&quot;},{&quot;label&quot;:&quot;สถานะสมาคม สสอบ&quot;,&quot;icon&quot;:&quot;logo.jpg&quot;},{&quot;label&quot;:&quot;ออกจากระบบ&quot;,&quot;icon&quot;:&quot;exit.jpg&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="menu_list" select="single" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}" style="height: 310px;"></ul>
+<input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; width: 100%; background-color: transparent; height: 1px;" disabled="true"></input>
+<input type="text" data-dojo-type="dojox/mobile/TextBox" id="death_txt" disabled="true" style="border: none; color: red; font-weight: bold; font-size: 12px; text-align: center; width: 100%; background-color: transparent; height: 19px;"></input>
+<img id="barcode" style="position: absolute; z-index: 800; width: 240px; height: 64px; left: 40px; top: 398px;"></img>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu1" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;" design="headline">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 50px;" doLayout="false">
+       <h1 label="รายละเอียดสมาชิก" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px;"></h1>
+       <button data-dojo-type="dojox/mobile/Button" id="back_menu1" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px;"></button>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" style="width: 90px;" doLayout="false">
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           เลขที่</div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           ชื่อ-สกุล</div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           วันเกิด</div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           วันสมัคร</div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           ที่อยู่</div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right;" class="richText"></div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right;" class="richText"></div>
+       </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+         <div dvwidget="html.richtext" style="text-align: right; font-size: 15px;" class="richText">
+           เงินล่วงหน้า</div>
+       </div>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="memid" style="width: 85%; color: blue; font-weight: bold; font-size: 14pt;" readOnly="true"></input>
+      </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="memname" style="width: 85%; font-weight: bold; color: blue; font-size: 14px;" readOnly="true"></input>
+      </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="birthdate" style="width: 85%; font-size: 12pt; font-weight: bold; color: blue;" readOnly="true"></input>
+      </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="appdate" style="width: 85%; font-size: 12pt; font-weight: bold; color: blue;" readOnly="true"></input>
+      </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 121px;">
+        <textarea data-dojo-type="dojox/mobile/TextArea" id="address" style="height: 96px; width: 85%; font-weight: bold; font-size: 14px;" readOnly="true"></textarea>
+      </div>
+       <div data-dojo-type="dojox/mobile/ContentPane" style="height: 47px;">
+<input type="text" data-dojo-type="dojox/mobile/TextBox" id="prepaid" style="width: 85%; color: blue; font-size: 14pt; font-weight: bold;" readOnly="true"></input>
+      </div>
+       </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="menu2" style="height: 100%;">
+  <h1 label="ผู้รับผลประโยชน์" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu2" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 9.671875px; top: 6px;"></button>
+  <div dvwidget="html.richtext" style="text-align: right; font-size: 15px; position: absolute; z-index: 900; left: 37.328125px; top: 66px;" class="richText">
+    ผู้จัดการศพ</div>
+  <div dvwidget="html.richtext" style="text-align: right; font-size: 15px; position: absolute; z-index: 900; left: 27.328125px; top: 104px;" class="richText">
+    เกี่ยวข้องเป็น</div>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="mngrelation" style="font-size: 14px; color: blue; position: absolute; z-index: 900; width: 160px; left: 120px; top: 100px;" readOnly="true"></input>
+  <input type="text" data-dojo-type="dojox/mobile/TextBox" id="manager" style="font-size: 14px; color: blue; position: absolute; z-index: 900; top: 64px; width: 160px; left: 120px;" readOnly="true"></input>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="inheritance" select="single" style="position: absolute; z-index: 900; width: 296.59375px; overflow: auto; height: 248px; left: 11.6875px; top: 191px;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<div dvwidget="html.richtext" style="text-align: right; font-size: 15px; position: absolute; z-index: 900; left: 11.6875px; top: 164px; color: blue;" class="richText">
+  ผู้รับผลประโยชน์</div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu3" style="height: 100%;">
+<h1 label="รายการชำระเงินล่วงหน้า" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px;"></h1>
+<button data-dojo-type="dojox/mobile/Button" id="back_menu3" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 3px; top: 5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="pp_list" select="single" style="position: absolute; z-index: 900; overflow: auto; width: 286px; height: 350px; left: 17px; top: 67px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<div dvwidget="html.richtext" style="text-align: right; position: absolute; z-index: 900; font-size: 12px; color: blue; font-weight: bold; left: 10px; top: 436px;" class="richText">
+รวมชำระเงินสงเคราะห์ล่วงหน้า</div>
+<input type="text" data-dojo-type="dojox/mobile/TextBox" id="total_in" style="color: blue; font-size: 14pt; font-weight: bold; position: absolute; z-index: 900; text-align: left; width: 130px; top: 430px; left: 175px;" readOnly="true"></input>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu4" style="height: 100%;">
+<h1 label="รายละเอียดจ่ายเงินสงเคราะห์" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu4" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 3px; top: 5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_4" jsId="ItemFileReadStore_4" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="cr_list" select="single" style="position: absolute; z-index: 900; width: 286px; overflow: auto; left: 17px; top: 67px; height: 350px;" store="ItemFileReadStore_4" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<div dvwidget="html.richtext" style="text-align: right; position: absolute; z-index: 900; left: 20px; top: 435px; color: red; font-weight: bold; font-size: 14px;" class="richText">
+รวมจ่ายเงินสงเคราะห์</div>
+<input type="text" data-dojo-type="dojox/mobile/TextBox" id="total_out" style="font-size: 14pt; font-weight: bold; position: absolute; z-index: 900; color: red; width: 130px; top: 430px; text-align: left; left: 175px;" readOnly="true"></input>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="menu5" style="height: 100%;">
+<h1 label="สถานะสมาคม สสอบ" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_menu5" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 3px; top: 5px;"></button>
+<span data-dojo-type="dijit/layout/TabContainer" style="min-width: 1em; min-height: 1em; width: 100%; height: 393px;" controllerWidget="dijit.layout.TabController">
+<div data-dojo-type="dijit/layout/ContentPane" title="รับเงินล่วงหน้า" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" selected="true" closable="false">
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_6" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ss_pp" select="single" style="overflow: auto; width: 300px; position: absolute; z-index: 900; left: 9px; top: 20px; height: 320px;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+<div data-dojo-type="dijit/layout/ContentPane" title="จ่ายเงินสงเคราะห์" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" selected="true" closable="false">
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_5" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ss_paid" select="single" style="overflow: auto; height: 320px; width: 300px; position: absolute; z-index: 900; left: 9px; top: 17.5px;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+</span>
+<button data-dojo-type="dojox/mobile/Button" id="btn_graph" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; position: absolute; z-index: 900; background-image: url('kpi-icon.jpg'); left: 253px; top: 46px;"></button>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="view_graph" style="height: 100%;">
+   <div id="ss_chart" style="position: absolute; z-index: 900; width: 315px; height: 391px; left: 0px; top: 54px; overflow: auto;">
+  </div>
+   <button data-dojo-type="dojox/mobile/Button" id="back_graph" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 5px; top: 6px;"></button>
+   <h1 label="จำนวนเสียชีวิต (จากเดือนล่าสุด)" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px;"></h1>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="paid_list" style="height: 100%;">
+  <h1 label="รายละเอียดจ่ายเงินสงเคราะห์" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px;"></h1>
+  <button data-dojo-type="dojox/mobile/Button" id="back_list" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 3px; top: 5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_8" jsId="ItemFileReadStore_8" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="detail" select="single" style="overflow: auto; width: 300px; position: absolute; z-index: 900; left: 10px; top: 58px; height: 351px;" store="ItemFileReadStore_8" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script language="javascript">
+</script>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/iphone/iphone.css']],['BlackBerry','',['themes/iphone/iphone.css']],['iPad','',['themes/iphone/iphone.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/Container",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile/Button",
+  "dojox/mobile/Pane",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojo/hash",
+  "dijit/Calendar",
+  "dijit/form/TimeTextBox",
+  "dojox/mobile/ValuePickerTimePicker",
+  "dojox/mobile/SpinWheelTimePicker",
+  "dojox/mobile/TimePicker",
+  "dojox/mobile/SpinWheel",
+  "dojox/mobile/TextBox",
+  "dijit/form/Button"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="ceo.js"></script>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/View" id="ceo_main" style="height: 100%;" selected="true">
+<div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" doLayout="false" style="height: 48px;">
+      <h1 label="ข้อมูลสำหรับผู้บริหาร" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px; width: 100%;"></h1>
+      </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ceo_menu" select="single" style="background-color: transparent; height: 259px;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_main" style="height: 100%;">
+<div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 50px;">
+     <h1 label="Household Index (HI)" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px; width: 100%;"></h1>
+   </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 10px; left: 0px; top: 470px;"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity">
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_menu" select="single" style="background-color: transparent; height: 382px;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_show" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 48px;">
+      <h1 label="HI Value รวมทั้งจังหวัด" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_9" jsId="ItemFileReadStore_9" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_5" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hi_show" select="single" style="height: 93.19097900390625px; background-color: transparent; width: 100%;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_value" style="overflow: auto; background-color: transparent; height: 231.99307250976562px; width: 100%;" store="ItemFileReadStore_9" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_ampur" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 48px;">
+      <h1 label="HI Value แยกตามอำเภอ" data-dojo-type="dojox/mobile/Heading" id="hi_titlea" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_9" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hi_ampur" select="single" style="height: 93.19097900390625px; background-color: transparent; width: 100%;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_value_ampur" select="single" style="overflow: auto; background-color: transparent; height: 231.99307250976562px; width: 100%;" store="ItemFileReadStore_9" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_tumbon" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 48px;">
+      <h1 label="HI Value แยกตามตำบล" data-dojo-type="dojox/mobile/Heading" id="hi_titlet" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_9" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hi_tumbon" select="single" style="height: 93.19097900390625px; background-color: transparent; width: 100%;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_value_tumbon" select="single" style="overflow: auto; background-color: transparent; height: 231.99307250976562px; width: 100%;" store="ItemFileReadStore_9" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_mooban" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 48px;">
+      <h1 label="HI Value แยกตามหมู่บ้าน" data-dojo-type="dojox/mobile/Heading" id="hi_titlem" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_9" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hi_mooban" select="single" style="height: 93.19097900390625px; background-color: transparent; width: 100%;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hi_value_mooban" select="single" style="overflow: auto; background-color: transparent; height: 231.99307250976562px; width: 100%;" store="ItemFileReadStore_9" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="adl_main" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+      <h1 label="สรุปคะแนน ADL &amp;amp; Brain Evaluation" data-dojo-type="dojox/mobile/Heading" id="ap_header" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="adl_pv" select="single" style="background-color: transparent; width: 100%; height: 124px;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <div data-dojo-type="dojox/mobile/Pane" style="height: 5px;"></div>
+       <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_4" jsId="ItemFileReadStore_4" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="adl_ampur" style="overflow: auto; background-color: transparent; height: 243.65625px;" store="ItemFileReadStore_4" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="adl_brain" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+      <h1 label="สรุปคะแนน ADL &amp;amp; Brain Evaluation" data-dojo-type="dojox/mobile/Heading" id="adl_header" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" id="pane1" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_7" jsId="ItemFileReadStore_7" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_adl_brain" style="overflow: auto; background-color: transparent;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_8" jsId="ItemFileReadStore_8" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score" style="height: 267.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_8" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="adl_brain1" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+      <h1 label="สรุปคะแนน ADL เฉพาะอำเภอ" data-dojo-type="dojox/mobile/Heading" id="adl1_header" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_7" data="{&quot;items&quot;:[{&quot;label&quot;:[&quot;Label 1&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]},{&quot;label&quot;:[&quot;Label 2&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_adl_brain1" select="single" style="overflow: auto; background-color: transparent;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}"></ul><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_8" data="{&quot;items&quot;:[{&quot;label&quot;:[&quot;Label 1&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]},{&quot;label&quot;:[&quot;Label 2&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score1" select="single" style="height: 267.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_8" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ab_ampur" style="height: 100%;">
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+     <h1 label="สรุปคะแนน ADL รายอำเภอ" data-dojo-type="dojox/mobile/Heading" id="aba_header" style="font-size: 14px; width: 100%;"></h1>
+   </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+    <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ab_ampur" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}" select="single" style="background-color: transparent;"></ul>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_6" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score_ampur" style="height: 285.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+</div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ab_tumbon" style="height: 100%;">
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+     <h1 label="สรุปคะแนน ADL รายตำบล" data-dojo-type="dojox/mobile/Heading" id="abt_header" style="font-size: 14px; width: 100%;"></h1>
+   </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ab_tumbon" select="single" style="background-color: transparent;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score_tumbon" select="single" style="height: 285.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ab_mooban" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+      <h1 label="สรุปคะแนน ADL รายหมู่บ้าน" data-dojo-type="dojox/mobile/Heading" id="abm_header" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ab_mooban" select="single" style="background-color: transparent;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score_mooban" select="single" style="height: 285.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ab_person" style="height: 100%;">
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 46px;">
+     <h1 label="สรุปคะแนน ADL รายบุคคล" data-dojo-type="dojox/mobile/Heading" id="abp_header" style="font-size: 14px; width: 100%;"></h1>
+   </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:[&quot;Label 1&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]},{&quot;label&quot;:[&quot;Label 2&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]}]}"></span>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ab_person" select="single" style="background-color: transparent;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+      <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:[&quot;Label 1&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]},{&quot;label&quot;:[&quot;Label 2&quot;],&quot;moveTo&quot;:[&quot;transitionToPage&quot;]}]}"></span>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score_person" select="single" style="height: 285.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="select_dt" style="height: 470px;">
+<div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 454px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 64px;">
+      <button data-dojo-type="dojox/mobile/Button" id="back_dt" style="background-repeat: no-repeat; background-position: center center; background-image: url('ok.jpg'); position: absolute; z-index: 800; left: 13.333332061767578px; top: 15.833333969116211px; width: 25px; height: 25px;"></button>
+      <h1 label="เลือกวัน เวลา" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px;"></h1>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="left" splitter="true" maxSize="Infinity" style="width: 6.000011752929687px;"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="right" splitter="true" maxSize="Infinity" style="width: -6px; left: 310px; top: 85px;"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+      <input data-dojo-type="dijit/Calendar" id="calendar1" style="width: 100%;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; font-size: 30px; font-weight: bold; text-align: center; background-color: transparent; height: 7px; width: 95%;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value="เวลา" style="border: none; font-weight: bold; background-color: transparent; font-size: 14px; height: 27.6875px; text-align: left; width: 40px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hr1" style="font-weight: bold; text-align: center; font-size: 30px; height: 10%; width: 40px; color: blue;"></input>
+      <input type="text" data-dojo-type="dojox/mobile/TextBox" value=":" style="border: none; font-size: 30px; font-weight: bold; text-align: center; background-color: transparent; height: 10%; width: 11px;"></input>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="min1" style="font-weight: bold; text-align: center; font-size: 30px; height: 10%; width: 40px; color: blue;"></input>
+    </div>
+  </div>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ampur" style="height: 100%;">
+ <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height:64px;">
+       <h1 label="เลือกอำเภอ" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px; width: 100%;"></h1>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ampur" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}" select="single" style="background-color: transparent; height: 82px;"></ul>
+     <div data-dojo-type="dojox/mobile/Pane" style="height: 23px;"></div>
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_10" jsId="ItemFileReadStore_10" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ampur_list" style="background-color: transparent; overflow: auto; height: 267.9895935058594px;" store="ItemFileReadStore_10" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ampur_show" style="height: 100%;">
+ <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 48px;">
+      <h1 label="HI Value เฉพาะอำเภอ" data-dojo-type="dojox/mobile/Heading" id="ampur_title" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_11" jsId="ItemFileReadStore_11" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ampur_show" store="ItemFileReadStore_11" query="{&quot;label&quot;:&quot;*&quot;}" select="single" style="background-color: transparent;"></ul>
+     <div data-dojo-type="dojox/mobile/Pane" style="height: 11px;"></div>
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_12" jsId="ItemFileReadStore_12" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ampur_value" style="height: 284px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_12" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_coverage" style="height: 100%;">
+ <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height:62px;">
+      <h1 label="ความครอบคลุม HI รายอำเภอ" data-dojo-type="dojox/mobile/Heading" id="cv_title" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hcoverage" select="single" style="background-color: transparent; height: 71.99652862548828px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <div data-dojo-type="dojox/mobile/Pane" style="height: 23px;"></div><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_10" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hcoverage" select="single" style="background-color: transparent; overflow: auto; height: 276.9861145019531px;" store="ItemFileReadStore_10" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_coverage2" style="height: 100%;">
+<div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height:63px;">
+      <h1 label="ความครอบคลุม HI รายตำบล" data-dojo-type="dojox/mobile/Heading" id="coverage_title" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hcoverage2" select="single" style="background-color: transparent; height: 71.99652862548828px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <div data-dojo-type="dojox/mobile/Pane" style="height: 23px;"></div><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_10" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hcoverage2" select="single" style="background-color: transparent; overflow: auto; height: 276.9861145019531px;" store="ItemFileReadStore_10" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="hi_coverage3" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 63px;">
+       <h1 label="ความครอบคลุม HI รายตำบล" data-dojo-type="dojox/mobile/Heading" id="coverage3_title" style="font-size: 14px; width: 100%;"></h1>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_hcoverage3" select="single" style="background-color: transparent; height: 71.99652862548828px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+       <div data-dojo-type="dojox/mobile/Pane" style="height: 23px;"></div><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_10" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="hcoverage3" select="single" style="background-color: transparent; overflow: auto; height: 276.9861145019531px;" store="ItemFileReadStore_10" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ci_main" style="height: 100%;">
+ <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 50px;">
+       <h1 label="Container Index (CI)" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px; width: 100%;"></h1>
+     </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+     <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_13" jsId="ItemFileReadStore_13" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+     <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ci_menu" style="height: 374.1840515136719px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_13" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+   </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ci_pv" style="height: 100%;">
+ <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 50px;">
+      <h1 label="Container Index (CI) จังหวัด" data-dojo-type="dojox/mobile/Heading" id="ci_pv_title" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_15" jsId="ItemFileReadStore_15" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ci_pv" style="background-color: transparent; height: 54.097225189208984px;" store="ItemFileReadStore_15" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+<span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_13" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ci_pv_list" select="single" style="overflow: auto; background-color: transparent; height: 320.1805725097656px;" store="ItemFileReadStore_13" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ci_ap" style="height: 100%;">
+   <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;">
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="top" splitter="true" maxSize="Infinity" style="height: 50px;">
+      <h1 label="Container Index (CI) รายอำเภอ" data-dojo-type="dojox/mobile/Heading" id="ci_header" style="font-size: 14px; width: 100%;"></h1>
+    </div>
+     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" doLayout="true" region="center" splitter="false" maxSize="Infinity">
+       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_15" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="back_ci_ap" select="single" style="background-color: transparent; height: 87.09375px;" store="ItemFileReadStore_15" query="{&quot;label&quot;:&quot;*&quot;}"></ul><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_13" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ci_ap_list" select="single" style="overflow: auto; background-color: transparent; height: 289.171875px;" store="ItemFileReadStore_13" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+     </div>
+   </div>
+ </div>
+</body>
+</html>

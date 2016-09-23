@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+
+var ip_address = "http://m30.phoubon.in.th/webmbase/";
+
+function staff()
+{
+	window.location.href = "http://m30.phoubon.in.th/staff.html";
+}
+
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/Button",
+  "dojox/mobile/TextBox",
+  "dijit/form/TextBox",
+  "shapes/Line",
+  "dojox/mobile/TextArea"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "lib/shapes/shapes.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="upload.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+
+<form action="//m30.phoubon.in.th/webmbase/upload.php" method="post" enctype="multipart/form-data" style="position: absolute; z-index: 900; width: 273px; height: 123px; left: 23px; top: 57px;">
+    กรุณาเลือก File ที่ต้องการ upload:
+    <input type="file" name="fileToUpload" id="fileToUpload" style="position: absolute; z-index: 900; left: 0px; top: 40px; height: 29px; font-size: 14pt; width: 270px; color: red;">
+
+</input>
+<input type="submit" value="Upload File" name="submit" style="position: absolute; z-index: 900; left: 0px; top: 85.5px; font-size: 14pt; width: 119.390625px;">
+</input>
+</form>
+<h1 label="mMobile Administrator" data-dojo-type="dojox/mobile/Heading" style="font-size: 16px; width: 316px; position: absolute; left: 1.5px; top: 4px; z-index: 890;"></h1>
+<button label="Update Population" data-dojo-type="dojox/mobile/ToggleButton" id="pop_import" style="text-align: right; color: blue; font-size: 14pt; height: 36px; position: absolute; z-index: 900; width: 276px; left: 21.5px; top: 191px;"></button>
+<button id="back2staff" style="font-weight: bold; font-size: 14px; color: green; position: absolute; z-index: 900; background-repeat: no-repeat; background-position: center center; height: 36px; left: 7.5px; top: 8px; width: 38px; background-image: url('back5.jpg');" onclick="return staff()"></button>
+<button label="Update Staff" data-dojo-type="dojox/mobile/ToggleButton" id="staff_upd" style="text-align: right; color: blue; font-size: 14pt; height: 36px; width: 276px; position: absolute; z-index: 900; left: 21.5px; top: 397px;"></button>
+<input type="tel" data-dojo-type="dojox/mobile/TextBox" id="staff_cid" selectOnClick="true" placeHolder="รหัสประชาชน" style="font-weight: bold; color: red; text-align: center; height: 26px; position: absolute; z-index: 900; width: 120px; font-size: 15px; left: 23px; top: 271px;"></input>
+<input type="tel" data-dojo-type="dojox/mobile/TextBox" id="staff_id" placeHolder="User ID" style="font-style: normal; position: absolute; z-index: 900; width: 56px; text-align: center; left: 152.5px; top: 273px;"></input>
+<input type="text" data-dojo-type="dijit/form/TextBox" id="staff_psw" intermediateChanges="false" trim="false" uppercase="false" lowercase="false" propercase="false" selectOnClick="false" placeHolder="Password" style="position: absolute; z-index: 900; width: 79px; left: 216.5px; top: 273px;"></input>
+<span data-dojo-type="shapes/Line" startarrow="none" style="position: absolute; z-index: 900; color: red; left: 20px; top: 253px;" points="0,2,275,0"></span>
+<textarea data-dojo-type="dojox/mobile/TextArea" id="staff_info" disabled="true" style="border: none; background-color: transparent; font-weight: bold; position: absolute; z-index: 900; width: 265.65625px; text-align: left; height: 63.328125px; left: 25.671875px; top: 313px; font-size: 14px; color: red;"></textarea>
+</body></html>

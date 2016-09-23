@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/Button",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/TextBox"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="ab_menu.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/ScrollableView" id="ab_main" keepScrollPos="false" scrollBar="true" selected="true">
+<h1 label="ADL + การประเมินสภาพสมอง" data-dojo-type="dojox/mobile/Heading" moveTo="brain_person" style="height: 45.0000011920929px; text-align: center; width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 0px;"></h1><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="ab_score" style="position: absolute; z-index: 900; width: 293px; height: 321px; left: 12px; top: 108px;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+   <button data-dojo-type="dojox/mobile/Button" id="ab_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back5.jpg'); position: absolute; z-index: 900; left: 2.5px; top: 7.5px;"></button>
+   <button label="ภาพรวมจังหวัด" data-dojo-type="dojox/mobile/ToggleButton" id="ab_province" style="font-weight: bold; font-size: 14px; position: absolute; z-index: 900; left: 12px; top: 58.5px; width: 140px; color: black;"></button>
+   <button label="เฉพาะ" data-dojo-type="dojox/mobile/ToggleButton" id="ab_ampur" style="font-weight: bold; font-size: 14px; position: absolute; z-index: 900; color: black; width: 67px; left: 174px; top: 58.5px;"></button>
+   <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="hosp_id" trim="true" maxLength="5" selectOnClick="true" placeHolder="CUP" style="font-style: normal; font-weight: bold; text-align: center; font-size: 12pt; position: absolute; z-index: 900; width: 53px; left: 248px; top: 61px;" value="10953"></input>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="ab1" style="height: 100%;">
+ <h1 label="ADL + การประเมินสภาพสมอง รายอำเภอ" data-dojo-type="dojox/mobile/Heading" id="ab1_title" moveTo="brain_person" style="height: 45.0000011920929px; text-align: center; width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 0px;"></h1>
+ <button data-dojo-type="dojox/mobile/Button" id="ab1_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 2.5px; top: 7.5px;"></button>
+ <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+ <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="abs_ampur" select="single" style="width: 300px; position: absolute; z-index: 900; height: 359px; left: 10px; top: 60.5px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ab2" style="height: 100%;">
+<h1 label="ADL + การประเมินสภาพสมอง รายตำบล" data-dojo-type="dojox/mobile/Heading" id="ab2_title" moveTo="brain_person" style="height: 45.0000011920929px; text-align: center; width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 0px;"></h1>
+<button data-dojo-type="dojox/mobile/Button" id="ab2_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 2.5px; top: 7.5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="abs_tumbon" select="single" style="height: 359px; width: 300px; position: absolute; z-index: 900; left: 10px; top: 60.5px;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ab3" style="height: 100%;">
+<h1 label="ADL + การประเมินสภาพสมอง รายหมู่บ้าน" data-dojo-type="dojox/mobile/Heading" id="ab3_title" moveTo="brain_person" style="height: 45.0000011920929px; text-align: center; width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 0px;"></h1>
+<button data-dojo-type="dojox/mobile/Button" id="ab3_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 2.5px; top: 7.5px;"></button>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_4" jsId="ItemFileReadStore_4" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="abs_ban" select="single" style="height: 359px; width: 300px; position: absolute; z-index: 900; left: 10px; top: 60.5px;" store="ItemFileReadStore_4" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="ab4" style="height: 100%;">
+  <h1 label="ADL + การประเมินสภาพสมอง รายบุคคล" data-dojo-type="dojox/mobile/Heading" id="ab4_title" moveTo="brain_person" style="height: 45.0000011920929px; text-align: center; width: 315px; font-size: 12px; position: absolute; z-index: 900; left: 2.5px; top: 0px;"></h1>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_5" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="abs_cid" select="single" style="height: 359px; width: 300px; position: absolute; z-index: 900; left: 10px; top: 60.5px;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<button data-dojo-type="dojox/mobile/Button" id="ab4_back" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 2.5px; top: 7.5px;"></button>
+</div>
+</body>
+</html>

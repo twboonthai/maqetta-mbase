@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android',null,['themes/mytheme2/mytheme2.css']],['BlackBerry',null,['themes/mytheme2/mytheme2.css']],['iPad',null,['themes/mytheme2/mytheme2.css']],['iPhone',null,['themes/mytheme2/mytheme2.css']],['.*',null,['themes/mytheme2/mytheme2.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/Button",
+  "dojox/mobile/ContentPane",
+  "dojox/mobile/TextBox",
+  "dojox/mobile/TextArea",
+  "dojox/mobile/CheckBox",
+  "dojox/mobile/RadioButton",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/EdgeToEdgeDataList"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+<script type="text/javascript" src="officer.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
+ <div id="View_0" data-dojo-type="dojox/mobile/View" style="height: 100%;" selected="true">
+  <div data-dojo-type="dijit/layout/BorderContainer" design="sidebar" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 461px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 62px;" doLayout="false">
+      <h1 label="ข้อมูลสำหรับผู้บริหาร" data-dojo-type="dojox/mobile/Heading"></h1>
+    </div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 50px;" doLayout="false"></div>
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+      <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="officer_menu" select="single" style="background-color: transparent; height: 264px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dijit/layout/BorderContainer",
+  "dijit/layout/ContentPane",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/Button",
+  "dojox/mobile/ContentPane",
+  "dojox/mobile/TextBox",
+  "dojox/mobile/TextArea"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<script type="text/javascript" src="app.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+</head>
+<body data-maq-device="androidtablet" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dijit/layout/BorderContainer" persist="false" gutters="false" style="min-width: 1em; min-height: 1px; z-index: 0; width: 100%; height: 100%;" design="headline">
+   <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 50px;" doLayout="false">
+    <h1 label="Heading" data-dojo-type="dojox/mobile/Heading" style="font-size: 15px;"></h1>
+    <button data-dojo-type="dojox/mobile/Button" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back2.jpg'); position: absolute; z-index: 900; left: 15.3359375px; top: 14px;"></button>
+  </div>
+   <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" doLayout="false" style="width: 90px;">
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" class="richText" style="text-align: right; color: black;">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <div dvwidget="html.richtext" style="text-align: right; color: black;" class="richText">
+       Text</div>
+   </div>
+  </div>
+   <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" doLayout="false">
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="width: 85%; color: blue;"></input>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="width: 85%; color: blue;"></input>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="width: 85%; color: blue;"></input>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <input type="text" data-dojo-type="dojox/mobile/TextBox" style="width: 85%; color: blue;"></input>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <textarea data-dojo-type="dojox/mobile/TextArea" style="width: 90%; color: blue;"></textarea>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <textarea data-dojo-type="dojox/mobile/TextArea" style="width: 90%; color: blue;"></textarea>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <textarea data-dojo-type="dojox/mobile/TextArea" style="width: 90%; color: blue;"></textarea>
+   </div>
+    <div data-dojo-type="dojox/mobile/ContentPane" style="height: 40px;">
+     <textarea data-dojo-type="dojox/mobile/TextArea" style="width: 90%; color: blue;"></textarea>
+   </div>
+  </div>
+ </div>
+</body>
+</html>

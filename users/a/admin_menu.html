@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Untitled</title>
+<script language="javascript">
+var ip_address = "http://m30.phoubon.in.th/webmbase/";
+function adl()
+{
+	window.location.href = "http://m30.phoubon.in.th/adl_brain.html";
+}
+function admin()
+{
+	window.location.href = "http://m30.phoubon.in.th/pps.html";
+}
+function hi()
+{
+	window.location.href = "http://m30.phoubon.in.th/hi.html";
+}
+
+function ci()
+{
+	window.location.href = "http://m30.phoubon.in.th/ci.html";
+}
+function back()
+{
+	window.location.href = "http://m30.phoubon.in.th/index.html";
+}
+</script>
+<script type="text/javascript" src="lib/dojo/dojo/dojo.js" data-dojo-config="'parseOnLoad':true,'async':true,'packages':[{'name':'gridx','location':'../gridx'},{'name':'clipart','location':'../../clipart'},{'name':'maqettaSamples','location':'../../../samples'},{'name':'maqetta','location':'../../maqetta'},{'name':'shapes','location':'../../shapes'},{'name':'zazl','location':'../../zazl'},{'name':'widgets','location':'../../custom'}],'themeMap':[['Android','',['themes/android/android.css']],['BlackBerry','',['themes/blackberry/blackberry.css']],['iPad','',['themes/ipad/ipad.css']],['iPhone','',['themes/iphone/iphone.css']],['.*','',['themes/iphone/iphone.css']]],'mblThemeFiles':[],'mblLoadCompatPattern':''"></script>
+<script type="text/javascript">
+require([
+  "dijit/dijit",
+  "dojo/parser",
+  "maqetta/space",
+  "maqetta/AppStates",
+  "dojox/mobile",
+  "dojox/mobile/deviceTheme",
+  "dojox/mobile/ToggleButton",
+  "dojox/mobile/Container",
+  "dojox/mobile/Button",
+  "dojo/hash",
+  "dojox/mobile/ScrollableView",
+  "dojox/io/xhrScriptPlugin",
+  "dojo/data/ItemFileReadStore",
+  "dojox/mobile/EdgeToEdgeDataList",
+  "dojox/mobile/Pane"
+]);
+</script>
+<style>@import "themes/claro/claro.css";@import "app.css";
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="udf.js"></script>
+</head>
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" class="claro" data-maq-ws="collapse" id="myapp" data-maq-appstates="{}">
+ <div data-dojo-type="dojox/mobile/ScrollableView" id="main_menu" keepScrollPos="false" scrollBar="true" selected="true">
+<button id="menu_pps" style="font-weight: bold; position: absolute; z-index: 900; width: 100%; height: 60px; left: 0px; font-size: 12pt; background-repeat: no-repeat; background-image: url('palliative.jpg'); color: blue; top: 140px; background-position: 5px 10px;" onclick="return admin()">
+  Palliative Performance Scale</button>
+<div data-dojo-type="dojox/mobile/Pane" style="height: 70px;"></div>
+  <h1 label="ข้อมูลสำหรับผู้บริหาร" data-dojo-type="dojox/mobile/Heading" style="font-size: 12pt; position: absolute; z-index: 900; left: 4.6875px; top: 2px; width: 100%;"></h1>
+  <button id="menu_hi" style="font-weight: bold; color: blue; position: absolute; z-index: 900; font-size: 12pt; width: 100%; height: 60px; background-repeat: no-repeat; background-size: auto; background-image: url('hi.jpg'); left: 0px; top: 200px; background-position: 5px 10px;" onclick="return hi()">
+    Household Index (HI)</button>
+  <button data-dojo-type="dojox/mobile/Button" id="admin_back0" style="font-weight: bold; background-repeat: no-repeat; background-position: center center; width: 35.333335876464844px; height: 32px; background-image: url('back5.jpg'); position: absolute; z-index: 900; left: 6.6875px; top: 8px;" onclick="return back()"></button>
+  <button id="menu_ci" style="font-weight: bold; color: blue; position: absolute; z-index: 900; width: 100%; height: 60px; left: 0px; font-size: 12pt; background-repeat: no-repeat; background-size: auto; background-image: url('ci.jpg'); top: 260px; background-position: 5px 10px;" onclick="return ci()">
+    Container Index (CI)</button>
+  <button id="menu_adl" style="font-weight: bold; position: absolute; z-index: 900; width: 100%; color: blue; font-size: 12pt; background-repeat: no-repeat; background-size: auto; background-image: url('person.jpg'); height: 60px; left: 0px; top: 80px; background-position: 5px 15px;" onclick="return adl()">
+    ADL &amp; Brain Evaluation</button>
+</div>
+ </body>
+</html>
