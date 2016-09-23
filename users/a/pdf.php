@@ -1,0 +1,106 @@
+<?php
+require('fpdf.php');
+
+$cid = $_GET['cid'];
+
+$name0 = $_GET['pt_name'];
+$name = iconv("UTF-8", "cp874", $name0);
+$cc0 = $_GET['cc'];
+$cc = iconv("UTF-8", "cp874", $cc0);
+$hxn0 = $_GET['hxn'];
+$hxn = iconv("UTF-8", "cp874", $hxn0);
+$hxo0 = $_GET['hxo'];
+$hxo = iconv("UTF-8", "cp874", $hxo0);
+$hxp0 = $_GET['hxp'];
+$hxp = iconv("UTF-8", "cp874", $hxp0);
+$hxq0 = $_GET['hxq'];
+$hxq = iconv("UTF-8", "cp874", $hxq0);
+$hxr0 = $_GET['hxr'];
+$hxr = iconv("UTF-8", "cp874", $hxr0);
+$hxs0 = $_GET['hxs'];
+$hxs = iconv("UTF-8", "cp874", $hxs0);
+$hxt0 = $_GET['hxt'];
+$hxt = iconv("UTF-8", "cp874", $hxt0);
+$risk = $_GET['risk'];
+$er0 = $_GET['er'];
+$er = iconv("UTF-8", "cp874", $er0);
+$tpr = $_GET['tpr'];
+$dekg0 = $_GET['dekg'];
+$dekg = iconv("UTF-8", "cp874", $dekg0);
+$ekg = $_GET['ekg'];
+$dtpt0 = $_GET['dtpt'];
+$dtpt = iconv("UTF-8", "cp874", $dtpt0);
+$tpt = $_GET['tpt'];
+$iv0 = $_GET['iv'];
+$iv = iconv("UTF-8", "cp874", $iv0);
+$o20 = $_GET['o2'];
+$o2 = iconv("UTF-8", "cp874", $o20);
+$isd0 = $_GET['isd'];
+$isd = iconv("UTF-8", "cp874", $isd0);
+$asa0 = $_GET['asa'];
+$asa = iconv("UTF-8", "cp874", $asa0);
+$pvx0 = $_GET['pvx'];
+$pvx = iconv("UTF-8", "cp874", $pvx0);
+$mp0 = $_GET['mp'];
+$mp = iconv("UTF-8", "cp874", $mp0);
+$sk0 = $_GET['sk'];
+$sk = iconv("UTF-8", "cp874", $sk0);
+$rf0 = $_GET['refer'];
+$rf = iconv("UTF-8", "cp874", $rf0);
+$rfto = $_GET['rfto'];
+
+$file = "Stemi_".$cid.".pdf";
+
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->AddFont('angsa','','angsa.php');
+$pdf->SetFont('angsa','',24);
+
+$pdf->Cell(40,10,'แบบฟอร์มส่งต่อผู้ป่วย STEMI โรงพยาบาลม่วงสามสิบ');
+$pdf->Ln();
+$pdf->SetFont('angsa','',14);
+
+$pdf->Cell(40,10,'             ชื่อ-สกุล : '.$name.'     รหัสประชาชน : '.$cid);
+$pdf->Ln();
+$pdf->Cell(40,10,'      Risk Factors : '.$risk);
+$pdf->Ln();
+$pdf->Cell(40,10,'Chief Complaint : '.$cc);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        N : '.$hxn);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        O : '.$hxo."   FMC(ER) : ".$er);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        P : '.$hxp);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        Q : '.$hxq);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        R : '.$hxr);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        S : '.$hxs);
+$pdf->Ln();
+$pdf->Cell(40,10,'                        T : '.$hxt);
+$pdf->Ln();
+$pdf->Cell(40,10,'        Vital Signs : '.$tpr);
+$pdf->Ln();
+$pdf->Cell(40,10,'                 EKG : '.$dekg."  ".$ekg);
+$pdf->Ln();
+$pdf->Cell(40,10,'      Troponin-T : '.$dtpt."  ".$tpt);
+$pdf->Ln();
+$pdf->Cell(40,10,'     Rx IV Fluid : '.$iv);
+$pdf->Ln();
+$pdf->Cell(40,10,'           Oxygen : '.$o2);
+$pdf->Ln();
+$pdf->Cell(40,10,'             Isordil : '.$isd);
+$pdf->Ln();
+$pdf->Cell(40,10,'                ASA : '.$asa);
+$pdf->Ln();
+$pdf->Cell(40,10,'             Plavix : '.$pvx);
+$pdf->Ln();
+$pdf->Cell(40,10,'        Morphine : '.$mp);
+$pdf->Ln();
+$pdf->Cell(40,10,'                  SK : '.$sk);
+$pdf->Ln();
+$pdf->Cell(40,10,'              Refer : '.$rfto.'  '.$rf);
+
+$pdf->Output($file, "D");
+?>

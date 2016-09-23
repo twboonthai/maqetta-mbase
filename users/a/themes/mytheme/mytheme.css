@@ -1,0 +1,94 @@
+@import url("../android/android.css");.mobile body {
+    background-repeat : no-repeat;
+    background-position : center center;
+    background-size : auto;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+    background-image : -o-linear-gradient(white, black);
+    background-image : -ms-linear-gradient(white, black);
+    background-image : -moz-linear-gradient(white, black);
+    background-image : -webkit-linear-gradient(white, black);
+    background-image : linear-gradient(white, black);
+}
+.mblListItem {
+    border : 1px solid black;
+    padding : 0 8px;
+    color : black;
+    font-size : 14px;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(white), to(#c676f5), color-stop(40%, #e4ccf1), color-stop(60%, #e3c7f3), color-stop(80%, #deb1f8));
+    background-image : -o-linear-gradient(white, #e4ccf1 40%, #e3c7f3 60%, #deb1f8 80%, #c676f5);
+    background-image : -ms-linear-gradient(white, #e4ccf1 40%, #e3c7f3 60%, #deb1f8 80%, #c676f5);
+    background-image : -moz-linear-gradient(white, #e4ccf1 40%, #e3c7f3 60%, #deb1f8 80%, #c676f5);
+    background-image : -webkit-linear-gradient(white, #e4ccf1 40%, #e3c7f3 60%, #deb1f8 80%, #c676f5);
+    background-image : linear-gradient(white, #e4ccf1 40%, #e3c7f3 60%, #deb1f8 80%, #c676f5);
+    background-color : transparent;
+    overflow : auto;
+    height : 50px;
+    line-height : 50px;
+    vertical-align : bottom;
+}
+.mblEdgeToEdgeList {
+}
+.mblRoundRectList {
+}
+.mblSwitch {
+    position : absolute;
+}
+.mblSwitchBg {
+    position : absolute;
+}
+.mblSwitchText {
+    position : absolute;
+}
+.mobile body {
+}
+.claro .dijitSelect, .claro .dijitSelect .dijitButtonContents, .claro .dijitTextBox, .claro .dijitTextBox .dijitButtonNode {
+    font-size : 14px;
+}
+.mobile body {
+    z-index : 800;
+}
+.mobile body {
+    z-index : 800;
+}
+.mobile body {
+    z-index : 800;
+}
+.mobile body {
+    z-index : 800;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(white), to(#9227f7));
+    background-image : -o-linear-gradient(white, #9227f7);
+    background-image : -ms-linear-gradient(white, #9227f7);
+    background-image : -moz-linear-gradient(white, #9227f7);
+    background-image : -webkit-linear-gradient(white, #9227f7);
+    background-image : linear-gradient(white, #9227f7);
+}
+.claro .dijitSelectLabel, .claro .dijitTextBox .dijitInputInner, .claro .dijitValidationTextBox .dijitValidationContainer {
+    font-style : normal;
+}
+.mblHeading {
+    color : white;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(#c3a4f1), to(#810af1));
+    background-image : -o-linear-gradient(#c3a4f1, #810af1);
+    background-image : -ms-linear-gradient(#c3a4f1, #810af1);
+    background-image : -moz-linear-gradient(#c3a4f1, #810af1);
+    background-image : -webkit-linear-gradient(#c3a4f1, #810af1);
+    background-image : linear-gradient(#c3a4f1, #810af1);
+}
+.mblTabBarSegmentedControl {
+    color : white;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(#c3a4f1), to(#810af1));
+    background-image : -o-linear-gradient(#c3a4f1, #810af1);
+    background-image : -ms-linear-gradient(#c3a4f1, #810af1);
+    background-image : -moz-linear-gradient(#c3a4f1, #810af1);
+    background-image : -webkit-linear-gradient(#c3a4f1, #810af1);
+    background-image : linear-gradient(#c3a4f1, #810af1);
+}
+.mblEdgeToEdgeCategory {
+    color : white;
+    background-image : -webkit-gradient(linear, left top, left bottom, from(#c3a4f1), to(#810af1));
+    background-image : -o-linear-gradient(#c3a4f1, #810af1);
+    background-image : -ms-linear-gradient(#c3a4f1, #810af1);
+    background-image : -moz-linear-gradient(#c3a4f1, #810af1);
+    background-image : -webkit-linear-gradient(#c3a4f1, #810af1);
+    background-image : linear-gradient(#c3a4f1, #810af1);
+}

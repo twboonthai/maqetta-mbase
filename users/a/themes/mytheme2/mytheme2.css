@@ -1,0 +1,32 @@
+@import url("../custom/custom.css");.mblHeading {
+    font-size : 15px;
+    background-image : -webkit-gradient(linear, left bottom, left top, from(white), to(#ababb3));
+    background-image : -o-linear-gradient(to top,white, #ababb3);
+    background-image : -ms-linear-gradient(to top,white, #ababb3);
+    background-image : -moz-linear-gradient(to top,white, #ababb3);
+    background-image : -webkit-linear-gradient(to top,white, #ababb3);
+    background-image : linear-gradient(to top,white, #ababb3);
+}
+.mblTabBarSegmentedControl {
+    font-size : 15px;
+    background-image : -webkit-gradient(linear, left bottom, left top, from(white), to(#ababb3));
+    background-image : -o-linear-gradient(to top,white, #ababb3);
+    background-image : -ms-linear-gradient(to top,white, #ababb3);
+    background-image : -moz-linear-gradient(to top,white, #ababb3);
+    background-image : -webkit-linear-gradient(to top,white, #ababb3);
+    background-image : linear-gradient(to top,white, #ababb3);
+}
+.mblEdgeToEdgeCategory {
+    font-size : 15px;
+    background-image : none;
+    font-style : italic;
+    color : #6a6a6f;
+    white-space : nowrap;
+    text-indent : 10px;
+    vertical-align : baseline;
+}
+.mblSwitchKnob {
+}
+.mblListItem {
+    background-color : #ffffff;
+}

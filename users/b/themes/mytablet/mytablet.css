@@ -1,0 +1,3 @@
+@import url("../iphone/iphone.css");.claro .dijitButton .dijitButtonNode, .claro .dijitDropDownButton .dijitButtonNode, .claro .dijitComboButton .dijitButtonNode, .claro .dijitToggleButton .dijitButtonNode {
+    height : 40px;
+}
