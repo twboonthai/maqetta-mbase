@@ -42,7 +42,7 @@ require([
 <script type="text/javascript" src="fct.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
 </head>
-<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
  <div data-dojo-type="dojox/mobile/View" id="login" style="height: 100%;" selected="true">
   <div data-dojo-type="dojox/mobile/Pane" style="height: 24px;"></div>
   <input type="text" data-dojo-type="dojox/mobile/TextBox" style="border: none; height: 8%; float: left; background-color: transparent; width: 5%;"></input>
@@ -79,6 +79,7 @@ require([
  <div data-dojo-type="dojox/mobile/View" id="person" style="height: 100%;">
    <h1 label="บุคคลเป้าหมาย" data-dojo-type="dojox/mobile/Heading" id="person_title" style="font-size: 14px;">
      <div label="เมนูหลัก" data-dojo-type="dojox/mobile/ToolBarButton" id="back_person" arrow="left" style="font-size: 10px;"></div>
+     <div label="บ้านเลขที่" data-dojo-type="dojox/mobile/ToolBarButton" id="go_adr" arrow="right" style="float: right;"></div>
    </h1>
    <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="cid_box" style="width: 100%; background-repeat: no-repeat; background-position: center center; background-image: url('search.jpg'); color: blue; font-weight: bold; font-size: 14pt; height: 33px;"></input>
    <button data-dojo-type="dojox/mobile/Button" id="btn_ok" style="position: absolute; z-index: 900; left: 252px; top: 7.5px; opacity: 0;">
@@ -121,7 +122,7 @@ require([
  <div data-dojo-type="dojox/mobile/View" id="b_detail" style="height: 100%;">
    <h1 label="รายละเอียดคำถาม" data-dojo-type="dojox/mobile/Heading" id="b_detail_title" style="font-size: 14px;">
      <div label="ยกเลิก" data-dojo-type="dojox/mobile/ToolBarButton" id="back_b_detail" arrow="left" style="font-size: 10px;"></div>
-     <div label="Save" data-dojo-type="dojox/mobile/ToolBarButton" id="save_b_detail" arrow="right" style="float: right;"></div>
+     <div label="Save" data-dojo-type="dojox/mobile/ToolBarButton" id="save_b_detail" style="float: right;"></div>
    </h1>
    <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;main_view_list&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="b_detail_list" select="single" style="overflow: auto; background-color: transparent; height: 425.65625px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
@@ -154,5 +155,26 @@ require([
 <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_6" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
 <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="pcu_list" select="single" style="height: 429.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
 </div>
- </body>
+ <div data-dojo-type="dojox/mobile/View" id="mooban" style="height: 100%;">
+ <h1 label="หมู่บ้านในเขตรับผิดชอบ" data-dojo-type="dojox/mobile/Heading" id="mooban_title" style="font-size: 14px;">
+  <div label="PCU" data-dojo-type="dojox/mobile/ToolBarButton" id="back_mooban" arrow="left" style="font-size: 10px;"></div>
+</h1>
+   <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="mooban_list" select="single" style="height: 429.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="house" style="height: 100%;">
+ <h1 label="หลังคาเรือน" data-dojo-type="dojox/mobile/Heading" id="house_title" style="font-size: 14px;">
+     <div label="หมู่บ้าน" data-dojo-type="dojox/mobile/ToolBarButton" id="back_house" arrow="left" style="font-size: 10px;"></div>
+   </h1>
+   <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+   <input type="tel" data-dojo-type="dojox/mobile/SearchBox" id="adr_search" placeHolder="บ้านเลขที่" baseClass="mblTextBox mblSearchBox" pageSize="Infinity" ignoreCase="true" style="height: 32.66667396911621px; background-repeat: no-repeat; background-image: url('search.jpg'); width: 98%; background-position: center center; font-size: 18px;"></input>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="house_list" select="single" style="background-color: transparent; overflow: auto; height: 380.1875px;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="adr" style="height: 100%;">
+   <h1 label="สมาชิกครัวเรือน" data-dojo-type="dojox/mobile/Heading" id="adr_title" style="font-size: 14px;">
+     <div label="ช้านเลขที่" data-dojo-type="dojox/mobile/ToolBarButton" id="back_adr" arrow="left" style="font-size: 10px;"></div>
+   </h1><span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_6" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="adr_list" select="single" style="height: 429.19445037841797px; background-color: transparent; overflow: auto;" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+</body>
 </html>

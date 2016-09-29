@@ -37,26 +37,23 @@ require([
 </script>
 <style>@import "themes/claro/claro.css";@import "app.css";
 </style>
-<script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="udf.js"></script>
-<script type="text/javascript" src="template.js"></script>
+<script type="text/javascript" src="lesson1.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
 </head>
 <body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
  <div data-dojo-type="dojox/mobile/View" id="view1" style="height: 100%;" selected="true">
-   <h1 label="หัวข้อเรื่อง" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px;">
-     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" arrow="left"></div>
-     <div label="+" data-dojo-type="dojox/mobile/ToolBarButton" style="float: right; font-size: 20px; font-weight: bold;"></div>
-   </h1><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
-<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view1_list" select="single" style="height: 422.2916717529297px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
-</div>
- <div data-dojo-type="dojox/mobile/View" id="view2" style="height: 100%;">
-   <h1 label="หัวข้อเรื่อง" data-dojo-type="dojox/mobile/Heading" id="view2_title" style="font-size: 14px;">
-     <div label="กลับ" data-dojo-type="dojox/mobile/ToolBarButton" id="back_view2" arrow="left"></div>
-     <div label="+" data-dojo-type="dojox/mobile/ToolBarButton" style="float: right; font-size: 20px; font-weight: bold;"></div>
+   <h1 label="หน้าแรก" data-dojo-type="dojox/mobile/Heading" id="view1_title" style="font-size: 14px;">
    </h1>
-   <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
-<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view2_list" select="single" style="height: 422.2916717529297px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+   <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view1_list" select="single" style="overflow: auto; height: 411.66668701171875px; background-color: transparent;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ </div>
+ <div data-dojo-type="dojox/mobile/View" id="view2" style="height: 100%;">
+   <h1 label="ทดสอบ View 2" data-dojo-type="dojox/mobile/Heading" id="view2_title">
+     <div label="กลับ" data-dojo-type="dojox/mobile/ToolBarButton" id="back_view2"></div>
+   </h1>
+ <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+ <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view2_list" select="single" style="overflow: auto; height: 411.66668701171875px; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
 </div>
  <div data-dojo-type="dojox/mobile/View" id="select_dt" style="height: 100%;">
    <h1 label="select_dt_title" data-dojo-type="dojox/mobile/Heading" id="select_dt_title" style="font-size: 14px;">
@@ -76,7 +73,7 @@ require([
   </h1>
   <textarea data-dojo-type="dojox/mobile/TextArea" id="txt_return" placeHolder="Return Text" style="width: 100%; height: 59.33334px;"></textarea>
   <input type="text" data-dojo-type="dojox/mobile/SearchBox" id="txt_search" placeHolder="Search Box" baseClass="mblTextBox mblSearchBox" pageSize="Infinity" ignoreCase="true" style="height: 32.66667396911621px; background-repeat: no-repeat; background-image: url('search.jpg'); width: 98%; background-position: center center;"></input>
-  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;1 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;1.1 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;2 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;2.1 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;3 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;3.1 รายชื่อ&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_3" jsId="ItemFileReadStore_3" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="txt_list" select="single" style="height: 315.65972900390625px; background-color: transparent;" store="ItemFileReadStore_3" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
 </div>
 </body>

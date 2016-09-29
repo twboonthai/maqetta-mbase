@@ -12,7 +12,6 @@ var source_view = "";
 var gcheader = "";
 var lclevel = "1";
 var lchosp_name = "";
-var ceomenu = "";
 var lcpps = "";
 
 // HI
@@ -98,16 +97,25 @@ require([
 		
 		function ci_show() {
 			var a, b, c, d, e, f, g, h, i, j, k, l;
-			a = b = c = d = e = f = g = h = i = j = k = l = "";
-			if (ceomenu == "3") {
-				var ci_obj = php2obj("ci_score_pv.php?date1=" + d2txt(lddate1) + "&date2=" + d2txt(lddate2) + "&grade=0");}
-			else if (ceomenu == "4") {
-				var ci_obj = php2obj("ci_score_pv.php?date1=" + d2txt(lddate1) + "&date2=" + d2txt(lddate2) + "&grade=0&town_id=" + gcampur_id.substr(0, 4));
-			}
-			var y = ci_obj.items.length;
+			a = "";
+			b = "";
+			c = "";
+			d = "";
+			e = "";
+			f = "";
+			g = "";
+			h = "";
+			i = "";
+			j = "";
+			k = "";
+			l = "";
+			if (cimenu == "4") {var cphp = "ci_score_pv.php?date1=" + d2txt(lddate1) + "&date2=" + d2txt(lddate2) + "&grade=0";}	
+			else if (cimenu == "5") {var cphp = "ci_score_pv.php?date1=" + d2txt(lddate1) + "&date2=" + d2txt(lddate2) + "&grade=0&town_id=" + gcampur_id.substr(0, 4);}
+			var ci_obj = php2obj(cphp, 1);
+			var y = ci_obj.length;
 			var x;
 			for(x = 0; x < y; x++){
-	       		var item = ci_obj.items[x];
+	       		var item = ci_obj[x];
 	       		var ctype = item.ci_type;
 	       		// วัด 001
 	       		if (ctype == "001") {

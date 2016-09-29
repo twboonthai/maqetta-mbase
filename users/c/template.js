@@ -1,35 +1,26 @@
-//////////////////////////
-//// Public Variables ////
-//////////////////////////
+////////////////////////////////
+//// Public Variables //////////
+////////////////////////////////
 
-//// General /////////////
-
+//// ส่วนนี้ไม่ต้องแก้ไข ///////////////////////////////////////////////////////////////////////////////////
 // parameter สำหรับ view select_dt
 var lddate = new Date();
 var lcvar = "x";
-
 // parameter สำหรับ Text Input
 // View ที่ต้องการกลับหลังเสร็จงาน
 var gcsource_view = "main_view";
-// เก็บText : lccode = F, เก็บ Value : lccode = T
-var lccode = "F";
-// ประเภทของตัวแปร C(haracter) หรือ N(umber)
-var lcvartype = "C";
 // กลับสู่ View ทันทีเมื่อทำการเลือกรายการ ไม่ต้องกดปุ่ม Back
 var lautoback = false;
-// Show Text ที่ txt_return โดยไม่ต้อง Clear
-var ltxtshow = false;
+// ชื่อ field ที่ต้องการเก็บค่า code แทนข้อความ ถ้า lcfield = "" จะเก็บค่าเป็นข้อความ
+var lcfield = "";
 // Function ที่ต้องการ run เมื่อกลับสู่ gcsource_view
 var gcfunction = "";
-
-
-//// Specific //////////
-
-///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
  * This file is provided for custom JavaScript logic that your HTML files might need.
  * Maqetta includes this JavaScript file by default within HTML pages authored in Maqetta.
+ * ส่วนนี้ไม่ต้องแก้ไข เป็นการเรียก JavaScript มาตรฐานของ Maqetta มาใช้งานโดยอัตโนมัติ
  */
 
 require([
@@ -57,23 +48,29 @@ require([
    	"dojox/charting/plot2d/StackedColumns",	
 	"dojox/charting/plot2d/Grid",
  	"dojo/_base/xhr" // use xhr to make ajax call to remote server
- 	// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ ตั้งชื่อใหม่ได้
+// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ
  ], function(popup, mitem, menu, _base, heading, tool, mobile, parser, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
 		ready(function(){
 ///////////////////////////////
 //// User Defined Function ////
 ///////////////////////////////
 		
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+///////////////////////////////////////////////////////////////////////////////////////////////////////	
 ///////////////////////////////
 //// Loading Code /////////////
 ///////////////////////////////
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
-//// Datetime    //////////////////
+//// Datetime    //////////////
 ///////////////////////////////
+//// ส่วนนี้ไม่ต้องแก้ไข ใช้สำหรับ view ชื่อ select_dt เพื่อการกรอกข้อมูลที่เป็นวัน เวลา 						
+//// การใช้ view select_dt 																		
+//// 1. กำหนดค่า gcsource_view เพื่อให้ทราบว่า เมื่อระบุวัน เวลาแล้ว จะให้กลับไปที่ view ใด 					 
+//// 2. กำหนดค่า lcvar เพื่อระลุว่า ค่าวัน-เวลาที่เลือก จะถูกเก็บไว้ในตัวแปรชื่ออะไร
+//// 3. กำหนดค่า gcfunction กรณีที่ต้องการ run Function เมื่อเลือกวันเวลาเสร็จ										 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////
 		//// Register ////
 		//////////////////
@@ -152,10 +149,19 @@ require([
 				}
 			}
 		});
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
-//// txt_input    ////////////
+//// text_input    ////////////
 ///////////////////////////////
+//// ส่วนนี้ไม่ต้องแก้ไข ใช้สำหรับ view ชื่อ Text_input เพื่อการกรอกข้อมูลที่เป็นข้อความ	
+//// การใช้ view Text_input															
+//// 1. กำหนดค่า gcsource_view เพื่อให้ทราบว่า เมื่อระบุข้อความแล้ว จะให้กลับไปที่ view ใด 
+//// 2. กำหนดค่า lcvar ว่าค่าข้อความที่เลือก จะให้เก็บไว้ในตัวแปรชื่ออะไร
+//// 3. กำหนดค่า lcfield คือค่า column ใน txt_list ที่ต้องการให้คืนค่าแทนข้อความที่เลือก ถ้า lcfiend = "" จะคืนค่าเป็นข้อความที่เลือกโดยตรง
+//// 4. กำหนดค่า gcfunction กรณีที่ต้องการ run Function หลังจากเลือกข้อความ
+//// 5. กำหนดค่า lautoback : true=คลิกเลือกข้อความแล้ว back กลับ gcsource_view เลย, 
+////						               false=ต้องกดปุ่ม back ถึงจะกลับ gcsource_view							
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////
 		//// Register ////
 		//////////////////
@@ -168,14 +174,13 @@ require([
 		var txt_title = reg.byId("txt_title");
 
 		//////////////////
+		//// Variables ///
+		//////////////////
+		var lcnewtxt = "";
+
+		//////////////////
 		//// Events //////
 		//////////////////
-		
-		on(text_input, "beforeTransitionIn", function() {
-			if (ltxtshow == false) {txt_return.set("value", "");}
-			ltxtshow = false;
-			txt_search.set("value", "");
-		});
 		
 		on(txt_search, "keyup", function() {
 			lcsearchtext = txt_search.get("value").trim().toUpperCase();
@@ -184,51 +189,56 @@ require([
 		
 		on(txt_title, "click", function() {
 			var isdel = txt_clear.get("focused");
-			if (isdel == true) {	txt_return.set("value", "");}
+			if (isdel == true) {txt_return.set("value", "");}
 			
 			var isback = back_txt.get("focused");
 			if (isback == true) {
-				if (lccode != "T") {
+				if (lcfield == "") {
 					lcnewtxt = txt_return.get("Value").trim();
 					var cmacro = lcvar + "= '" + lcnewtxt + "'";
 					eval(cmacro);
 				}
 				eval(gcfunction);
-				text_input.performTransition(gcsource_view, -1, "slide", null);
 				lautoback = false;
 				gcfunction = "";
+				lcfield = "";
+				txt_return.set("value", "");
+				txt_search.set("value", "");
+				text_input.performTransition(gcsource_view, -1, "slide", null);
 			}
 		});
 		
 		on(txt_list, "click", function() {
-			var lcnewtxt = "";
+			lcnewtxt = "";
 			var lcoldtxt = txt_return.get("value");
 			var obj = selected_row("txt_list");
 			// แทนค่าตัวแปรด้วย value ที่ได้จากการเลือก List
 			if (lcoldtxt.trim() == "") { lcnewtxt = obj.label; }
 				else { lcnewtxt = lcoldtxt + " " + obj.label; }
 			txt_return.set("value", lcnewtxt);
-			if (lccode == "T") {
-				if (lcvartype == "N") { var cmacro = lcvar + "=" + obj.value; }
-				else { var cmacro = lcvar + "='" + obj.value + "'";  }
-			} else {
-				var cmacro = lcvar + "= '" + lcnewtxt + "'";
-			}
+			if (lcfield != "") {var cmacro = lcvar + "=" + "obj." + lcfield;}
+			else {var cmacro = lcvar + "= '" + lcnewtxt + "'";}
 			eval(cmacro);
 			if (lautoback == true) {
-				if (lccode != "T") {
+				if (lcfield == "") {
 					lcnewtxt = txt_return.get("Value").trim();
 					var cmacro = lcvar + "= '" + lcnewtxt + "'";
 					eval(cmacro);
 				}
 				eval(gcfunction);
-				text_input.performTransition(gcsource_view, -1, "slide", null);
 				lautoback = false;
+				gcfunction = "";
+				lcfield = "";
+				txt_return.set("value", "");
+				txt_search.set("value", "");
+				text_input.performTransition(gcsource_view, -1, "slide", null);
 			}
 		});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
+//// ส่วนนี้ เป็น code ที่ต้องเขียน เพื่อควบคุมการทำงานของ view ต่างๆ ใน Project //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
-//// View 1     /////////////////
+//// View 1   /////////////////
 ///////////////////////////////
 		//////////////////
 		//// Register ////
@@ -236,42 +246,49 @@ require([
 		var view1 = reg.byId("view1");
 		var view1_title = reg.byId("view1_title");
 		var view1_list = reg.byId("view1_list");
-		var c1 = "";
+		var new_store = new ifws({data:{items:[]}});
+		view1_list.setStore(new_store);
 		//////////////////
-		//// Function ////////////////////////////////////////////
+		//// Function ////
+		//////////////////
 
-		//////////////////////////////////////////////////////////////
+		//////////////////
+		//// Variables ///
+		//////////////////
+
+		//////////////////
 		//// Events //////
 		//////////////////
 		on(view1_list, "click", function() {
-			alert("c1=" + c1);
-			gcsource_view = "view1";
-			lcvar = "c1";
-			view1.performTransition("text_input", 1, "slide");
-		});
-		//////////////////
 
-/////////////////////////////////////////////////////////////////
+		});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
-//// View 2     /////////////////
+//// View 2   /////////////////
 ///////////////////////////////
 		//////////////////
 		//// Register ////
 		//////////////////
-		var view2 = reg.byId("view2");
-		var view2_title = reg.byId("view2_title");
-		var back_view2 = reg.byId("back_view2");
+		//var view2 = reg.byId("view2");
+		//var back_view2 = reg.byId("back_view2");
+		//var view2_title = reg.byId("view2_title");
+		//var view2_list = reg.byId("view2_list");
 		//////////////////
-		//// Function ////////////////////////////////////////////
+		//// Function ////
+		//////////////////
 
-		//////////////////////////////////////////////////////////////
+		//////////////////
+		//// Variables ///
+		//////////////////
+
+		//////////////////
 		//// Events //////
 		//////////////////
-		on(view2_title, "click", function() {
-			back("back_view2", "view2", "view1");
-		});
-		//////////////////
-
-//////////////////////////////////////////////////////////////////////////////	
+		//on(view2_title, "click", function() {
+			//back("back_view2", "view2", "sourceview");
+		//});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// ส่วนล่าง 2 บรรทัด ห้ามลบ ห้ามแก้ไข ///////////////////////////////////////////////////////////////////////
 	});
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////

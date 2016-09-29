@@ -5,6 +5,7 @@
 //// General ///////////////
 var lcselected = "";
 var lnauto = 0;
+var lcmenu = "";
 
  // parameter สำหรับ view select_dt
 var lddate = new Date();
@@ -31,6 +32,7 @@ var lcshow = "";
 var lcpassword = "";
 var lcstaff = "";
 var lcstaffcid = "";
+var ladmin = 0;
 
 // CUP
 var lchosp_id = "10953";
@@ -332,6 +334,8 @@ require([
 		var user_id = reg.byId("user_id");
 		var password = reg.byId("password");
 		var btn_login = reg.byId("btn_login");
+		var login_title = reg.byId("login_title");
+		var back_staff = reg.byId("back_staff");
 		//////////////////
 		//// Events //////
 		//////////////////
@@ -359,13 +363,22 @@ require([
 			var staff = php2obj("id2staff.php?staff_id=" + lcstaff);
 			lcpassword = staff.staff_pw;
 			lcstaffcid = staff.cid;
+			ladmin = staff.is_admin;
 			if (lcpsw == decode(lcpassword)) {
+				main_list();
 				login.performTransition("main_menu", 1, "slide", null);}
 			else {
 				alert ("User ID/password ไม่ถูกต้อง !!!");
 				lcpsw = "";
 				password.set("value", "");
 				password.focus(true);
+			}
+		});
+
+		on (login_title, "click", function() {
+			var back2main = back_staff.get("focused");
+			if (back2main == true) {
+				window.location.href = "http://m30.phoubon.in.th/index.html";
 			}
 		});
 		//////////////////
@@ -380,7 +393,7 @@ require([
 		var main_menu_title = reg.byId("main_menu_title");
 		var back_main_menu = reg.byId("back_main_menu");
 		var main_menu_list = reg.byId("main_menu_list")
-		main_list();
+		
 		///////////////////
 		//// Function //////
 		///////////////////
@@ -389,9 +402,18 @@ require([
 			var fm_store = new ifws({data:{items:[]}});
 			main_menu_list.store = null;
 			main_menu_list.setStore(fm_store);
+			
 			var list_add = main_menu_list.store.newItem({label: "สำหรับ Admin", value : "0", header : true});
-			var list_add = main_menu_list.store.newItem({label: "กำหนด/แก้ไข ผู้ใช้งาน", rightText : ">", value : "1", style: "color: #808080"});
-			var list_add = main_menu_list.store.newItem({label: "Upload ประชากร", rightText : ">", value : "2", style: "color: #808080"});
+			if (ladmin == 0) {
+				var list_add = main_menu_list.store.newItem({label: "กำหนด/แก้ไข ผู้ใช้งาน", rightText : ">", value : "1", style: "color: #808080"});
+				var list_add = main_menu_list.store.newItem({label: "Upload ประชากร", rightText : ">", value : "2", style: "color: #808080"});
+				var list_add = main_menu_list.store.newItem({label: "แก้ไข HI", rightText : ">", value : "8", style: "color: #808080"});
+			} else {
+				var list_add = main_menu_list.store.newItem({label: "กำหนด/แก้ไข ผู้ใช้งาน", rightText : ">", value : "1"});
+				var list_add = main_menu_list.store.newItem({label: "Upload ประชากร", rightText : ">", value : "2"});
+				var list_add = main_menu_list.store.newItem({label: "แก้ไข HI", rightText : ">", value : "8"});
+
+			}
 			var list_add = main_menu_list.store.newItem({label: "", value : "3"});
 			var list_add = main_menu_list.store.newItem({label: "สำหรับ เจ้าหน้าที่", value : "4", header : true});
 			var list_add = main_menu_list.store.newItem({label: "กำหนดเครือข่าย", rightText : lcampur_name, value : "5"});
@@ -411,15 +433,21 @@ require([
 		
 		on(main_menu_list, "click", function() {
 			var cobj = selected_row("main_menu_list");
-			lcselected = cobj.value;
-			if (lcselected == "5") {main_menu.performTransition("cup", 1, "slide", null);}
-			if (lcselected == "6") {
+			lcmenu = cobj.value;
+			if (lcmenu == "5") {main_menu.performTransition("cup", 1, "slide", null);}
+			if (lcmenu == "6") {
 				main_menu.performTransition("person", 1, "flip", null);
 				cid_box.focus(true);
 			}
-			if (lcselected == "7") {
+			if (lcmenu == "7") {
 				list("pcu_list", "pcu_list.php?hosp_id=" + lchosp_id);
 				main_menu.performTransition("pcu", 1, "slide", null);
+			}
+			if (lcmenu == "8") {
+				if (ladmin == 1) {
+					list("pcu_list", "pcu_list.php?hosp_id=" + lchosp_id);
+					main_menu.performTransition("pcu", 1, "slide", null);
+				} else {alert ("ท่านไม่มีสิทธิแก้ไขค่า HI ...");}
 			}
 		});
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1202,8 +1230,21 @@ require([
 		on(mooban_list, "click", function() {
 			var cobj = selected_row("mooban_list");
 			var lctown = cobj.town_id;
-			list("house_list", "house_list.php?town_id=" + lctown);
-			mooban.performTransition("house", 1, "slide", null);
+			var lcmooban = cobj.label;
+			if (lcmenu == "8") {
+				var cobj = php2obj("town_hi.php?town_id=" + lctown);
+				var oldhi = cobj.hi_value;
+				var newhi = prompt(lcmooban + " HI=" + oldhi + " กรุณากรอก HI ที่ต้องการ ...", "");
+				if (newhi != null) {
+					var r = confirm("ต้องการแก้ไข HI " + lcmooban + " จาก " + oldhi + " เป็น " + newhi + " ?");
+					if (r == true) {
+						mysave("hi_update.php?hi_value=" + newhi + "&staffcid=" + lcstaffcid + "&town_id=" + lctown);
+					}
+				}
+			} else {
+				list("house_list", "house_list.php?town_id=" + lctown);
+				mooban.performTransition("house", 1, "slide", null);
+			}
 		});
 		//////////////////
 
