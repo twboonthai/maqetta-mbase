@@ -147,7 +147,7 @@ require([
 		pt_list.store = null;
 		pt_list.setStore(pt_store);
 		
-		list("pt_list", "ipd_patient.php?filter=2")
+		list("pt_list", "ipd_patient.php?filter=2");
 
 		//////////////////
 		//// Events //////

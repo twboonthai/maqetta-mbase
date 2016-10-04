@@ -17,14 +17,15 @@ for ($n=0; $n<=$record; $n++)
 	for ($nfield=0; $nfield<=$totalField; $nfield++)
 	{
 		$field = mysql_field_name($objQuery, $nfield).''.':';
-		$value = '"'.$items[$nfield].'"';
+		$fldval = str_replace('"', '', $items[$nfield]);
+		$value = $field.'"'.$fldval.'"';
 		if($nfield<$totalField)
 		{
-			$row = $row.trim($field.$value).','; // ลบ space
+			$row = $row.$value.','; // ลบ space
 		}
 		else
 		{
-			$row = $row.trim($field.$value); // ลบ space
+			$row = $row.$value; // ลบ space
 		}
 	}
 	$return = $return.'{';

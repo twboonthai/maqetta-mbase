@@ -3,6 +3,11 @@
 //////////////////////////
 
 //// General ///////////////
+var lddate0 = new Date();
+var gcsource_view = "";
+var lcvar = "";
+var gcfunction = "";
+
 var lcsource = "";
 var lcvartype = "N";
 var lccode = "T";
@@ -249,13 +254,14 @@ require([
 			var list_add = er_visit.store.newItem({label: "ผู้ป่วย", rightText: lcfullname + " (" + lcage + ")", value : "1"});
 			var list_add = er_visit.store.newItem({label: "FMC", rightText: tsdate(lddate2, 1) + " >", value : "2"});
 			var list_add = er_visit.store.newItem({label: "C/C :", rightText: ">", value : "3"});
-			var list_add = er_visit.store.newItem({label: lccc, variableHeight: true, value : "3"});
+			var list_add = er_visit.store.newItem({label: lccc, variableHeight: true, value : "3", style: "color: blue"});
 			var list_add = er_visit.store.newItem({label: "Temperature", rightText: lcbt + " C >", value : "4"});
 			var list_add = er_visit.store.newItem({label: "Pulse Rate", rightText: lcpr + "/min >", value : "5"});
 			var list_add = er_visit.store.newItem({label: "Respiratory Rate", rightText: lcrr + "/min >", value : "6"});
 			var list_add = er_visit.store.newItem({label: "Blood Pressure", rightText: lcsyst + "/" + lcdias + " mmHg >", value : "7"});
 //			var list_add = er_visit.store.newItem({label: "", value : "8"});
-			var list_add = er_visit.store.newItem({label: "Risk Factors", rightText: lcrisk + " >", value : "9"});
+			var list_add = er_visit.store.newItem({label: "Risk Factors", rightText: " >", value : "9"});
+			var list_add = er_visit.store.newItem({label: lcrisk, variableHeight: true, value : "9", style: "color: blue"});
 		}
 		
 		function stemi1_list() {
@@ -343,7 +349,7 @@ require([
 		    sw2list("risk", "sw_fm", "Family History", lnfm);
 			//// Other
 		    sw2list("risk", "sw_xx", "Other Factors", lnxx);
-	    	if (lnxx == 1) {risk_other.set("value", lcother);
+			if (lnxx == 1) {risk_other.set("value", lcother);
 	    		risk_other.domNode.style.visibility = "visible";}
 	    	else {risk_other.set("value", "");
 	    		risk_other.domNode.style.visibility = "hidden";}
@@ -410,9 +416,9 @@ require([
 				var ctxt = "พยาบาล เป็นผู้ให้ยาละลายลิ่มเลือดโดยเร็วที่สุด (หากสามารถเริ่มให้ได้ภายใน 30 นาทีหลังจากผู้ป่วยมาถึง รพ.จะได้ผลดี) โดยเตรียมและผสมยาตามขั้นตอนการเตรียมยา Streptokinase ดังนี้" + "\n" +
 					"1. ละลายด้วย 0.9% NSS ควรฉีดสารละลายอย่างช้าๆ ด้านในบริเวณข้างขวดยา" + "\n" +
  					"2. กลิ้งขวดยาอย่างช้าๆเพื่อให้ยาผสมเข้ากัน ห้ามเขย่า เนื่องจากทำให้เกิดฟองได้" + "\n" + 
- 					"3. นำสารละลายที่ได้เจือจางผสมใน 0.9% NSS 100 ml้" + "\n" + 
- 					"4. ตรวจสอบดูว่ามีอนุภาคหรือการเปลี่ยนสีก่อนให้ยากับผู้ป่วย้" + "\n" + 
-					"5. ห้ามผสมยาอื่นในภาชนะเดียวกัน้" + "\n" + 
+ 					"3. นำสารละลายที่ได้เจือจางผสมใน 0.9% NSS 100 ml" + "\n" + 
+ 					"4. ตรวจสอบดูว่ามีอนุภาคหรือการเปลี่ยนสีก่อนให้ยากับผู้ป่วย" + "\n" + 
+					"5. ห้ามผสมยาอื่นในภาชนะเดียวกัน" + "\n" + 
  					"6. ควรใช้สารละลายหลังผสมทันที เนื่องจากยาไม่มีส่วนผสมของสารกันเสีย และเก็บได้นาน 8 ชั่วโมงเท่านั้น";
 				alert (ctxt);
 			}
@@ -477,11 +483,11 @@ require([
 					lcsyst = "";
 					lcdias = "";
 					lccc = "เจ็บหน้าอกด้านซ้าย";
-					btemp.set("value", "");
-					pulse.set("value", "");
-					resp.set("value", "");
-					syst.set("value", "");
-					dias.set("value", "");
+					tb2.set("value", "");
+					tb3.set("value", "");
+					tb4.set("value", "");
+					tb5.set("value", "");
+					tb6.set("value", "");
 					
 					lndm = 0;
 					lnht = 0;
@@ -645,11 +651,11 @@ require([
     		lcsyst = st_visit.bp_syst;
     		lcdias = st_visit.bp_dias;
     		lccc = st_visit.c_complaint;
-    		btemp.set("value", lcbt);
-			pulse.set("value", lcpr);
-			resp.set("value", lcrr);
-			syst.set("value", lcsyst);
-			dias.set("value", lcdias);
+    		tb2.set("value", lcbt);
+			tb3.set("value", lcpr);
+			tb4.set("value", lcrr);
+			tb5.set("value", lcsyst);
+			tb6.set("value", lcdias);
 			lndm = st_visit.dm;
 			lnht = st_visit.ht;
 			lnsm = st_visit.sm;
@@ -899,11 +905,11 @@ require([
 				var lcdmp = d2txt(ldmp, 1);
 				var lcdsk = d2txt(ldsk, 1);
 				var lcdrf = d2txt(ldrf, 1);
-				lcbt = btemp.get("value").trim();
-				lcpr = pulse.get("value").trim();
-				lcrr = resp.get("value").trim();
-				lcsyst = syst.get("value").trim();
-				lcdias = dias.get("value").trim();
+				lcbt = tb2.get("value").trim();
+				lcpr = tb3.get("value").trim();
+				lcrr = tb4.get("value").trim();
+				lcsyst = tb5.get("value").trim();
+				lcdias = tb6.get("value").trim();
 				var lcresult = "";
 				if (lcdiag > "") {lcresult = "&diagnosis=" + lcdiag;}
 				if (lctreatment > "") {lcresult = lcresult + "&treatment=" + lctreatment;}
@@ -969,13 +975,20 @@ require([
 			   	if (lnnosk == 1) {nosk = "ไม่ได้ฉีด SK เนื่องจากผู้ป่วยมีข้อห้ามในการใช้ยา SK";}
 				if (lnnosk == 2) {nosk = "ไม่ได้ฉีด SK เนื่องจากความไม่พร้อมด้านบุคลากร";}
 				if (lnnosk == 3) {nosk = "ไม่ได้ฉีด SK เนื่องจากความไม่พร้อมด้านวัสดุอุปกรณ์";}
+				
+				// critical period
+				var ctime1 = min2hm(d2d_diff(lddate1, lddate2, "minutes"));
+				var ctime2 = min2hm(d2d_diff(lddate2, ldekg, "minutes"));
+				var ctime3 = min2hm(d2d_diff(lddate2, ldsk, "minutes"));
+				var ctime4 = min2hm(d2d_diff(lddate2, ldrf, "minutes"));
+				var ctime5 = min2hm(d2d_diff(lddate1, ldsk, "minutes"));
 			   	
 			   	// PHP to PDF //////////////
 			   	lcpdf = ip_address + "pdf.php?cid=" + lccid + "&pt_name=" + lcfullname + " อายุ " + lcage + "&cc=" + lccc + "&hxn=" + lchx_n + "&hxo=" + lchx_o + "&hxp=" + lchx_p + 
 			   	"&hxq=" + lchx_q + "&hxr=" + lchx_r + "&hxs=" + lchx_s + "&hxt=" + lchx_t + "&risk=" + lcrisk + "&er=" + tsdate(lddate2, 1) + "&tpr=" + tpr + "&dekg=" + tsdate(ldekg, 1) +
 			   	"&ekg=" + lcekg + "&dtpt=" + tsdate(ldtpt, 1) + "&tpt=" + lctpt + "&iv=" + tsdate(ldiv, 1) + "&o2=" + tsdate(ldo2, 1) + "&isd=" + tsdate(ldisd, 1) + "&asa=" + tsdate(ldasa, 1) + 
-			   	"&pvx=" + tsdate(ldpvx, 1) + "&mp=" + tsdate(ldmp, 1) + "&sk=" + tsdate(ldsk, 1) + nosk + "&refer=" + tsdate(ldrf, 1) + "&rfto=" + lcrfto;
-			   	//alert (lcpdf);
+			   	"&pvx=" + tsdate(ldpvx, 1) + "&mp=" + tsdate(ldmp, 1) + "&sk=" + tsdate(ldsk, 1) + nosk + "&refer=" + tsdate(ldrf, 1) + "&rfto=" + lcrfto +
+			   	"&time1=" + ctime1 + "&time2=" + ctime2 + "&time3=" + ctime3 + "&time4=" + ctime4 + "&time5=" + ctime5;
 				document.location.href = lcpdf;
 				alert ("สร้าง PDF ชื่อ stemi_" + lccid + ".pdf เรียบร้อยแล้ว");
 			   	/////////////////////////////////////////////////////
@@ -1021,12 +1034,6 @@ require([
 		var min2 = reg.byId("min2");
 		var pt_fullname = reg.byId("pt_fullname");
 		
-		var btemp = reg.byId("btemp");
-		var pulse = reg.byId("pulse");
-
-		var resp = reg.byId("resp");
-		var syst = reg.byId("syst");
-		var dias = reg.byId("dias");
 		//////////////////
 		//// Events //////
 		//////////////////
@@ -1127,7 +1134,14 @@ require([
 		// เลือกรายการ ข้อมูลทั่วไป
 		on(er_visit, "click", function() {
 			var er = selected_row("er_visit");
-			if (er.value == 3) {
+			if (er.value == "2") {
+				lddate0 = lddate2;
+				gcsource_view = "stemi_menu1_1";
+				lcvar = "lddate2";
+				gcfunction = "er_list()";
+				stemi_menu1_1.performTransition("select_dt", 1, "swirl");
+			}
+			if (er.value == "3") {
 				lcsource = "stemi_menu1_1";
 				lcvartype = "C";
 				lccode = "F";
@@ -1144,65 +1158,44 @@ require([
 				lcfnc = "er_list()";
 				lcvar = "lccc";
 				stemi_menu1_1.performTransition("txt_input", 1, "slide", null);}
-			else if (er.value == 9) {stemi_menu1_1.performTransition("stemi_menu1_2", 1, "slide", null);}
-			else {stemi_menu1_1.performTransition("stemi_menu1", 1, "slide", null);}
-		});
-		
-		on(btemp, "keyup", function() {
-     		lctemp = btemp.get("value").trim();
-     		var lnlength = lctemp.length;
-			if (lnlength == 2 && (lctemp.substr(0, 1) == "3" || lctemp.substr(0, 1) == "4")) {btemp.set("value", lctemp + ".");}
-			if (lnlength == 4 && lctemp.substr(3, 1) == ".") {
-				btemp.set("value", lctemp.substr(0, 3));
-				btemp.focus(true);}
-			if (lnlength == 4 && lctemp.substr(3, 1) != ".") {
-				lcbt = lctemp;
-				pulse.focus(true);
+			else if (er.value == "9") {stemi_menu1_1.performTransition("stemi_menu1_2", 1, "slide", null);}
+			else {
+				tb1.set("value", lcfullname);
+				tb2.set("value", lcbt);
+				if (lcbt == "") {lcicon = "none";}
+				else {lcicon = 'url("cross1.jpg")';}
+				cancel2.domNode.style.backgroundImage = lcicon;
+				tb3.set("value", lcpr);
+				if (lcpr == "") {lcicon = "none";}
+				else {lcicon = 'url("cross1.jpg")';}
+				cancel3.domNode.style.backgroundImage = lcicon;
+				tb4.set("value", lcrr);
+				if (lcrr == "") {lcicon = "none";}
+				else {lcicon = 'url("cross1.jpg")';}
+				cancel4.domNode.style.backgroundImage = lcicon;
+				tb5.set("value", lcsyst);
+				if (lcsyst == "") {lcicon = "none";}
+				else {lcicon = 'url("cross1.jpg")';}
+				cancel5.domNode.style.backgroundImage = lcicon;
+				tb6.set("value", lcdias);
+				if (lcdias == "") {lcicon = "none";}
+				else {lcicon = 'url("cross1.jpg")';}
+				cancel6.domNode.style.backgroundImage = lcicon;
+				
+				stemi_menu1_1.performTransition("view_input", 1, "slide", null);
 			}
 		});
 		
-		on(pulse, "keyup", function() {
-     		lctemp = pulse.get("value").trim();
-     		var lnlength = lctemp.length;
-			if ((lnlength == 2 && lctemp.substr(0, 1) > 2) || lnlength == 3) {
-				lcpr = lctemp;
-				resp.focus(true);
-			}
-		});
-		
-		on(resp, "keyup", function() {
-     		lctemp = resp.get("value").trim();
-     		var lnlength = lctemp.length;
-			if ((lnlength == 2 && lctemp.substr(0, 1) > 1) || lnlength == 3) {
-				lcrr = lctemp;
-				syst.focus(true);
-			}
-		});
-		
-		on(syst, "keyup", function() {
-     		lctemp = syst.get("value").trim();
-     		var lnlength = lctemp.length;
-			if ((lnlength == 2 && lctemp.substr(0, 1) > 3) || lnlength == 3) {
-				lcsyst = lctemp;
-				dias.focus(true);
-			}
-		});
-		
-		on(dias, "keyup", function() {
-     		lctemp = dias.get("value").trim();
-     		var lnlength = lctemp.length;
-			if ((lnlength == 2 && lctemp.substr(0, 1) > 2) || lnlength == 3) {
-				lcdias = lctemp;
-				back_menu1.focus(true);
-			}
-		});
 		//////////////////
 		on(risk, "click", function() {
 			var csw = sw_status("risk", "sw_xx");
-			if (csw== "on") {risk_other.domNode.style.visibility = "visible";
-				risk_other.focus(true);}
-			else {risk_other.domNode.style.visibility = "hidden";
-				lcother = "";}
+			var sel = selected_row("risk");
+			if (csw == "on") {
+				risk_other.domNode.style.visibility = "visible";
+				if (sel.id == "sw_xx") {
+					risk_other.focus(true);
+				}
+			} else {risk_other.domNode.style.visibility = "hidden";}
 		});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2505,5 +2498,267 @@ require([
 			eval(cmacro);
 		});
 		//////////////////
+		///////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//// view_input   /////////////////
+///////////////////////////////
+		//////////////////
+		//// Register ////
+		//////////////////
+		var view_input = reg.byId("view_input");
+		var back_view_input = reg.byId("back_view_input");
+		var view_input_title = reg.byId("view_input_title");
+		var input1 = reg.byId("input1");
+		var tb1 = reg.byId("tb1");
+		var cancel1 = reg.byId("cancel1");
+		var tb2 = reg.byId("tb2");
+		var cancel2 = reg.byId("cancel2");
+		var tb3 = reg.byId("tb3");
+		var cancel3 = reg.byId("cancel3");
+		var tb4 = reg.byId("tb4");
+		var cancel4 = reg.byId("cancel4");
+		var tb5 = reg.byId("tb5");
+		var cancel5 = reg.byId("cancel5");
+		var tb6 = reg.byId("tb6");
+		var cancel6 = reg.byId("cancel6");
+		
+		//////////////////
+		//// Function ////
+		//////////////////
+
+		//////////////////
+		//// Variables ///
+		//////////////////
+
+		//////////////////
+		//// Events //////
+		//////////////////
+		on(view_input_title, "click", function() {
+			lcbt = tb2.get("value");
+			lcpr = tb3.get("value");
+			lcrr = tb4.get("value");
+			lcsyst = tb5.get("value");
+			lcdias = tb6.get("value");
+			er_list();
+			back("back_view_input", "view_input", "stemi_menu1_1");
+		});
+
+		on(tb2, "keyup", function() {
+			var KeyID = event.keyCode;
+			var ctxt = tb2.get("value");
+			var len1 = ctxt.length;
+			if (len1 > 0) {
+				cancel2.domNode.style.backgroundImage = 'url("cross1.jpg")';
+				if (len1 == 2 && ctxt.search(".") == 0 && KeyID != 8 && (ctxt.substr(0, 1) == "3" || ctxt.substr(0, 1) == "4")) {tb2.set("value", ctxt + ".");}
+				if (len1 == 4 && ctxt.substr(3, 1) == ".") {
+					tb2.set("value", ctxt.substr(0, 3));
+					tb2.focus(true);}
+				if (len1 == 4 && ctxt.substr(3, 1) != ".") {
+					lcbt = ctxt;
+					tb3.focus(true);
+					// selectOnFocus
+					var len2 = tb3.get("value").length;
+					tb3.domNode.selectionStart = 0;
+					tb3.domNode.selectionEnd = len2;
+				}
+			} else {
+				cancel2.domNode.style.backgroundImage = "none";
+			}
+		});
+
+		on(cancel2, "click", function() {
+			tb2.set("value", "");
+			cancel2.domNode.style.backgroundImage = "none";
+		});
+		
+		on(tb3, "keyup", function() {
+			var ctxt = tb3.get("value").trim();
+			lcpr = ctxt;
+			var len1 = ctxt.length;
+			if (len1 > 0) {
+				cancel3.domNode.style.backgroundImage = 'url("cross1.jpg")';
+				if ((len1 == 2 && ctxt.substr(0, 1) > 2) || len1 == 3) {
+					lcpr = ctxt;
+					tb4.focus(true);
+					// selectOnFocus
+					var len2 = tb4.get("value").length;
+					tb4.domNode.selectionStart = 0;
+					tb4.domNode.selectionEnd = len2;
+				}
+			} else {
+				cancel3.domNode.style.backgroundImage = "none";
+			}
+		});
+
+		on(cancel3, "click", function() {
+			tb3.set("value", "");
+			cancel3.domNode.style.backgroundImage = "none";
+		});
+		
+		on(tb4, "keyup", function() {
+			var ctxt = tb4.get("value");
+			lcrr = ctxt;
+			var len1 = ctxt.length;
+			if (len1 > 0) {
+				cancel4.domNode.style.backgroundImage = 'url("cross1.jpg")';
+				if ((len1 == 2 && ctxt.substr(0, 1) > 1) || len1 == 3) {
+					lcrr = ctxt;
+					tb5.focus(true);
+					// selectOnFocus
+					var len2 = tb5.get("value").length;
+					tb5.domNode.selectionStart = 0;
+					tb5.domNode.selectionEnd = len2;
+				}
+			} else {
+				cancel4.domNode.style.backgroundImage = "none";
+			}
+		});
+
+		on(cancel4, "click", function() {
+			tb4.set("value", "");
+			cancel4.domNode.style.backgroundImage = "none";
+		});
+		
+		on(tb5, "keyup", function() {
+			var ctxt = tb5.get("value");
+			lcsyst = ctxt;
+			var len1 = ctxt.length;
+			if (len1 > 0) {
+				cancel5.domNode.style.backgroundImage = 'url("cross1.jpg")';
+				if ((len1 == 2 && ctxt.substr(0, 1) > 3) || len1 == 3) {
+					lcsyst = ctxt;
+					tb6.focus(true);
+					// selectOnFocus
+					var len2 = tb6.get("value").length;
+					tb6.domNode.selectionStart = 0;
+					tb6.domNode.selectionEnd = len2;
+				}
+			} else {
+				cancel5.domNode.style.backgroundImage = "none";
+			}
+		});
+		on(cancel5, "click", function() {
+			tb5.set("value", "");
+			cancel5.domNode.style.backgroundImage = "none";
+		});
+		
+		on(tb6, "keyup", function() {
+			var ctxt = tb6.get("value");
+			lcdias = ctxt;
+			var len1 = ctxt.length;
+			if (len1 > 0) {
+				cancel6.domNode.style.backgroundImage = 'url("cross1.jpg")';
+				if ((len1 == 2 && ctxt.substr(0, 1) > 2) || len1 == 3) {
+					lcdias = ctxt;
+					cancel1.focus(true);
+				}
+			} else {
+				cancel6.domNode.style.backgroundImage = "none";
+			}
+		});
+
+		on(cancel6, "click", function() {
+			tb6.set("value", "");
+			cancel6.domNode.style.backgroundImage = "none";
+		});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////
+//// Datetime    //////////////
+///////////////////////////////
+//// ส่วนนี้ไม่ต้องแก้ไข ใช้สำหรับ view ชื่อ select_dt เพื่อการกรอกข้อมูลที่เป็นวัน เวลา 						
+//// การใช้ view select_dt 																		
+//// 1. กำหนดค่า gcsource_view เพื่อให้ทราบว่า เมื่อระบุวัน เวลาแล้ว จะให้กลับไปที่ view ใด 					 
+//// 2. กำหนดค่า lcvar เพื่อระลุว่า ค่าวัน-เวลาที่เลือก จะถูกเก็บไว้ในตัวแปรชื่ออะไร
+//// 3. กำหนดค่า gcfunction กรณีที่ต้องการ run Function เมื่อเลือกวันเวลาเสร็จ										 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////
+		//// Register ////
+		//////////////////
+		var select_dt = reg.byId("select_dt");
+		var select_dt_title = reg.byId("select_dt_title");
+		var back_select_dt = reg.byId("back_select_dt")
+		var calendar1 = reg.byId("calendar1");
+		calendar1.set("value", lddate0);
+		
+		var hr01 = reg.byId("hr01");
+		var min01 = reg.byId("min01");
+
+		var lchour = "";
+		var lcmin = "";
+		var lnhour = 0;
+		var lnminute = 0;
+
+		//////////////////
+		//// Events //////
+		//////////////////
+		
+		on(select_dt, "beforeTransitionIn", function() {
+			calendar1.set("value", lddate0);
+			lchour = lddate0.getHours().toString();
+			hr01.set("value", pad(lchour, "00"));
+			lcmin = lddate0.getMinutes().toString();
+			min01.set("value", pad(lcmin, "00"));
+		});
+		
+		on(select_dt_title, "click", function() {
+			var isback = back_select_dt.get("focused");
+			if (isback == true) {
+				var cmacro = lcvar + " = lddate0";
+				eval(cmacro);
+				eval(gcfunction);
+				select_dt.performTransition(gcsource_view, -1, "swirl", null);
+			}
+		});
+		
+		on(calendar1, "change", function() {
+			lnhour = lddate0.getHours();
+			lnminute = lddate0.getMinutes();
+			lddate0 = calendar1.get("value");
+			lddate0.setHours(lnhour);
+			lddate0.setMinutes(lnminute);
+		});
+		
+		on(hr01, "click", function() {
+			hr01.domNode.selectionStart = 0;
+			hr01.domNode.selectionEnd = 2;
+		});
+		
+		on(min01, "click", function() {
+			min01.domNode.selectionStart = 0;
+			min01.domNode.selectionEnd = 2;
+		});
+		
+		on(hr01, "keyup", function() {
+     		lnhr1 = hr01.get("value");
+     		if (lnhr1 > 23) {
+     			alert ("ข้อมูลผิดพลาด !!!");}
+			else {
+				var lchr1 = lnhr1.toString();
+	     		var lnlength = lchr1.length;
+				if (lnlength == 2 || lchr1 > "2") {
+					lddate0.setHours(lnhr1);
+					hr01.set("value", pad(lchr1, "00"));
+					min01.focus(true);
+					min01.domNode.selectionStart = 0;
+					min01.domNode.selectionEnd = 2;
+				}
+			}
+		});
+		
+		on(min01, "keyup", function() {
+     		lnmin1 = min01.get("value");
+     		if (lnmin1 > 59) {
+     			alert ("ข้อมูลผิดพลาด !!!");}
+     		else {
+	     		var lcmin1 = lnmin1.toString();
+	     		var lnlength = lcmin1.length;
+				if (lnlength == 2 || lcmin1 > "6" || lcmin1 == "6" && lnlength == 1) {
+					lddate0.setMinutes(lnmin1);
+					min01.set("value", pad(lcmin1, "00"));
+					calendar1.focus(true);
+				}
+			}
+		});
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 	});
 });

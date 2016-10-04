@@ -1,12 +1,12 @@
-/////////////////////////////////
+//////////////////////////
 //// Public Variables ////
-////////////////////////////////
+//////////////////////////
 
-//// General ///////////////
+//// General /////////////
 
- // parameter สำหรับ view select_dt
+// parameter สำหรับ view select_dt
 var lddate = new Date();
-var ldparameter = "x";
+var lcvar = "x";
 
 // parameter สำหรับ Text Input
 // View ที่ต้องการกลับหลังเสร็จงาน
@@ -89,7 +89,7 @@ require([
 		var lnhour = 0;
 		var lnminute = 0;
 		var lchour = "";
-		var lcmin = "";
+		var lcmin = ""
 		//////////////////
 		//// Events //////
 		//////////////////
@@ -105,7 +105,7 @@ require([
 		on(select_dt_title, "click", function() {
 			var isback = back_select_dt.get("focused");
 			if (isback == true) {
-				var cmacro = ldparameter + " = lddate";
+				var cmacro = lcvar + " = lddate";
 				eval(cmacro);
 				eval(gcfunction);
 				select_dt.performTransition(gcsource_view, -1, "slide", null);
@@ -234,8 +234,6 @@ require([
 				text_input.performTransition(gcsource_view, -1, "slide", null);
 				lautoback = false;
 			}
-			txt_search.set("value", "");
-			txt_list.setQuery({label: "*"});
 		});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
@@ -244,21 +242,60 @@ require([
 		//////////////////
 		//// Register ////
 		//////////////////
-		//var view1 = reg.byId("view1");
-		//var back_view1 = reg.byId("back_view1");
-		//var view1_title = reg.byId("view1_title");
-		//var view1_list = reg.byId("view1_list");
+		var view1 = reg.byId("view1");
+		var view1_title = reg.byId("view1_title");
+		var view1_list = reg.byId("view1_list");
+		var c1 = "";
+		var btn1 = reg.byId("btn1");
+		btn1.set("hidden", true);
+		var text1 = reg.byId("text1");
+		on(text1, "keyup", function() {
+			var ctxt = text1.get("value");
+			var lnlen = ctxt.length;
+			if (lnlen > 0) {
+				btn1.set("hidden", false);}
+			else {btn1.set("hidden", true);}
+		});
+		on(btn1, "click", function() {
+			text1.set("value", "");
+			btn1.set("hidden", true);
+			text1.focus(true);
+		});
 		//////////////////
 		//// Function ////////////////////////////////////////////
 
 		//////////////////////////////////////////////////////////////
 		//// Events //////
 		//////////////////
-		//on(view1_title, "click", function() {
-			//back("back_view1", "view1", "sourceview", "view1_list");
-		//});
+		on(view1_list, "click", function() {
+			alert("c1=" + c1);
+			gcsource_view = "view1";
+			lcvar = "c1";
+			view1.performTransition("text_input", 1, "slide");
+		});
 		//////////////////
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+/////////////////////////////////////////////////////////////////
+///////////////////////////////
+//// View 2     /////////////////
+///////////////////////////////
+		//////////////////
+		//// Register ////
+		//////////////////
+//		var view2 = reg.byId("view2");
+//		var view2_title = reg.byId("view2_title");
+//		var back_view2 = reg.byId("back_view2");
+		//////////////////
+		//// Function ////////////////////////////////////////////
+
+		//////////////////////////////////////////////////////////////
+		//// Events //////
+		//////////////////
+//		on(view2_title, "click", function() {
+//			back("back_view2", "view2", "view1");
+//		});
+		//////////////////
+
+//////////////////////////////////////////////////////////////////////////////	
 	});
 });
