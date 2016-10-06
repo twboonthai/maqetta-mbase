@@ -1,11 +1,8 @@
-
+﻿
 /*
  * This file is provided for custom JavaScript logic that your HTML files might need.
  * Maqetta includes this JavaScript file by default within HTML pages authored in Maqetta.
  */
- 
- // Global Variables
- 
 //// User defined Function
 
 // Get Age คำนวณอายุ
@@ -466,12 +463,12 @@ function selected_clear(clist) {
 		});
 	});
 }
-//////////////////////////////////////////////////////////////////////////
-// Function สำหรับ Query ข้อมูลจาก mySQL                          ///////////
-// Parameter = php และ เงื่อนไข xxx.php?yyy=999                  ///////////
-// Return เพียง 1 Record เป็น Object ที่มีชื่อ Field เป็น Properties ////////////
-//////////////////////////////////////////////////////////////////////////
-function php2obj(cphp, nrow) {
+//////////////////////////////////////////////////////////////////////
+// Function สำหรับ Query ข้อมูลจาก mySQL                                   ///////////
+// Parameter = php และ เงื่อนไข xxx.php?yyy=999                     ///////////
+// Returng เพียง 1 Record เป็น Object ที่มีชื่อ Field เป็น Properties ////////////
+//////////////////////////////////////////////////////////////////////
+function php2obj(cphp) {
  	 var xhrArgs = {
     	url: ip_address + cphp,
     	handleAs: "text",
@@ -484,26 +481,15 @@ function php2obj(cphp, nrow) {
   	var creturn = deferred.results;
   	ccheck = creturn.toString();
   	ccheck = ccheck.trim();
-	if (typeof(nrow) == "undefined") {
-		if (ccheck.substr(0, 1) == "{") {
-			var creturn = creturn[0].replace(/[\n\r]*/g,'');
-			var cmacro = "ret_obj = " + creturn;
-			eval(cmacro);
-			var n = ccheck.search("items");
-			if (n > 0) {
-				if (typeof(ret_obj.items[0]) == "undefined") {
-				return "";}
-				else {return ret_obj.items[0];}
-			}
-			else {return ret_obj;}
-		}
-		else {return ccheck.replace(",", "").trim();}
-	} else {
-		var nstart = ccheck.search("items");
-		var nlen = ccheck.search("]");
-		var creturn = ccheck.substr(nstart, nlen-nstart+1);
-		return eval(creturn);
+  	if (ccheck.substr(0, 1) == "{") {
+	   	var creturn = creturn[0].replace(/[\n\r]*/g,'');
+	   	var cmacro = "ret_obj = " + creturn;
+	   	eval(cmacro);
+	   	var n = ccheck.search("items");
+	   	if (n > 0) {	return ret_obj.items[0];}
+		else {return ret_obj;}
 	}
+	else {return ccheck.replace(",", "").trim();}
 }
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -583,10 +569,6 @@ function sw_status(clist, cswitch) {
 	var creturn = creturn0.replace(/>/g, '').trim();
 	return creturn;
 }
-
-
-// Function สำหรับเพิ่ม switch ใน List โดยมี Parameter ชื่อ List, ID switch, ข้อความ Label, ค่าที่จะแสดง (0,1), text1, text2
-// text1 และ text2 จะถูกเก็บไว้ในตัวแปรชื่อ var1 และ var2 เมื่อคลิกเลือก list จะสามารถนำค่า var1 และ var2 ไปใช้ได้ กรณีแทนค่าตัวแปร 
 
 function sw2list(clist, cswitch, clabel, nvalue, ctext1, ctext2) {
 	require([

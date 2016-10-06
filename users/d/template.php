@@ -33,34 +33,30 @@ function tsdate($exdate)
 	return trim($tday." ".$tmonth." ".$tyear. " ".$time);
 }
 
-header("Access-Control-Allow-Origin: *");
+//// include php สำหรับติดต่อฐานข้อมูล Path, User Name, Password, ชื่อ Database
 include 'mbase.php';
+/*
+//////// ตัวอย่าง mbase.php ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////// <?php
+//////// $objConnect = mysql_connect("192.168.200.7", "root","1234") or die("Error Connect to Database");
+//////// mysql_query("SET NAMES UTF8");
+//////// $objDB = mysql_select_db("mbase_data1");
+//////// ?> 
+*/
+//////// เก็บไว้ที่ Directory เดียวกันกับ php อื่นๆ
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-mysql_query("SET NAMES UTF8");
-$parameter0 = $_GET['filter'];
-if ($parameter0 == '1') {$parameter = '38';}
-else if ($parameter0 == '2') {$parameter = '39';}
-else if ($parameter0 == '3') {$parameter = '22';}
+//// รับ Parameters
 
-$strSQL1 = "CREATE TEMPORARY TABLE ipd AS SELECT a.bed_no, g.nickname AS diagnosis, c.hn, a.visit_id, c.reg_datetime, 
-	CAST(a.bed_no AS SIGNED) AS cbed, CONCAT(TRIM(b.fname), '  ', b.lname) AS patient, b.birthdate, b.sex, 
-	i.town_name AS ampur, j.town_name AS province, k.zipcode, b.home_adr, b.telephone, 
-	CONCAT(TRIM(e.fname), '  ', e.lname) AS staff, a.adm_id FROM ipd_reg a, population b, opd_visits c, cid_hn d, 
-	population e, staff f, icd10new g, opd_diagnosis h, towns i, towns j, towns k 
-	WHERE DAY(a.dsc_dt) = 0 AND a.is_cancel = 0 AND a.ward_no = '".$parameter."' AND TRIM(a.bed_no) > '' 
-	AND a.visit_id = c.visit_id AND c.hn = d.hn AND d.cid = b.cid AND a.adm_dr = f.staff_id 
-	AND f.cid = e.cid AND c.visit_id = h.visit_id AND h.dxt_id = '1' AND g.icd10 = h.icd10 AND 
-	b.town_id = k.town_id AND CONCAT(LEFT(b.town_id, 4), '0000') = i.town_id AND 
-	CONCAT(LEFT(b.town_id, 2), '000000') = j.town_id GROUP BY a.visit_id";
-$objQuery1 = mysql_query($strSQL1) or die ("Error Query [".$strSQL1."]");
+////// String or Date ใน $strSQL ต้องมี ' ' คร่อม parameter
+$a = $_GET['parameter1'];
 
-$strSQL = "SELECT visit_id, bed_no, patient AS label, staff, reg_datetime, diagnosis, hn, birthdate, if (sex = '1', 'ชาย', 'หญิง') AS sex,
-CASE 
-	WHEN bed_no BETWEEN '001' AND '009' THEN CONCAT('เตียง ', cbed) 
-	WHEN bed_no BETWEEN '010' AND '050' THEN CONCAT('เตียง ', cbed)
-	WHEN bed_no BETWEEN '051' AND '060' THEN CONCAT('แทรก ', cbed-50)
-	ELSE CONCAT('พิเศษ ', cbed-60)
-END AS rightText, adm_id, home_adr, ampur, province, zipcode, telephone FROM ipd GROUP BY adm_id ORDER BY bed_no";
+//// Numeric ใน $strSQL ไม่ต้องมี ' ' คร่อม parameter
+$b = $_GET['paramater2'];
+
+//// SQL ติดต่อกับฐานข้อมูล mySQL Field ชื่อ label อยู่ด้านซ้ายของ List และ Field ชื่อ rightText อยู่ด้านขวาของ List
+
+$strSQL = "SELECT ... FROM ... WHERE field1 = '".$a."' AND field2 = ".$b." GROUP BY field3 ORDER BY field4"; 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
@@ -85,12 +81,12 @@ for ($n=0; $n<=$record; $n++)
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$value = str_replace('"', "'", $items[$nfield]);
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//// กรณีต้องการปรับวันที่ mySQL ใน Field date เช่น birthdate เป็น วันที่ไทยแบบย่อ
+		//// กรณีต้องการใช้ function tsdate ปรับวันที่ mySQL ใน Field date เช่น birthdate เป็น วันที่ไทยแบบย่อ
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if($field == 'birthdate:')
-		{
-			$value = tsdate(str_replace('"', '', $value));
-		}
+		////if($field == 'birthdate:')
+		////{
+		////	$value = tsdate(str_replace('"', '', $value));
+		////}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if($nfield<$totalField)
 		{

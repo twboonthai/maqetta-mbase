@@ -3,10 +3,10 @@
 ////////////////////////////////
 
 //// ส่วนนี้ไม่ต้องแก้ไข ///////////////////////////////////////////////////////////////////////////////////
-// parameter สำหรับ view select_dt
+// parameter สำหรับ view select_dt / Text_input
 var lddate = new Date();
+var ltime = true;
 var lcvar = "x";
-// parameter สำหรับ Text Input
 // View ที่ต้องการกลับหลังเสร็จงาน
 var gcsource_view = "main_view";
 // กลับสู่ View ทันทีเมื่อทำการเลือกรายการ ไม่ต้องกดปุ่ม Back
@@ -79,6 +79,8 @@ require([
 		var back_select_dt = reg.byId("back_select_dt")
 		var calendar1 = reg.byId("calendar1");
 		calendar1.set("value", lddate);
+		var show_dt = reg.byId("show_dt");
+		var clear_dt = reg.byId("clear_dt");
 
 		///////////////////
 		//// Variables ////
@@ -98,6 +100,7 @@ require([
 			hr1.set("value", pad(lchour, "00"));
 			lcmin = lddate.getMinutes().toString();
 			min1.set("value", pad(lcmin, "00"));
+			show_dt.set("label", tsdate(lddate, 1));
 		});
 		
 		on(select_dt_title, "click", function() {
@@ -108,6 +111,19 @@ require([
 				eval(gcfunction);
 				select_dt.performTransition(gcsource_view, -1, "swirl", null);
 			}
+			var isclear = clear_dt.get("focused");
+			if (isclear == true) {
+				lddate = "";
+				hr1.set("value", "");
+				min1.set("value", "");
+				show_dt.set("label", tsdate(lddate));
+				if (lautoback == true) {
+					var cmacro = lcvar + " = lddate";
+					eval(cmacro);
+					eval(gcfunction);
+					select_dt.performTransition(gcsource_view, -1, "swirl", null);
+				}
+			}
 		});
 		
 		on(calendar1, "change", function() {
@@ -116,8 +132,9 @@ require([
 			lddate = calendar1.get("value");
 			lddate.setHours(lnhr1);
 			lddate.setMinutes(lnmin1);
+			show_dt.set("label", tsdate(lddate, 1));
 			if (calendar1.hovering == true) {
-				if (lautoback == true) {
+				if (lautoback == true || ltime == false) {
 					var cmacro = lcvar + " = lddate";
 					eval(cmacro);
 					eval(gcfunction);
@@ -163,9 +180,15 @@ require([
 				if (lnlength == 2 || lcmin1 > "6" || lcmin1 == "6" && lnlength == 1) {
 					lddate.setMinutes(lnmin1);
 					min1.set("value", pad(lcmin1, "00"));
-					calendar1.focus(true);
+
+					if (lautoback == true) {
+						var cmacro = lcvar + " = lddate";
+						eval(cmacro);
+						eval(gcfunction);
+						select_dt.performTransition(gcsource_view, -1, "swirl", null);
+					} else {calendar1.focus(true);}
 				}
-			}
+			 }
 		});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
@@ -261,9 +284,9 @@ require([
 		//////////////////
 		//// Register ////
 		//////////////////
-		//var view1 = reg.byId("view1");
-		//var view1_title = reg.byId("view1_title");
-		//var view1_list = reg.byId("view1_list");
+		var view1 = reg.byId("view1");
+		var view1_title = reg.byId("view1_title");
+		var view1_list = reg.byId("view1_list");
 		//////////////////
 		//// Function ////
 		//////////////////
@@ -275,24 +298,9 @@ require([
 		//////////////////
 		//// Events //////
 		//////////////////
-		//on(view1_list, "click", function() {
-		//	gcsource_view = "view1";
-		//	lautoback = true;
-		//	lcvar = "lab";
-		//	lcfield = "lab_id";
-		//	gcfunction = "alert (lab)"
-			
-		//	txt_title.set("label", "กรุณาเลือกรายการ Lab");
-		//	txt_return.set("value", "คืนค่าเป็นรหัส Lab ที่เลือก");
-		//	clearList("txt_list");
-		//	var list_add = txt_list.store.newItem({label: "ทดสอบการเลือกรหัส", header: true});
-		//	var list_add = txt_list.store.newItem({label: "CBC", lab_id : "001"});
-		//	var list_add = txt_list.store.newItem({label: "UA", lab_id : "002"});
-		//	var list_add = txt_list.store.newItem({label: "FBS", lab_id : "003"});
-		//	var list_add = txt_list.store.newItem({label: "BUN", lab_id : "004"});
-
-		//	view1.performTransition("text_input", 1, "slide");
-		//});
+		on(view1_list, "click", function() {
+			view1.performTransition("view2", 1, "slide");
+		});
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
 //// View 2   /////////////////
@@ -300,10 +308,10 @@ require([
 		//////////////////
 		//// Register ////
 		//////////////////
-		//var view2 = reg.byId("view2");
-		//var back_view2 = reg.byId("back_view2");
-		//var view2_title = reg.byId("view2_title");
-		//var view2_list = reg.byId("view2_list");
+		var view2 = reg.byId("view2");
+		var back_view2 = reg.byId("back_view2");
+		var view2_title = reg.byId("view2_title");
+		var view2_list = reg.byId("view2_list");
 		//////////////////
 		//// Function ////
 		//////////////////
@@ -315,9 +323,9 @@ require([
 		//////////////////
 		//// Events //////
 		//////////////////
-		//on(view2_title, "click", function() {
-			//back("back_view2", "view2", "sourceview");
-		//});
+		on(view2_title, "click", function() {
+			back("back_view2", "view2", "view1");
+		});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //// ส่วนล่าง 2 บรรทัด ห้ามลบ ห้ามแก้ไข ///////////////////////////////////////////////////////////////////////
 	});

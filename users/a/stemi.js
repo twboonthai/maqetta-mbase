@@ -118,7 +118,7 @@ require([
  	"dijit/registry",
  	"dojo/on",
  	"dojo/dom",
-    	"dojox/charting/Chart",
+    "dojox/charting/Chart",
    	"dojox/charting/axis2d/Default",
   	"dojox/charting/plot2d/Lines",	
    	"dojox/charting/plot2d/StackedColumns",	
@@ -2325,6 +2325,12 @@ require([
 		
 		on(stemi2, "click", function() {
 			stemi_menu6.performTransition("menu6_sk", 1, "slide", null);
+			//lddate0 = ldsk;
+			//gcsource_view = "stemi_menu6";
+			//lcvar = "ldsk";
+			//gcfunction = "stemi2_list()";
+			//stemi_menu6.performTransition("select_dt", 1, "swirl");
+
 		});
 		
 		on(stemi3, "click", function() {

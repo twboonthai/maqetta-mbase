@@ -39,17 +39,23 @@ require([
 </style>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="udf.js"></script>
-<script type="text/javascript" src="template.js"></script>
+<script type="text/javascript" src="lessons.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
 </head>
 <body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
- <div data-dojo-type="dojox/mobile/View" id="main_view" style="height: 100%;" selected="true">
-   <h1 label="หัวข้อเรื่อง" data-dojo-type="dojox/mobile/Heading" style="font-size: 14px;">
-   <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" arrow="left"></div>
+ <div data-dojo-type="dojox/mobile/View" id="view1" style="height: 100%;" selected="true">
+   <h1 label="หัวข้อเรื่อง" data-dojo-type="dojox/mobile/Heading" id="view1_title" style="font-size: 14px;">
+     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" arrow="left"></div>
      <div label="+" data-dojo-type="dojox/mobile/ToolBarButton" style="float: right; font-size: 20px; font-weight: bold;"></div>
    </h1>
    <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_1" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
-   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" style="height: 422.2916717529297px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}" select="single"></ul>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view1_list" select="single" style="height: 422.2916717529297px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+</div>
+ <div data-dojo-type="dojox/mobile/View" id="view2" style="height: 100%;">
+   <h1 label="View 2" data-dojo-type="dojox/mobile/Heading" id="view2_title">
+     <div label="Back" data-dojo-type="dojox/mobile/ToolBarButton" id="back_view2" arrow="left"></div>
+   </h1><span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;ตัวเลือก 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;ตัวเลือก 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;ตัวเลือก 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
+   <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="view2_list" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
  </div>
  <div data-dojo-type="dojox/mobile/View" id="select_dt" style="height: 100%;">
    <h1 label="เลือกวัน-เวลา" data-dojo-type="dojox/mobile/Heading" id="select_dt_title" style="font-size: 14px;">
