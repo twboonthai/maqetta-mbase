@@ -50,6 +50,7 @@ var lctel2 = "";
 var lctel3 = "";
 var lctel4 = "";
 var lcosm = "";
+var ppsw = "";
 
 // ADL
 var adl1 = "";
@@ -92,7 +93,6 @@ var bd9 = "";
 var nlevel = 0;
 
 ///////////////////////////////////////////////////////////////////////////////////////
-
 /*
  * This file is provided for custom JavaScript logic that your HTML files might need.
  * Maqetta includes this JavaScript file by default within HTML pages authored in Maqetta.
@@ -368,10 +368,16 @@ require([
 				main_list();
 				login.performTransition("main_menu", 1, "slide", null);}
 			else {
-				alert ("User ID/password ไม่ถูกต้อง !!!");
-				lcpsw = "";
-				password.set("value", "");
-				password.focus(true);
+				var lcpsw1 = password.get("value");
+				if (lcpsw1 == decode(lcpassword)) {
+					main_list();
+					login.performTransition("main_menu", 1, "slide", null);
+				} else {
+					alert ("User ID/password " + lcpsw1 + " ไม่ถูกต้อง !!!");
+					lcpsw = "";
+					password.set("value", "");
+					password.focus(true);
+				}
 			}
 		});
 
@@ -524,6 +530,7 @@ require([
 			var list_add = person_list.store.newItem({label: "ADL", value: "13", rightText: ">"});
 			var list_add = person_list.store.newItem({label: "สภาวะทางสมอง", value: "14", rightText: ">"});
 			var list_add = person_list.store.newItem({label: "PPS", value: "15", rightText: ">"});
+			var list_add = person_list.store.newItem({label: "กำหนดรหัสผ่าน", value: "16", rightText: ppsw});
 		}
 		
 		//////////////////
@@ -553,6 +560,7 @@ require([
 					clearList("person_list");
 					cid_box.focus(true);}
 				else {
+					ppsw = pop.psw;
 					lcage = getAge(pop.birthdate, "");
 					lcname = pop.fname + " " + pop.lname;
 					lcsex = pop.sex;
@@ -604,6 +612,15 @@ require([
 		 		brain_title.set("label", "Brain : " + lcname);
 		 		list("brain_list", "brain_cid.php?cid=" + lccid, "ประวัติการประเมินสภาวะทางสมอง");
 		 		person.performTransition("brain", 1, "slide", null);
+		 	}
+			// กำหนดรหัสผ่าน
+			if (csel == "16") {
+				var cpsw = prompt("กรอกรหัสผ่านที่ต้องการ");
+				if (cpsw.length > 0) {
+					var lpsw = confirm("ต้องการบันทึกรหัสผ่าน " + lcname + " = " + cpsw + " ?");
+					if (lpsw = true) {
+						mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);}
+				}
 		 	}
 		 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

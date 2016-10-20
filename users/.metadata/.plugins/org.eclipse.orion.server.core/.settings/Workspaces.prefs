@@ -1,3 +1,6 @@
+1e9/Id=1e9
+1e9/Name=MyWorkspace
+1e9/Projects=[{"Id"\:"e"}]
 eclipse.preferences.version=1
 ipd/Id=ipd
 ipd/Name=MyWorkspace
@@ -11,3 +14,6 @@ lesson/Projects=[{"Id"\:"d"}]
 mbase/Id=mbase
 mbase/Name=MyWorkspace
 mbase/Projects=[{"Id"\:"a"}]
+test/Id=test
+test/Name=MyWorkspace
+test/Projects=[{"Id"\:"f"}]
