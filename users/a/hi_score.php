@@ -1,5 +1,7 @@
 ﻿<?php
+header("Access-Control-Allow-Origin: *");
 include 'm30_fct.php';
+mysql_query("SET NAMES UTF8");
 $level = $_GET['level'];
 $date1 = $_GET['date1'];
 $date2 = $_GET['date2'];
@@ -9,13 +11,16 @@ $tumbon = $_GET['tumbon_id'];
 $mooban = $_GET['town_id'];
 
 // HI
+$strSQL = "CREATE TEMPORARY TABLE cur_hi AS SELECT * FROM hi_index WHERE auto_id IN (SELECT max(auto_id) FROM hi_index GROUP BY town_id)";
+$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+
 $strSQL = "CREATE TEMPORARY TABLE hi_temp AS SELECT a.town_id, a.hi_value, b.town_name,  CONCAT(LEFT(a.town_id, 6), '00') AS tumbon_id,
 	CONCAT(LEFT(a.town_id, 4), '0000') AS ampur_id,	
 	CASE WHEN a.hi_value = 0 THEN '1'
 	     WHEN a.hi_value < 10 THEN '2'
 	     WHEN a.hi_value >= 10 THEN '3'
-	END AS grade, b.hospmain AS hosp_id FROM hi_index a, towns b WHERE a.town_id = b.town_id AND a.hi_date 
-	BETWEEN '".$date1."' AND '".$date2."' AND LEFT(a.town_id, 2) = '34' GROUP BY a.town_id";
+	END AS grade, b.hospmain AS hosp_id FROM cur_hi a, towns b WHERE a.town_id = b.town_id AND a.hi_date 
+	BETWEEN '".$date1."' AND '".$date2."' AND LEFT(a.town_id, 2) = '34'";
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
 $record = mysql_num_rows($objQuery);
 
@@ -32,7 +37,11 @@ if ($level == "1"){
 			CASE WHEN grade = '1' THEN 'green.jpg'
 			     WHEN grade = '2' THEN 'yellow.jpg'
 			     WHEN grade = '3' THEN 'red.jpg'
-			END AS icon, hosp_id, grade, COUNT(grade) AS label, CONCAT(ROUND(COUNT(grade)*100/$record,2),  ' %') AS rightText FROM hi_score GROUP BY grade ORDER by grade";
+			END AS icon, 
+			CASE WHEN grade = '1' THEN 'HI เท่ากับ 0'
+			     WHEN grade = '2' THEN 'HI น้อยกว่า 10'
+			     WHEN grade = '3' THEN 'HI มากกว่าหรือเท่ากับ 10'
+			END AS hi_text, hosp_id, grade, COUNT(grade) AS label, CONCAT(ROUND(COUNT(grade)*100/$record,2),  ' %') AS rightText FROM hi_score GROUP BY grade ORDER by grade";
 	} else {
 		$strSQL = "SELECT town_id FROM hi_score WHERE hosp_id = '".$hosp."'";
 		$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");

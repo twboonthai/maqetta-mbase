@@ -1,6 +1,7 @@
 //////////////////////////
 //// Public Variables ////
 //////////////////////////
+var gcsource_view = "";
 var gcampur_name = "";
 var gcampur_id = "";
 var ceomenu = "";
@@ -323,6 +324,10 @@ require([
 			var cobj = selected_row("back_adl_brain");
 			if (cobj.value == 1) {	
 				adl_brain.performTransition("adl_main", -1, "slide", null);
+			} else {
+				gcsource_view = "adl_brain";
+				graph("ab_score", "amount", "graph_box", "Pie");
+				adl_brain.performTransition("view_graph", 1, "slide");
 			}
 		});
 		
@@ -621,6 +626,16 @@ require([
 		var hi_value = reg.byId("hi_value");
 		var back_hi_show = reg.byId("back_hi_show");
 		back_list("back_hi_show", "กลับ เมนูหลัก HI", "ค่า HI ตามกลุ่ม / จำนวนหมู่บ้าน / ร้อยละ", "hi_show", "hi_main");
+
+		on(back_hi_show, "click", function(){
+			var obj = selected_row("back_hi_show");
+			lheader = obj.header;
+			if (lheader == true) {
+				gcsource_view = "hi_show";
+				graph("hi_value", "label", "graph_box", "Pie", undefined, undefined, "hi_text");
+				hi_show.performTransition("view_graph", 1, "slide");
+			}
+		});
 		
 		//////////////////
 		//// Events //////
@@ -631,14 +646,15 @@ require([
 			cdate2 = d2txt(lddate2);
 			var obj = selected_row("hi_value");
 		   	lcgrade = obj.grade;
-		   	if (lcgrade == "1") {gctitle = "HI=0 ";}
-		   	if (lcgrade == "2") {gctitle = "HI<10 ";}
-		   	if (lcgrade == "3") {gctitle = "HI>=10 ";}
-		   	var lctext = "hi_score.php?date1=" + cdate1 + "&date2=" + cdate2 + "&level=2&grade=" + lcgrade;
-		   	list("hi_value_ampur", lctext);
-		   	hi_titlea.set("label", gctitle + " แยกรายอำเภอ");
-		   	back_list("back_hi_ampur", "กลับ เมนู HI รวมทั้งจังหวัด", "อำเภอ / จำนวนหมู่บ้าน " + gctitle, "hi_ampur", "hi_show");
-		   	hi_show.performTransition("hi_ampur", 1, "slide", null);
+			lheader = obj.header;
+			if (lcgrade == "1") {gctitle = "HI=0 ";}
+			if (lcgrade == "2") {gctitle = "HI<10 ";}
+			if (lcgrade == "3") {gctitle = "HI>=10 ";}
+			var lctext = "hi_score.php?date1=" + cdate1 + "&date2=" + cdate2 + "&level=2&grade=" + lcgrade;
+			list("hi_value_ampur", lctext);
+			hi_titlea.set("label", gctitle + " แยกรายอำเภอ");
+			back_list("back_hi_ampur", "กลับ เมนู HI รวมทั้งจังหวัด", "อำเภอ / จำนวนหมู่บ้าน " + gctitle, "hi_ampur", "hi_show");
+			hi_show.performTransition("hi_ampur", 1, "slide", null);
 		});
 		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1036,5 +1052,30 @@ require([
 			ci_ap.performTransition("ci_pv", -1, "slide", null);
 		});
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+///////////////////////////////
+//// View Graph   /////////////////
+///////////////////////////////
+		//////////////////
+		//// Register ////
+		//////////////////
+		var view_graph = reg.byId("view_graph");
+		var back_graph = reg.byId("back_graph");
+		var graph_title = reg.byId("graph_title");
+		var graph_box = reg.byId("graph_box");
+		//////////////////
+		//// Function ////
+		//////////////////
+
+		//////////////////
+		//// Variables ///
+		//////////////////
+
+		//////////////////
+		//// Events //////
+		//////////////////
+		on(graph_title, "click", function() {
+			back("back_graph", "view_graph", gcsource_view);
+		});
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	});
 });

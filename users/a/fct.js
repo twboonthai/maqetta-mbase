@@ -431,10 +431,10 @@ require([
 		//// Events //////
 		//////////////////
 		on(main_menu_title, "click", function() {
-			user_id.set("value", "");
-			password.set("value", "");
-			//selected_clear("main_menu_list");
-			back("back_main_menu", "main_menu", "login", "main_menu_list");
+			var back2main = back_main_menu.get("focused");
+			if (back2main == true) {
+				window.location.href = "http://m30.phoubon.in.th/index.html";
+			}
 		});
 		
 		on(main_menu_list, "click", function() {
@@ -619,7 +619,9 @@ require([
 				if (cpsw.length > 0) {
 					var lpsw = confirm("ต้องการบันทึกรหัสผ่าน " + lcname + " = " + cpsw + " ?");
 					if (lpsw = true) {
-						mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);}
+						mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);
+						ppsw = cpsw;
+						person_detail();}
 				}
 		 	}
 		 });
@@ -1251,11 +1253,13 @@ require([
 			if (lcmenu == "8") {
 				var cobj = php2obj("town_hi.php?town_id=" + lctown);
 				var oldhi = cobj.hi_value;
+				var lcauto = cobj.auto_id;
 				var newhi = prompt(lcmooban + " HI=" + oldhi + " กรุณากรอก HI ที่ต้องการ ...", "");
 				if (newhi != null) {
 					var r = confirm("ต้องการแก้ไข HI " + lcmooban + " จาก " + oldhi + " เป็น " + newhi + " ?");
 					if (r == true) {
-						mysave("hi_update.php?hi_value=" + newhi + "&staffcid=" + lcstaffcid + "&town_id=" + lctown);
+						var lcsave = "hi_save.php?hi_index=" + newhi + "&staffcid=" + lcstaffcid + "&town_id=" + lctown + "&auto_id=" + lcauto;
+						mysave(lcsave);
 					}
 				}
 			} else {

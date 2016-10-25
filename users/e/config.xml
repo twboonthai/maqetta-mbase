@@ -43,8 +43,8 @@ Tawat Boonthai
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
 		<gap:platform name="windows" />
-		<icon src="mbase.png" gap:platform="android" gap:density="ldpi" />
-		<icon src="mbase.png" gap:platform="android" gap:density="mdpi" />
-		<icon src="mbase.png" gap:platform="android" gap:density="hdpi" />
-		<icon src="mbase.png" />
+		<icon src="assets/img/mbase.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="assets/img/mbase.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="assets/img/mbase.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="assets/img/mbase.png" />
 	</widget>

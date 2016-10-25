@@ -1,11 +1,11 @@
-﻿
+
 /*
  * This file is provided for custom JavaScript logic that your HTML files might need.
  * Maqetta includes this JavaScript file by default within HTML pages authored in Maqetta.
  */
  
  // Global Variables
- var ip_address = "http://192.168.200.7/webmbase/";
+ 
 //// User defined Function
 
 // Get Age คำนวณอายุ
@@ -508,7 +508,7 @@ function php2obj(cphp, nrow) {
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 //// แสดงกราฟ ส่งค่า DataList, Field ค่าที่จะแสดง, ชื่อ div ที่จะแสดงกราฟ, ประเภทของกราฟ, interval major and interval minor 
-function graph(clistobj, cvalfield, cdiv, ctype, nstep1, nstep2) {
+function graph(clistobj, cvalfield, cdiv, ctype, nstep1, nstep2, clabel) {
 	if (nstep1 == undefined) {nstep1 = 10};
 	if (nstep2 == undefined) {nstep2 = 1};
 	require([
@@ -519,10 +519,17 @@ function graph(clistobj, cvalfield, cdiv, ctype, nstep1, nstep2) {
     "dojox/charting/axis2d/Default",
     "dojox/charting/plot2d/Lines",	
     "dojox/charting/plot2d/StackedColumns",	
-	"dojox/charting/plot2d/Grid"
+	"dojox/charting/plot2d/Grid",
+	"dojox/charting/plot2d/Pie",
+	"dojox/charting/action2d/Tooltip",
+	"dojox/charting/Chart2D",
+	"dojox/charting/themes/Chris",
+	"dojox/charting/action2d/MoveSlice",
+	"dojox/charting/action2d/Highlight"
  	// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ ตั้งชื่อใหม่ได้
-	 ], function(ready, reg, dom, Chart, Axis, Lines, Columns, Grid){
+	 ], function(ready, reg, dom, Chart, Axis, Lines, Columns, Grid, Pie, Tooltip, Chart2D, MiamiNice, MoveSlice, Highlight){
 		ready(function(){
+			var dc = dojox.charting;
 			var list_obj = reg.byId(clistobj);
 			var item = list_obj.getChildren();
 		   	var item_list = [];
@@ -530,18 +537,26 @@ function graph(clistobj, cvalfield, cdiv, ctype, nstep1, nstep2) {
 		   	var item_cnt = item.length;
 			for (i = 0; i < item_cnt; i++)
 			{
-				item_list[i] = parseFloat(item[i][cvalfield]);
-				item_label[i] = {value: i, text: item[i].label};
+				var glabel = item[i].label;
+				if (clabel != undefined) {
+					var cmacro = "glabel = item[i]." + clabel;
+					eval(cmacro);
+				}
+				item_list[i] = {y: parseFloat(item[i][cvalfield]), text: glabel, tooltip: glabel + "=" + parseFloat(item[i][cvalfield])};
+				item_label[i] = {value: i, text: glabel};
 			}
 			var x_chart = Chart(dom.byId(cdiv));
 			x_chart.destroy();
-			var x_chart = Chart(dom.byId(cdiv)).
+			var x_chart = Chart(dom.byId(cdiv)).setTheme(dc.themes.Chris).
 		        addAxis("x", { fixLower: "minor", fixUpper: "minor", natural: true, majorTickStep: nstep1, minorTickStep: nstep2, labels: item_label }).
 		        addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major", includeZero: true }).
 		        addPlot("default", { type: ctype }).
 		        addPlot("grid", { type: Grid, renderOnAxis: false, majorVLine: { color: "black", width: 1 }, majorHLine: { color: "black", width: 1 } }).
-		        addSeries("จำนวน", item_list, {stroke: {color: "blue", width: 3}}).
-		        render();
+				addSeries("Series A", item_list, {stroke: {color: "blue", width: 3}});
+		    var anim_a = new dc.action2d.MoveSlice(x_chart, "default");
+		    var anim_b = new dc.action2d.Tooltip(x_chart, "default");
+		    var anim_c = new dc.action2d.Highlight(x_chart, "default");
+		    x_chart.render();
 		});
 	});
 }
@@ -563,6 +578,7 @@ function mysave(cphp, ccode) {
 			},
 			error: function() {alert ("บันทึกข้อมูลไม่สำเร็จ !!!");}
 		});
+		
 	});
 }
 ////////////////////////////////////////////////////////
