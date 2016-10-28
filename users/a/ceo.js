@@ -1,6 +1,7 @@
 //////////////////////////
 //// Public Variables ////
 //////////////////////////
+
 var gcsource_view = "";
 var gcampur_name = "";
 var gcampur_id = "";
@@ -46,6 +47,8 @@ require([
 	"dijit/PopupMenuBarItem",
   	"dijit/MenuItem",
   	"dijit/Menu",
+	"dojo/_base/window",
+	"dojox/mobile/ProgressIndicator",
   	"gridx/modules/VirtualVScroller",
   	"dijit/layout/ContentPane",
   	"dijit/form/Button",
@@ -63,7 +66,7 @@ require([
 	"dojox/charting/plot2d/Grid",
  	"dojo/_base/xhr" // use xhr to make ajax call to remote server
  	// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ ตั้งชื่อใหม่ได้
- ], function(popup, mitem, menu, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
+ ], function(popup, mitem, menu, win, ProgressIndicator, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
 		ready(function(){
 ///////////////////////////////
 //// User Defined Function ////
@@ -177,6 +180,7 @@ require([
 			var list_add = ci_pv_list.store.newItem({label: "ค่า CI หน่วยงานอื่นๆ", value : "15", header : true});
 			var list_add = ci_pv_list.store.newItem({label: "หน่วยงานอื่น CI = 0", rightText: i + " >", cgrade: "0", ctype : "005", value : "16"});
 			var list_add = ci_pv_list.store.newItem({label: "หน่วยงานอื่น CI > 0", rightText: j + " >", cgrade: "1", ctype : "005", value : "17"});
+			//prog.stop();
 		}
 		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		

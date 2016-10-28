@@ -18,6 +18,11 @@ require([
 	"dijit/PopupMenuBarItem",
   	"dijit/MenuItem",
   	"dijit/Menu",
+  	"dijit/Dialog", 
+    "dijit/form/Form", 
+    "dijit/form/TextBox",
+    "dijit/form/DateTextBox", 
+    "dijit/form/TimeTextBox",
   	"gridx/modules/VirtualVScroller",
   	"dijit/layout/ContentPane",
   	"dijit/form/Button",
@@ -28,14 +33,9 @@ require([
  	"dijit/registry",
  	"dojo/on",
  	"dojo/dom",
-    	"dojox/charting/Chart",
-   	"dojox/charting/axis2d/Default",
-  	"dojox/charting/plot2d/Lines",	
-   	"dojox/charting/plot2d/StackedColumns",	
-	"dojox/charting/plot2d/Grid",
  	"dojo/_base/xhr" // use xhr to make ajax call to remote server
  	// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ ตั้งชื่อใหม่ได้
- ], function(popup, mitem, menu, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
+ ], function(popup, mitem, menu, Dialog, Form, TextBox, DateTextBox, TimeTextBox, VirtualVScroller, pane, Button, combobtn, ready, ifws, ifrs, reg, on, dom, xhr){
 		ready(function(){
 ///////////////////////////////
 //// User Defined Function ////
@@ -66,8 +66,13 @@ require([
 		//////////////////
 		//// Events //////
 		//////////////////
+		var fname = "";
+		var lname = "";
+		var bdate = "";
+		var btime = "";
+		var test = "";
 		on(officer_menu, "click", function() {
-			alert ("Here");
+			dialog("ทดสอบ", "alert (test)", "fname", "c", "ชื่อ", "lname", "c", "นามสกุล", "bdate", "d", "วันเกิด", "btime", "T", "เวลา", "test", "c", "ทดสอบ");
 		});
 		//////////////////
 
