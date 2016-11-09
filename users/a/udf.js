@@ -1,4 +1,4 @@
-
+﻿
 /*
  * This file is provided for custom JavaScript logic that your HTML files might need.
  * Maqetta includes this JavaScript file by default within HTML pages authored in Maqetta.
@@ -858,15 +858,8 @@ function dialog(ccaption, ccode, cvar1, ctype1, clabel1, cvar2, ctype2, clabel2,
 		    })
 		    // สร้าง Content Pane
 		    var contentPane = dojo.create("div", {
-		        class: "dijitDialogPaneContentArea", width: "90%"
+		        class: "dijitDialogPaneContentArea", width: "100%", height: "auto"
 			    }, myDialog.containerNode);
-			// สร้าง Action Pane   
-			var actionBar = dojo.create("div", {
-	        class: "dijitDialogPaneActionBar", width: "90%"
-		    }, myDialog.containerNode);
-			// สร้างปุ่ม OK, Cancel
-			var btn_ok = new Button({label: "OK"}).placeAt(actionBar);		    
-		    var btn_cancel = new Button({label: "Cancel"}).placeAt(actionBar);
 		    
 			// Variable 1 //////////////////////////////////////////////////////////////
 			if (cvar1 != "" && cvar1 != undefined) {
@@ -923,7 +916,20 @@ function dialog(ccaption, ccode, cvar1, ctype1, clabel1, cvar2, ctype2, clabel2,
 				}
 			}
 			////////////////////////////////////////////////////////////////////////////
-		    
+
+			// สร้าง Action Pane   
+			var actionBar = dojo.create("div", {
+	        class: "dijitDialogPaneContentArea", width: "90%"
+		    }, myDialog.domNode);
+			// สร้างปุ่ม OK, Cancel
+			var btn_ok = new Button({label: "OK"}).placeAt(actionBar);
+			btn_ok.containerNode.style.width = "110px";
+		    var btn_cancel = new Button({label: "Cancel"}).placeAt(actionBar);
+			btn_cancel.containerNode.style.width = "110px";
+
+			//alert ("OK");
+			//debugger;
+
 		    myDialog.show();
 	
 		    on(btn_ok, "click", function() {

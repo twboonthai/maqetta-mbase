@@ -50,11 +50,11 @@ require([
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"></meta>
 </head>
-<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" data-maq-appstates="{}" id="myapp">
+<body data-maq-device="iphone" data-maq-flow-layout="true" data-maq-comptype="mobile" data-maq-ws="collapse" class="claro" id="myapp" data-maq-appstates="{}">
  <div data-dojo-type="dojox/mobile/View" id="stemi_v1" style="height: 100%;" selected="true">
-   <h1 label="STEMI Visits" data-dojo-type="dojox/mobile/Heading" id="stemi_v1h" style="font-size: 14px;">
+   <h1 label="STEMI Visits" data-dojo-type="dojox/mobile/Heading" id="stemi_v1h" style="font-size: 12px;">
     <div label="+" data-dojo-type="dojox/mobile/ToolBarButton" id="new_row" style="float: right; font-weight: bold; font-size: 18pt;"></div>
-    <button data-dojo-type="dojox/mobile/Button" id="btn_ok" style="border: none; height: 31.993057250976562px; width: 10%; opacity: 1.0; background-image: none; background-color: transparent; left: 279.9921875px; top: 48.5078125px; float: left;"></button>
+    <div label="Main" data-dojo-type="dojox/mobile/ToolBarButton" id="back_stemi" arrow="left" style="float: left; font-size: 10px;"></div>
   </h1>
    <div data-dojo-type="dojox/mobile/Pane" style="z-index: 800; width: 320px; height: 41px;">
     <h1 label="ค้นหา" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; vertical-align: top;">
@@ -66,6 +66,7 @@ require([
    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="stemi_visits" style="border: none; background-color: transparent; height: 192.96875px;" store="ItemFileReadStore_16" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_10" jsId="ItemFileReadStore_10" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
  <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="guideline" style="border: none; background-color: transparent; height: 144.984375px;" store="ItemFileReadStore_10" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+ <button data-dojo-type="dojox/mobile/Button" id="btn_ok" style="border: none; width: 10%; opacity: 1.0; background-image: none; background-color: transparent; float: none; height: 8.98750114440918px;"></button>
 </div>
  <div data-dojo-type="dojox/mobile/View" id="stemi_v2" style="height: 100%;">
   <h1 label="Stemi Menu" data-dojo-type="dojox/mobile/Heading" id="stemi_v2h" style="font-size: 14px;">

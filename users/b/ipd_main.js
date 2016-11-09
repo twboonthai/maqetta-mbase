@@ -116,7 +116,7 @@ require([
 		
 		// Click Log In
 		on(btn_login, "click", function() {
-			if (lcpsw == lcstaffpsw) {
+			if (lcpsw == lcstaffpsw && lcpsw.trim() > "") {
 				ipd_list();
 				ipd_login.performTransition("ipd_main", 1, "slide", null);}
 			else {
@@ -136,6 +136,8 @@ require([
 		//////////////////
 		//// Register ////
 		//////////////////
+		var ipd_title = reg.byId("ipd_title");
+		var btn_logout = reg.byId("btn_logout");
 		var ipd_main = reg.byId("ipd_main");
 		var ipd_item = reg.byId("ipd_item");
 		var ipd_store = new ifws({data:{items:[]}});
@@ -152,7 +154,19 @@ require([
 		//////////////////
 		//// Events //////
 		//////////////////
-
+		on(ipd_title, "click", function() {
+			var lout = btn_logout.get("focused");
+			if (lout == true) {
+				password.set("value", "");
+				user_search.set("value", "");
+				user_name.set("value", "");
+				list("doctor_list", "staff_name.php");
+				lcdoctor = "";
+				lcpsw = "";
+				lcstaffpsw = "";
+				ipd_main.performTransition("ipd_login", -1, "slide");
+			}
+		});
 		//////////////////
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

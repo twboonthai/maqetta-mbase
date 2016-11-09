@@ -1,7 +1,6 @@
 //////////////////////////
 //// Public Variables ////
 //////////////////////////
-
 //// General ///////////////
 var lcselected = "";
 var lnauto = 0;
@@ -615,14 +614,16 @@ require([
 		 	}
 			// กำหนดรหัสผ่าน
 			if (csel == "16") {
-				var cpsw = prompt("กรอกรหัสผ่านที่ต้องการ");
-				if (cpsw.length > 0) {
-					var lpsw = confirm("ต้องการบันทึกรหัสผ่าน " + lcname + " = " + cpsw + " ?");
-					if (lpsw = true) {
-						mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);
-						ppsw = cpsw;
-						person_detail();}
-				}
+//				var cpsw = prompt("กรอกรหัสผ่านที่ต้องการ");
+				var ccode = 'mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);ppsw = cpsw';
+				dialog("กำหนดรหัสผ่านใหม่", ccode, "cpsw", "c", "กรอกรหัสผ่าน");
+//				if (cpsw.length > 0) {
+//					var lpsw = confirm("ต้องการบันทึกรหัสผ่าน " + lcname + " = " + cpsw + " ?");
+//					if (lpsw = true) {
+//						mysave("psw_save.php?cid=" + lccid + "&psw=" + cpsw);
+//						ppsw = cpsw;
+//						person_detail();}			
+//				}
 		 	}
 		 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

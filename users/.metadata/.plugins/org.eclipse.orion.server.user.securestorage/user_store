@@ -1,13 +1,15 @@
 #Equinox secure storage version 1.0
-#Fri Oct 28 14:55:21 ICT 2016
+#Wed Nov 09 15:03:46 ICT 2016
 /users/A/password=org.eclipse.equinox.security.noModule\tA45XWgn3O4U\=,jY4CMbs4mgM\=
 /users/F/password=org.eclipse.equinox.security.noModule\twDx4Q3Z6uTA\=,866DavMMx3c\=
+/users/G/email_confirmation=\t,MTQ3Nzk3MTI5MzA0NS0wLjg4MDY4OTE4NzQ3MzEwNjY\=
 org.eclipse.equinox.security.preferences.version=1
-/users/F/profile/general/lastlogintimestamp=\t,MTQ3NzAxMzc4NTk1Mw\=\=
+/users/F/profile/general/lastlogintimestamp=\t,MTQ3ODI0NTQzMTAzOQ\=\=
 /users/F/email_confirmation=\t,MTQ3Njk1MTEzMTg2OC0wLjUxNTk0MDkwNjU1NTQxMg\=\=
 /users/B/password=org.eclipse.equinox.security.noModule\tyYgzusSZC3E\=,Wj3rzU/p/6E\=
 /users/C/profile/general/lastlogintimestamp=\t,MTQ3NDk0NTg1NTE5Nw\=\=
 org.eclipse.equinox.security.preferences.keyFactory=PBEWithMD5AndDES
+/users/G/password=org.eclipse.equinox.security.noModule\tzz7m5aBtORI\=,/ZgdRZQsbkQ\=
 /users/E/email_confirmation=\t,MTQ3Njg2MjgwMjU3OS0wLjcwNTg0NTY5NTAzNjA3NA\=\=
 /users/B/name=\t,VGF3YXQgQm9vbnRoYWk\=
 /users/D/name=\t,VGF3YXQgQm9vbnRoYWk\=
@@ -18,11 +20,12 @@ org.eclipse.equinox.security.preferences.keyFactory=PBEWithMD5AndDES
 /users/C/email_confirmation=\t,MTQ3NDYxNDA1Mjg4NC0wLjY2NjYwNzU5NjI1NzkxMzQ\=
 org.eclipse.equinox.security.preferences.cipher=PBEWithMD5AndDES
 /users/A/email=\t,bWJhc2VAZ21haWwuY29t
-/users/B/profile/general/lastlogintimestamp=\t,MTQ3NjM0NDQxOTEzOA\=\=
+/users/B/profile/general/lastlogintimestamp=\t,MTQ3Nzk4MDgxMTIxNg\=\=
 /users/F/email=\t,dGVzdEBnbWFpbC5jb20\=
 /users/C/email=\t,bGFiQGdtYWlsLmNvbQ\=\=
 /users/E/email=\t,cGdAZ21haWwuY29t
 /users/B/email=\t,aXBkQGdtYWlsLmNvbQ\=\=
+/users/G/email=\t,bWJhc2UyMDE3QGdtYWlsLmNvbQ\=\=
 /users/D/email=\t,bGVzc29uQGdtYWlsLmNvbQ\=\=
 /users/B/email_confirmation=\t,MTQ3MjY5NDA3NTIzMi0wLjg4NTc2OTM1NjA3MDUxOTE\=
 /users/D/password=org.eclipse.equinox.security.noModule\tYLpgsitPmaI\=,oVHxClf5TKQ\=
@@ -32,10 +35,13 @@ org.eclipse.equinox.security.preferences.cipher=PBEWithMD5AndDES
 /users/E/login=\t,MWU5
 /users/A/email_confirmation=\t,MTQ3MTg0NzU0Mzc1Mi0wLjg3OTA3MjgxMTkxOTEyMzc\=
 /users/B/login=\t,aXBk
+/users/G/login=\t,bWJhc2UyMDE3
 /users/D/login=\t,bGVzc29u
 /users/A/name=\t,VGF3YXQgQm9vbnRoYWk\=
 /users/C/name=\t,bGFi
+/users/G/profile/general/lastlogintimestamp=\t,MTQ3ODY3ODYyNjQ0Nw\=\=
 /users/E/password=org.eclipse.equinox.security.noModule\trBETcZ8yDtU\=,dhrM+KrHYZs\=
 /users/E/name=\t,UGhvbmUgR2Fw
 /users/D/profile/general/lastlogintimestamp=\t,MTQ3Njk1MDk0MzYzOA\=\=
-/users/A/profile/general/lastlogintimestamp=\t,MTQ3NzY0MTMyMTY2NQ\=\=
+/users/G/name=\t,VGF3YXQgQm9vbnRoYWk\=
+/users/A/profile/general/lastlogintimestamp=\t,MTQ3ODUwMTU5NDAyMg\=\=
