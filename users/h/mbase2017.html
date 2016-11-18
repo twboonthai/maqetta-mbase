@@ -56,7 +56,9 @@ Log In</button>
    </h1>
    <div data-dojo-type="dojox/mobile/Pane" style="height: 31px;"></div>
  <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_2" jsId="ItemFileReadStore_2" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
- <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="staff_list" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}" select="single" style="overflow: auto; background-color: transparent; height: 85%;"></ul>
+ <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="staff_list" select="multiple" style="overflow: auto; background-color: transparent; height: 861px;" store="ItemFileReadStore_2" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
+<span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_4" jsId="ItemFileReadStore_4" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;Label 1&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;},{&quot;label&quot;:&quot;Label 2&quot;,&quot;moveTo&quot;:&quot;transitionToPage&quot;}]}"></span>
+<ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="listx" select="single" style="height: 255px;" store="ItemFileReadStore_4" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
 </div>
  <div data-dojo-type="dojox/mobile/View" id="main_view" style="height: 100%;">
    <h1 label="เมนูหลัก" data-dojo-type="dojox/mobile/Heading" id="menu_title" style="font-size: 14px;">
@@ -66,9 +68,9 @@ Log In</button>
    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="menu_list" store="ItemFileReadStore_6" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
  </div>
  <div data-dojo-type="dojox/mobile/View" id="vsign" style="height: 100%;">
-   <h1 label="รายชื่อผู้ป่วย" data-dojo-type="dojox/mobile/Heading" id="vsign_title" style="font-size: 14px;">
-     <div label="เมนูหลัก" data-dojo-type="dojox/mobile/ToolBarButton" id="back_vsign" arrow="left"></div>
-   </h1>
+   <h1 label="รายชื่อผู้ป่วย" data-dojo-type="dojox/mobile/Heading" id="vsign_title" style="font-size: 14px; background-color: transparent;">
+    <div label="เมนูหลัก" data-dojo-type="dojox/mobile/ToolBarButton" id="back_vsign" sync="false" toogle="false" arrow="left" class="my_back"></div>
+  </h1>
    <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_1" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;รายการ 1&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 2&quot;,&quot;moveTo&quot;:&quot;dummy&quot;},{&quot;label&quot;:&quot;รายการ 3&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
    <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="vsign_list" select="single" style="height: 422.2916717529297px; overflow: auto; background-color: transparent;" store="ItemFileReadStore_1" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
  </div>
@@ -77,52 +79,53 @@ Log In</button>
     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="top" splitter="true" maxSize="Infinity" style="height: 50px;">
       <h1 label="บันทึก Vital Signs บุคคล" data-dojo-type="dojox/mobile/Heading" id="vrecord_title">
         <div label="OPD" data-dojo-type="dojox/mobile/ToolBarButton" id="back_vrecord" arrow="left"></div>
+        <div label="Refresh" data-dojo-type="dojox/mobile/ToolBarButton" id="btn_refresh" style="float: right;"></div>
       </h1>
     </div>
     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 50px;"></div>
-    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" style="width:381px;">
+    <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="left" splitter="true" maxSize="Infinity" style="width: 50%;">
       <span data-dojo-type="dojo/data/ItemFileReadStore" jsId="ItemFileReadStore_5" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
       <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="opd_list" select="single" style="height: 100%; overflow: auto; background-color: transparent; background-image: none;" store="ItemFileReadStore_5" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
     </div>
     <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false" refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" style="width: 50%; background-color: transparent;">
+      <h1 label="BT :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel2" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr2" selectOnClick="true" placeHolder="Body Temperature" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; vertical-align: middle; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="PR :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel3" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr3" selectOnClick="true" placeHolder="Pulse Rate" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="RR :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel4" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr4" selectOnClick="true" placeHolder="Respiratory Rate" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; width: 60%; float: right; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="BP :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
+      <button data-dojo-type="dojox/mobile/Button" id="cancel5" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
+      <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr5" selectOnClick="true" placeHolder="Systolic" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
+    </h1>
+      <h1 data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel6" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr6" selectOnClick="true" placeHolder="Diastolic" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; float: right; width: 60%; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="BW :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel7" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr7" selectOnClick="true" placeHolder="น้ำหนัก (กก.)" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="WC :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
+      <button data-dojo-type="dojox/mobile/Button" id="cancel8" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr8" selectOnClick="true" placeHolder="เส้นรอบเอว (ซม.)" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; width: 60%; float: right; height: 90%; color: red;"></input>
+      </h1>
+      <h1 label="Ht :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
+        <button data-dojo-type="dojox/mobile/Button" id="cancel9" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
+        <input type="tel" data-dojo-type="dojox/mobile/TextBox" id="vr9" selectOnClick="true" placeHolder="ส่วนสูง (ซม.)" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
+      </h1>
       <span data-dojo-type="dojo/data/ItemFileReadStore" id="ItemFileReadStore_7" jsId="ItemFileReadStore_7" data="{&quot;items&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;moveTo&quot;:&quot;dummy&quot;}]}"></span>
-      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="patient" select="single" style="background-color: transparent; overflow: auto; height: 407px;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
       <h1 label="บันทึกข้อมูล" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-align: right; color: blue;">
         <button data-dojo-type="dojox/mobile/Button" id="btn_vr1" style="background-repeat: no-repeat; background-position: center center; float: right; height: 100%; width: 38px; background-image: url('save.jpg');"></button>
         <input type="text" data-dojo-type="dojox/mobile/TextBox" disabled="true" style="border: none; float: right; text-indent: 10px; background-color: transparent; width: 60%; vertical-align: middle; font-size: 15px; height: 80%;"></input>
       </h1>
-      <h1 label="BT :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel2" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr2" selectOnClick="true" placeHolder="Body Temperature" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; vertical-align: middle; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="PR :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel3" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr3" selectOnClick="true" placeHolder="Pulse Rate" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="RR :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel4" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr4" selectOnClick="true" placeHolder="Respiratory Rate" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; width: 60%; float: right; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="BP :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
-      <button data-dojo-type="dojox/mobile/Button" id="cancel5" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
-      <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr5" selectOnClick="true" placeHolder="Systolic" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
-    </h1>
-      <h1 data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel6" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr6" selectOnClick="true" placeHolder="Diastolic" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; float: right; width: 60%; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="BW :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel7" style="border: none; background-repeat: no-repeat; background-position: center center; float: right; height: 100%; background-color: transparent; background-image: none; width: 10%;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr7" selectOnClick="true" placeHolder="น้ำหนัก (กก.)" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="WC :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; text-align: right; color: #6e6e6e;">
-      <button data-dojo-type="dojox/mobile/Button" id="cancel8" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr8" selectOnClick="true" placeHolder="เส้นรอบเอว (ซม.)" style="border: none; background-color: transparent; font-weight: bold; text-indent: 10px; font-size: 16px; width: 60%; float: right; height: 90%; color: red;"></input>
-      </h1>
-      <h1 label="Ht :" data-dojo-type="dojox/mobile/Heading" style="background-color: transparent; background-image: none; font-size: 14px; text-indent: 10px; color: #6e6e6e; text-align: right;">
-        <button data-dojo-type="dojox/mobile/Button" id="cancel9" style="border: none; background-repeat: no-repeat; background-position: center center; height: 100%; background-color: transparent; background-image: none; width: 10%; float: right;"></button>
-        <input type="text" data-dojo-type="dojox/mobile/TextBox" id="vr9" selectOnClick="true" placeHolder="ส่วนสูง (ซม.)" style="border: none; background-color: transparent; font-weight: bold; float: right; text-indent: 10px; font-size: 16px; width: 60%; height: 90%; color: red;"></input>
-      </h1>
+      <ul data-dojo-type="dojox/mobile/EdgeToEdgeDataList" id="patient" select="single" style="background-color: transparent; overflow: auto; height: 283px;" store="ItemFileReadStore_7" query="{&quot;label&quot;:&quot;*&quot;}"></ul>
     </div>
   </div>
 </div>

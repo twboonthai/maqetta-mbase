@@ -118,7 +118,7 @@ require([
  	"dijit/registry",
  	"dojo/on",
  	"dojo/dom",
-    "dojox/charting/Chart",
+    	"dojox/charting/Chart",
    	"dojox/charting/axis2d/Default",
   	"dojox/charting/plot2d/Lines",	
    	"dojox/charting/plot2d/StackedColumns",	
@@ -254,14 +254,13 @@ require([
 			var list_add = er_visit.store.newItem({label: "ผู้ป่วย", rightText: lcfullname + " (" + lcage + ")", value : "1"});
 			var list_add = er_visit.store.newItem({label: "FMC", rightText: tsdate(lddate2, 1) + " >", value : "2"});
 			var list_add = er_visit.store.newItem({label: "C/C :", rightText: ">", value : "3"});
-			var list_add = er_visit.store.newItem({label: lccc, variableHeight: true, value : "3", style: "color: blue"});
+			var list_add = er_visit.store.newItem({label: lccc, variableHeight: true, value : "3"});
 			var list_add = er_visit.store.newItem({label: "Temperature", rightText: lcbt + " C >", value : "4"});
 			var list_add = er_visit.store.newItem({label: "Pulse Rate", rightText: lcpr + "/min >", value : "5"});
 			var list_add = er_visit.store.newItem({label: "Respiratory Rate", rightText: lcrr + "/min >", value : "6"});
 			var list_add = er_visit.store.newItem({label: "Blood Pressure", rightText: lcsyst + "/" + lcdias + " mmHg >", value : "7"});
 //			var list_add = er_visit.store.newItem({label: "", value : "8"});
-			var list_add = er_visit.store.newItem({label: "Risk Factors", rightText: " >", value : "9"});
-			var list_add = er_visit.store.newItem({label: lcrisk, variableHeight: true, value : "9", style: "color: blue"});
+			var list_add = er_visit.store.newItem({label: "Risk Factors", rightText: lcrisk + " >", value : "9"});
 		}
 		
 		function stemi1_list() {
@@ -349,7 +348,7 @@ require([
 		    sw2list("risk", "sw_fm", "Family History", lnfm);
 			//// Other
 		    sw2list("risk", "sw_xx", "Other Factors", lnxx);
-			if (lnxx == 1) {risk_other.set("value", lcother);
+	    	if (lnxx == 1) {risk_other.set("value", lcother);
 	    		risk_other.domNode.style.visibility = "visible";}
 	    	else {risk_other.set("value", "");
 	    		risk_other.domNode.style.visibility = "hidden";}
@@ -380,6 +379,7 @@ require([
 		var stemi_v1 = reg.byId("stemi_v1");
 		var stemi_v1h = reg.byId("stemi_v1h");
 		var new_row = reg.byId("new_row");
+		var back_stemi = reg.byId("back_stemi");
 		var stemi_visits = reg.byId("stemi_visits");
 		var guideline = reg.byId("guideline");
 		var gl_store = new ifws({data:{items:[]}});
@@ -403,13 +403,13 @@ require([
 				"2.  แพทย์ ให้ข้อมูลผู้ป่วยและญาติเกี่ยวกับความจำเป็นในการให้ยาละลายลิ่มเลือด อธิบายผลดีและภาวะแทรกซ้อนของยาละลายลิ่มเลือด " +
 				"การให้ยามีความปลอดภัยสูงในผู้ป่วยที่มีข้อบ่งชี้และไม่มีข้อห้าม ภาวะแทรกซ้อนที่รุนแรงที่อาจเกิดขึ้นมีน้อยมากเมื่อเทียบกับประโยชน์ที่ผู้ป่วยจะได้รับ " +
 				"เช่นเลือดออกในสมองพบร้อยละ 0.5-1.5, Major bleeding ในระบบทางเดินอาหาร ร้อยละ 4-5";
-				alert (ctxt);
+				dialog("SK สำหรับแพทย์", "alert", "x", "c", ctxt);
 			}
 			if (lcret.value == "2") {
 				var ctxt = "ให้ผู้ป่วยหรือญาติเซ็นใบยินยอมการได้รับยาละลายลิ่มเลือดในแบบประเมินผู้ป่วย   ที่ได้รับการรักษาก่อนให้ยาละลายลิ่มเลือด" +
 					"(ข้อบ่งชี้การให้ยาละลายลิ่มเลือด   ผู้ป่วยที่มีอาการเจ็บแน่นหน้าอกที่ได้รับการวินิจฉัยว่าเป็นโรคกล้ามเนื้อหัวใจตายเฉียบพลัน (STEMI) ภายใน 12 ชั่วโมงหลังจากมีอาการ " +
 					"โดยไม่มีข้อห้ามการสั่งให้ยา Streptokinase  ให้ขนาด 1.5 ล้านยูนิต ในเวลา 60 นาที)";
-				alert (ctxt);
+				dialog("SK สำหรับพยาบาล", "alert", "x", "c", ctxt);
 			}
 			
 			if (lcret.value == "3") {
@@ -420,7 +420,7 @@ require([
  					"4. ตรวจสอบดูว่ามีอนุภาคหรือการเปลี่ยนสีก่อนให้ยากับผู้ป่วย" + "\n" + 
 					"5. ห้ามผสมยาอื่นในภาชนะเดียวกัน" + "\n" + 
  					"6. ควรใช้สารละลายหลังผสมทันที เนื่องจากยาไม่มีส่วนผสมของสารกันเสีย และเก็บได้นาน 8 ชั่วโมงเท่านั้น";
-				alert (ctxt);
+				dialog("การเตรียมยา SK", "alert", "x", "c", ctxt);
 			}
 			
 			if (lcret.value == "4") {
@@ -428,7 +428,7 @@ require([
 					"2. ควรให้สารน้ำแก่ผู้ป่วยให้เพียงพอ ร่วมกับพิจารณาหยุดยาที่มีฤทธิ์ลดความดันโลหิตชั่วคราว และ/หรือพิจารณาให้ยาเพิ่มความดันโลหิต พร้อมกับการให้ยา Streptokinase ในผู้ป่วยที่มีความดันโลหิตต่ำ" + "\n" +
  					"3. ควรพิจารณาทำการขยายหลอดเลือดหัวใจชนิดปฐม (Primary PCI) ในผู้ป่วยภาวะหัวใจล้มเหลว หรือผู้ป่วยที่พบหรือคาดว่าจะเกิด Cardiogenic Shock หากผู้ป่วยสามรถรับการขยายหลอดเลือดหัวใจได้ในเวลาที่เหมาะสม" + "\n" + 
  					"4. ควรรักษาด้วยการให้เลือดและส่วนประกอบของเลือดทดแทนในผู้ป่วยที่เกิดภาวะเลือดออกรุนแรงหลังได้รับยาละลายลิ่มเลือด";
-				alert (ctxt);
+				dialog("ข้อควรระวังขณะให้ยา SK", "alert", "x", "c", ctxt);
 			}
 			
 			if (lcret.value == "5") {
@@ -436,7 +436,7 @@ require([
 					"1. ต้องสังเกตอาการเจ็บหน้าอก อาการเหนื่อยของผู้ป่วยและอาการทั่วไป ตลอดจนติดตามV/S และ Monitor EKG อย่างใกล้ชิด หลังผู้ป่วยได้รับยาละลายลิ่มเลือด่ำ" + "\n" +
  					"2. ต้องติดตาม EKG 12 leads ทุก 30 นาที เพื่อประเมินการเปิดหลอดเลือดหัวใจ (reperfusion) หากอาการเจ็บหน้าอกลดลงและ EKG แสดง ST segment ลดต่ำลงอย่างน้อย ร้อยละ 50 ภายในช่วงเวลา 90-120 นาทีหลังเริ่มให้ยาละลายลิ่มเลือด แสดงว่าหลอดเลือดหัวใจน่าจะเปิด" + "\n" + 
  					"3. รายงานแพทย์หากอาการเจ็บหน้าอกไม่ดีขึ้นและไม่มีสัญญาณของการเปิดหลอดเลือด (Reperfusion) ภายในช่วงเวลา 90-120 นาที หลังเริ่มให้ยาละลายลิ่มเลือดเพื่อพิจารณาทำการขยายหลอดเลือดหัวใจ (PCI) ";
-				alert (ctxt);
+				dialog("ข้อควรระวังหลังให้ยา SK", "alert", "x", "c", ctxt);
 			}
 			
 			if (lcret.value == "6") {
@@ -448,7 +448,7 @@ require([
  					"   3.2. frequent premature ventricular complexes (พบได้ถี่มากขึ้นกว่าเดิม 2 เท่า ภายใน 90 นาทีหลังให้ยาละลายลิ่มเลือด)" + "\n" + 
  					"   3.3. nonsustained  ventricular  tachycardia" + "\n" + 
  					"4. ระดับ cardiac enzyme CK-MB จะขึ้นสูงสุดประมาณ 12 ชั่วโมง หลังจากผู้ป่วยมีอาการเจ็บหน้าอก (ปกติถ้าไม่มี reperfusion ระดับ CK-MB จะขึ้นสูงสุดที่ 24-36 ชั่วโมง)";
-				alert (ctxt);
+				dialog("การประเมินการให้ยา SK", "alert", "x", "c", ctxt);
 			}		
 		});
 		
@@ -469,6 +469,12 @@ require([
 		 });
 
 		on(stemi_v1h, "click", function() {
+			// กลับเมนูหลัก
+
+			var isback = back_stemi.get("focused");
+			if (isback == true) {
+				window.location.href = "http://m30.phoubon.in.th/index.html";}
+
 			var isnew = new_row.get("focused");
 			if (isnew == true) {
 				if (lccid == "") {alert ("กรุณากรอก รหัสประชาชนก่อน !!!");}
@@ -483,11 +489,11 @@ require([
 					lcsyst = "";
 					lcdias = "";
 					lccc = "เจ็บหน้าอกด้านซ้าย";
-					tb2.set("value", "");
-					tb3.set("value", "");
-					tb4.set("value", "");
-					tb5.set("value", "");
-					tb6.set("value", "");
+					btemp.set("value", "");
+					pulse.set("value", "");
+					resp.set("value", "");
+					syst.set("value", "");
+					dias.set("value", "");
 					
 					lndm = 0;
 					lnht = 0;
@@ -651,11 +657,11 @@ require([
     		lcsyst = st_visit.bp_syst;
     		lcdias = st_visit.bp_dias;
     		lccc = st_visit.c_complaint;
-    		tb2.set("value", lcbt);
-			tb3.set("value", lcpr);
-			tb4.set("value", lcrr);
-			tb5.set("value", lcsyst);
-			tb6.set("value", lcdias);
+    		btemp.set("value", lcbt);
+			pulse.set("value", lcpr);
+			resp.set("value", lcrr);
+			syst.set("value", lcsyst);
+			dias.set("value", lcdias);
 			lndm = st_visit.dm;
 			lnht = st_visit.ht;
 			lnsm = st_visit.sm;
@@ -1034,6 +1040,12 @@ require([
 		var min2 = reg.byId("min2");
 		var pt_fullname = reg.byId("pt_fullname");
 		
+		var btemp = reg.byId("btemp");
+		var pulse = reg.byId("pulse");
+
+		var resp = reg.byId("resp");
+		var syst = reg.byId("syst");
+		var dias = reg.byId("dias");
 		//////////////////
 		//// Events //////
 		//////////////////
@@ -1186,16 +1198,61 @@ require([
 			}
 		});
 		
+		on(btemp, "keyup", function() {
+     		lctemp = btemp.get("value").trim();
+     		var lnlength = lctemp.length;
+			if (lnlength == 2 && (lctemp.substr(0, 1) == "3" || lctemp.substr(0, 1) == "4")) {btemp.set("value", lctemp + ".");}
+			if (lnlength == 4 && lctemp.substr(3, 1) == ".") {
+				btemp.set("value", lctemp.substr(0, 3));
+				btemp.focus(true);}
+			if (lnlength == 4 && lctemp.substr(3, 1) != ".") {
+				lcbt = lctemp;
+				pulse.focus(true);
+			}
+		});
+		
+		on(pulse, "keyup", function() {
+     		lctemp = pulse.get("value").trim();
+     		var lnlength = lctemp.length;
+			if ((lnlength == 2 && lctemp.substr(0, 1) > 2) || lnlength == 3) {
+				lcpr = lctemp;
+				resp.focus(true);
+			}
+		});
+		
+		on(resp, "keyup", function() {
+     		lctemp = resp.get("value").trim();
+     		var lnlength = lctemp.length;
+			if ((lnlength == 2 && lctemp.substr(0, 1) > 1) || lnlength == 3) {
+				lcrr = lctemp;
+				syst.focus(true);
+			}
+		});
+		
+		on(syst, "keyup", function() {
+     		lctemp = syst.get("value").trim();
+     		var lnlength = lctemp.length;
+			if ((lnlength == 2 && lctemp.substr(0, 1) > 3) || lnlength == 3) {
+				lcsyst = lctemp;
+				dias.focus(true);
+			}
+		});
+		
+		on(dias, "keyup", function() {
+     		lctemp = dias.get("value").trim();
+     		var lnlength = lctemp.length;
+			if ((lnlength == 2 && lctemp.substr(0, 1) > 2) || lnlength == 3) {
+				lcdias = lctemp;
+				back_menu1.focus(true);
+			}
+		});
 		//////////////////
 		on(risk, "click", function() {
 			var csw = sw_status("risk", "sw_xx");
-			var sel = selected_row("risk");
-			if (csw == "on") {
-				risk_other.domNode.style.visibility = "visible";
-				if (sel.id == "sw_xx") {
-					risk_other.focus(true);
-				}
-			} else {risk_other.domNode.style.visibility = "hidden";}
+			if (csw== "on") {risk_other.domNode.style.visibility = "visible";
+				risk_other.focus(true);}
+			else {risk_other.domNode.style.visibility = "hidden";
+				lcother = "";}
 		});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2325,12 +2382,6 @@ require([
 		
 		on(stemi2, "click", function() {
 			stemi_menu6.performTransition("menu6_sk", 1, "slide", null);
-			//lddate0 = ldsk;
-			//gcsource_view = "stemi_menu6";
-			//lcvar = "ldsk";
-			//gcfunction = "stemi2_list()";
-			//stemi_menu6.performTransition("select_dt", 1, "swirl");
-
 		});
 		
 		on(stemi3, "click", function() {
@@ -2550,12 +2601,11 @@ require([
 		});
 
 		on(tb2, "keyup", function() {
-			var KeyID = event.keyCode;
 			var ctxt = tb2.get("value");
 			var len1 = ctxt.length;
 			if (len1 > 0) {
 				cancel2.domNode.style.backgroundImage = 'url("cross1.jpg")';
-				if (len1 == 2 && ctxt.search(".") == 0 && KeyID != 8 && (ctxt.substr(0, 1) == "3" || ctxt.substr(0, 1) == "4")) {tb2.set("value", ctxt + ".");}
+				if (len1 == 2 && (ctxt.substr(0, 1) == "3" || ctxt.substr(0, 1) == "4")) {tb2.set("value", ctxt + ".");}
 				if (len1 == 4 && ctxt.substr(3, 1) == ".") {
 					tb2.set("value", ctxt.substr(0, 3));
 					tb2.focus(true);}

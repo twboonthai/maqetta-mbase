@@ -1,6 +1,7 @@
 ////////////////////////////////
 //// Public Variables //////////
 ////////////////////////////////
+var spinner = {};
 ip_address = "http://192.168.200.7/mbase2017/";
 //// ส่วนนี้ไม่ต้องแก้ไข ///////////////////////////////////////////////////////////////////////////////////
 // parameter สำหรับ view select_dt / Text_input
@@ -25,6 +26,8 @@ var gcfunction = "";
  */
 
 require([
+	"spin.js",
+	"dojo/_base/window",
 	"dijit/PopupMenuBarItem",
   	"dijit/MenuItem",
   	"dijit/Menu",
@@ -52,7 +55,7 @@ require([
 	"dojox/charting/plot2d/Grid",
  	"dojo/_base/xhr" // use xhr to make ajax call to remote server
 // ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ
- ], function(popup, mitem, menu, Standby, SwapView, _base, heading, tool, mobile, parser, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
+ ], function(Spinner, win, popup, mitem, menu, Standby, SwapView, _base, heading, tool, mobile, parser, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
 		ready(function(){
 ///////////////////////////////
 //// User Defined Function ////
@@ -66,8 +69,10 @@ require([
 		var view2 = reg.byId("view2");
 		var tx = "";
 		//var ty = "";
-		dialog("ทดสอบ Dialog", "alert(tx)", "tx", "d", "เลือก Date");
+		//dialog("ทดสอบ Dialog", "alert(tx)", "tx", "d", "เลือก Date");
+//var spinner = new Spinner(opts).spin(target);
 		
+spinner = new Spinner().spin();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
 //// Log In   /////////////////
@@ -81,6 +86,9 @@ require([
 		var password = reg.byId("password");
 		var staff_list = reg.byId("staff_list");
 		list("staff_list", "user_list.php", "กรุณา Click เลือกรายการ");
+		var listx = reg.byId("listx");
+
+		var spinner = new Spinner().spin();
 
 		//alert ("Here");
 		//debugger;
@@ -131,18 +139,32 @@ require([
 			password.set("value", lcshow);
 			lcshow = lcshow + "*";
 		});
-		var pg_test = reg.byId("pg_test");
 		// Click Log In
 		on(btn_login, "click", function() {
+
+			list2list("staff_list", "listx", "label", "rightText", "staff_id");
+			lcpsw1 = password.get("value");
+			spinner.stop();
 			if (lcpsw == lcstaffpsw && lcpsw.trim() > "") {
 				login.performTransition("main_view", 1, "slide", null);}
 			else {
-				dialog("Password ไม่ถูกต้อง กรุณาตรวจสอบ !!!")
-				lcpsw = "";
-				password.set("value", "");
-				password.focus(true);
+				if (lcpsw1 == lcstaffpsw) {
+					spinner.stop();
+					login.performTransition("main_view", 1, "slide", null);
+				} else {
+					dialog("แจ้งข้อผิดพลาด", "alert", "", "", "password ไม่ถูกต้อง กรุณาตรวจสอบ !!!");
+					lcpsw = "";
+					password.set("value", "");
+					password.focus(true);
+				}
 			}
 		});
+
+		on(listx, "click", function(){
+			var csel = selected_row("listx");
+			var staff = csel.staff_id;
+			dialog("กรอกข้อมูล", ";alert(var1 + var2);", "var1", "c", "จำนวน", "var2", "n", "ราคารวม");
+		})
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
 //// main View   /////////////////
@@ -244,6 +266,8 @@ require([
 		patient.store = null;
 		patient.setStore(p_store);
 
+		var btn_refresh = reg.byId("btn_refresh");
+
 		var btn_vr1 = reg.byId("btn_vr1");
 		var vr2 = reg.byId("vr2");
 		var vr3 = reg.byId("vr3");
@@ -272,10 +296,32 @@ require([
 			var list_add = patient.store.newItem({label: "ชื่อ-สกุล", rightText: lcfullname});
 			var list_add = patient.store.newItem({label: "เพศ", rightText: lcsex});
 			var list_add = patient.store.newItem({label: "อายุ", rightText: lcage});
-			var list_add = patient.store.newItem({label: "รหัสประชาชน", rightText: lccid.substr(0, 1) + "-" + 
+			var list_add = patient.store.newItem({label: "รหัส", rightText: lccid.substr(0, 1) + "-" + 
 				lccid.substr(1, 4) + "-" + lccid.substr(5, 5) + "-" + lccid.substr(9, 2) + "-" + lccid.substr(12, 1)});
 			var list_add = patient.store.newItem({label: "HN", rightText: lchnumber});
 		}
+
+		on(btn_refresh, "click", function(){
+			vr2.set("value", "");
+			vr3.set("value", "");
+			vr4.set("value", "");
+			vr5.set("value", "");
+			vr6.set("value", "");
+			vr7.set("value", "");
+			vr8.set("value", "");
+			vr9.set("value", "");
+			clearList("patient");
+
+			cancel2.domNode.style.backgroundImage = 'none';
+			cancel3.domNode.style.backgroundImage = 'none';
+			cancel4.domNode.style.backgroundImage = 'none';
+			cancel5.domNode.style.backgroundImage = 'none';
+			cancel6.domNode.style.backgroundImage = 'none';
+			cancel7.domNode.style.backgroundImage = 'none';
+			cancel8.domNode.style.backgroundImage = 'none';
+
+			list("opd_list", "opd_register.php", "กรุณาเลือกผู้ป่วยเพื่อกรอก V/S");
+		})
 
 		//////////////////
 		//// Variables ///
@@ -299,14 +345,14 @@ require([
 		//// Events //////
 		//////////////////
 		on(opd_list, "click", function() {
-			vr2.set("value", "0");
-			vr3.set("value", "0");
-			vr4.set("value", "0");
-			vr5.set("value", "0");
-			vr6.set("value", "0");
-			vr7.set("value", "0");
-			vr8.set("value", "0");
-			vr9.set("value", "0");
+			vr2.set("value", "");
+			vr3.set("value", "");
+			vr4.set("value", "");
+			vr5.set("value", "");
+			vr6.set("value", "");
+			vr7.set("value", "");
+			vr8.set("value", "");
+			vr9.set("value", "");
 
 			var patient = selected_row("opd_list");
 			lcfullname = patient.patient;
@@ -317,6 +363,7 @@ require([
 			lccid = patient.cid;
 			lcvisit = patient.visit_id;
 			lcheight = patient.height;
+			if (lcheight=="0"){lcheight = "";}
 			p_detail();
 		});
 
@@ -326,13 +373,21 @@ require([
 
 		on(btn_vr1, "click", function() {
 			lcbt = vr2.get("value");
+			if (lcbt=="") {lcbt="0";}
 			lcpr = vr3.get("value");
+			if (lcpr=="") {lcpr="0";}
 			lcrr = vr4.get("value");
+			if (lcrr=="") {lcrr="0";}
 			lcsyst = vr5.get("value");
+			if (lcsyst=="") {lcsyst="0";}
 			lcdias = vr6.get("value");
+			if (lcdias=="") {lcdeas="0";}
 			lcweight = vr7.get("value");
+			if (lcweight=="") {lcweight="0";}
 			lcwaist = vr8.get("value");
+			if (lcwaist=="") {lcwaist="0";}
 			lcheight = vr9.get("value");
+			if (lcheight=="") {lcheight="0";}
 			var cphp = "vital_sign.php?staff_id=" + gcstaff + "&visit_id=" + lcvisit + "&body_temp=" + lcbt + "&pulse_rate=" + lcpr + "&resp_rate=" + lcrr +
 				"&bp_syst=" + lcsyst + "&bp_dias=" + lcdias + "&weight=" + lcweight + "&height=" + lcheight + "&waist=" + lcwaist ;
 			mysave(cphp, 'list("opd_list", "opd_register.php", "กรุณาเลือกผู้ป่วยเพื่อกรอก V/S")');
@@ -353,6 +408,7 @@ require([
 			vr7.set("value", "");
 			vr8.set("value", "");
 			vr9.set("value", "");
+			list("opd_list", "opd_register.php", "กรุณาเลือกผู้ป่วยเพื่อกรอก V/S");
 		});
 
 		on(vr2, "keyup", function() {

@@ -1,6 +1,7 @@
 //////////////////////////
 //// Public Variables ////
 //////////////////////////
+var spinner = {};
 var gcsource_view = "";
 var gcampur_name = "";
 var gcampur_id = "";
@@ -43,6 +44,8 @@ var lddate2 = new Date();
  */
 
 require([
+	"spin.js",
+	"dojo/_base/window",
 	"dijit/PopupMenuBarItem",
   	"dijit/MenuItem",
   	"dijit/Menu",
@@ -63,7 +66,7 @@ require([
 	"dojox/charting/plot2d/Grid",
  	"dojo/_base/xhr" // use xhr to make ajax call to remote server
  	// ชื่อ Function ที่จะนำไปใช้ มาจาก Require เรียงตามลำดับ ตั้งชื่อใหม่ได้
- ], function(popup, mitem, menu, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
+ ], function(Spinner, win, popup, mitem, menu, VirtualVScroller, pane, button, combobtn, ready, ifws, ifrs, reg, on, dom, Chart, Axis, Lines, Columns, Grid, xhr){
 		ready(function(){
 ///////////////////////////////
 //// User Defined Function ////
@@ -177,6 +180,7 @@ require([
 			var list_add = ci_pv_list.store.newItem({label: "ค่า CI หน่วยงานอื่นๆ", value : "15", header : true});
 			var list_add = ci_pv_list.store.newItem({label: "หน่วยงานอื่น CI = 0", rightText: i + " >", cgrade: "0", ctype : "005", value : "16"});
 			var list_add = ci_pv_list.store.newItem({label: "หน่วยงานอื่น CI > 0", rightText: j + " >", cgrade: "1", ctype : "005", value : "17"});
+			spinner.stop();
 		}
 		
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
@@ -187,7 +191,7 @@ require([
 		//document.body.appendChild(standby.domNode);
 		//standby.startup();
 		//standby.show();
-
+		spinner = new Spinner().spin();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////
 //// CEO Main       ////////////
@@ -843,7 +847,8 @@ require([
 			} else if (ceomenu == "4") {
 				// CI
 				ci_pv_title.set("label", "ค่าสำรวจ CI อ." + gcampur_name);
-				ci_show();
+				spinner.spin(ci_pv.domNode);
+				setTimeout(function() {ci_show()}, 500);
 				ampur.performTransition("ci_pv", 1, "slide", null);
 			}
 			
@@ -978,7 +983,8 @@ require([
 				date2code = "ci_list()";
 				ci_main.performTransition("select_dt", 1, "slide", null);}
 			if (cimenu == "4") {
-				ci_show();
+				spinner.spin(ci_pv.domNode);
+				setTimeout(function() {ci_show()}, 500);
 				ci_pv_title.set("label", "ค่าสำรวจ CI รวมทั้งจังหวัด");
 				ci_main.performTransition("ci_pv", 1, "slide", null);}
 			if (cimenu == "5") {

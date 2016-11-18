@@ -53,5 +53,5 @@ G/UserRights=[{"Method"\:15,"Uri"\:"/users/G"},{"Method"\:15,"Uri"\:"/workspace/
 G/UserRightsVersion=3
 G/Workspaces=[{"LastModified"\:1477971293081,"Id"\:"mbase2017"}]
 G/maqettaInit=true
-G/maqettaWorkbenchPref={"activeEditor"\:"./project1/mbase2017.js","editors"\:["./project1/mbase2017.html","./project1/template.html","./project1/stemi.html","./project1/mbase2017.js","./project1/udf.js"]}
+G/maqettaWorkbenchPref={"activeEditor"\:"./project1/udf.js","editors"\:["./project1/template.html","./project1/stemi.html","./project1/udf.js","./project1/mbase2017.html","./project1/app.css","./project1/mbase2017.js"],"nhfo"\:{"project1"\:{"device"\:"iphone","layout"\:"flow","themeSet"\:{"_COMMENT_"\:"Defines site-specific default theme sets","desktopTheme"\:"claro","mobileTheme"\:[{"device"\:"Android","theme"\:"android"},{"device"\:"BlackBerry","theme"\:"blackberry"},{"device"\:"iPad","theme"\:"ipad"},{"device"\:"iPhone","theme"\:"iphone"},{"device"\:"other","theme"\:"iphone"}],"name"\:"site_dojo_default"}}}}
 eclipse.preferences.version=1
